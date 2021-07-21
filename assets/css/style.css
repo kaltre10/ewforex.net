@@ -1,0 +1,252 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.pre-loader{
+	height: 100vh;
+}
+
+body{
+	background-color: #f4f7ff;
+	font-family: 'Lato', sans-serif;
+	color: #120e5a;
+	transition: all 0.5s ease-in-out;
+}
+
+.container{
+
+	/*width: 100%;
+	height: 100vh;*/
+	/*display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 100px auto;
+	grid-template-areas: "nav nav"
+						 "figure calculator";*/
+}
+
+.login-container{
+	width: 100%;
+	height: 100vh;
+	display: none;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 100px auto;
+	grid-template-areas: "nav nav"
+						 "form form";
+}
+
+.form-card h1{
+	text-align: center;
+	font-weight: 800;
+	font-size: 28px;
+}
+
+/*menu de navegacion*/
+
+.nav{
+	grid-area: nav;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.nav .logo-nav{
+	display: inline-block;
+	width: 200px;
+}
+
+.nav ul{
+	display: inline-block;
+}
+
+.nav li{
+	padding: 12px 30px;
+	display: inline-block;
+}
+
+.nav li a{
+	font-weight: 700;
+	text-decoration: none;
+	color: #120e5a;
+}
+
+.btn-login{
+	border: 2px solid #120e5a;
+	border-radius: 30px;
+	transition: 0.2s ease;
+	cursor: pointer;
+
+}
+
+.btn-login:hover{
+	background-color: #120e5a;
+}
+
+.btn-login:hover a{
+	color: #f4f7ff;
+}
+
+/*formulario login*/
+
+.form{
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	grid-area: form;
+}
+
+.form-card{
+	background-color: white;
+	max-width: 400px;
+	padding: 50px 50px 20px 50px;
+	display: grid;
+	min-height: 400px;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto minmax(22px, auto) minmax(22px, auto);
+	border-radius: 30px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+}
+
+.form-card h1{
+	text-align: center;
+	font-weight: 800;
+}
+
+.form-card label{
+	margin: 10px 0;
+ 	display: inline-block;
+	width: 100%;
+}
+
+.form-card input[type="mail"], .form-card input[type="password"]{
+	border: 1px solid #f4f7ff;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+	outline: none;
+	border-radius: 20px;
+	font-size: 18px;
+	padding: 10px;
+	width: 100%;
+	color: #120e5a;
+	background-color: #f4f7ff;
+	padding-left: 20px;
+}
+
+.form-card input[type="mail"]:focus, .form-card input[type="password"]:focus{
+	box-shadow: 4px 4px 1px rgba(2, 161, 43, .7);
+	transition: 0.5s ease;
+}
+
+.is-invalid{
+	border: 1px solid #c0392b !important;
+	box-shadow: 4px 4px 1px rgba(192, 57, 43, 1) !important;
+}
+
+.form-card p{
+	transition: 1.5s ease-in-out;
+}
+
+.form-card a{
+	text-decoration: none;
+	color: #120e5a;
+	font-weight: 700;
+	margin: 0;
+}
+
+.p-alert{
+	display: inline-block;
+	margin: 0 auto;
+	color: #c0392b;
+	position: relative;
+}
+
+@keyframes alert {
+  0% {opacity: 0}
+  10% {opacity: 1}
+  90% {opacity: 1}
+  100% {opacity: 0}
+}
+
+.alert{
+	position: absolute;
+	top: 50vh;
+	color: white;
+	border-radius: 5px;
+	box-shadow: 3px 3px 1px rgb(0 0 0 / 20%);
+	font-size: 18px;
+	width: 300px;
+	border-left: 4px solid rgb(0 0 0 / 30%);
+	padding: 8px;
+	/*transition: all 1.5s ease-in-out 5s;*/
+	animation-name: alert;
+  	animation-duration: 5s;
+  	opacity: 0;
+}
+
+.alert-success{
+	background-color: rgba(2, 161, 43, 0.9) !important;
+}
+
+.alert-danger{
+	background-color: #e74c3c !important;
+}
+
+.btn-form{
+	background-color: #02a12b;
+	border: 2px solid #02a12b;
+	margin: 20px 0;
+	border-radius: 20px;
+	font-size: 18px;
+	padding: 10px;
+	width: 100%;
+	font-weight: 500;
+	transition: 0.9s ease;
+	color: white;
+	cursor: pointer;
+	box-shadow: 3px 3px 1px rgba(0, 0, 0, .2);
+}
+
+.btn-form:hover{
+	color: white;
+	border: 2px solid #03af2f;
+	background-color: #03af2f;
+}
+
+.btn-form:focus{
+	outline:none;
+}
+
+.spinner-border{
+	width: 1.5rem;
+    height: 1.5rem;
+}
+
+
+
+@media (max-width: 1243px) {
+	.container{
+		grid-template-columns: 50% 1fr;
+	}
+}
+
+@media (max-width: 1018px) {
+	.container{
+		grid-template-columns: 60% 1fr;
+	}
+}
+
+@media (max-width: 828px) {
+	.container{
+		grid-template-columns: 1fr;
+	}
+	.nav li{
+		padding: 12px 15px;	
+	}
+	.form-card{
+		width: 80%;
+		min-width: 400px;
+		margin: 0 auto;
+		margin-top: 80px;
+	}
+
+}

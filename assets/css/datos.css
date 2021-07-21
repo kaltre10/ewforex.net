@@ -1,0 +1,173 @@
+.container-datos{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 100px auto auto;
+	grid-template-areas: "nav nav"
+						"header header"
+						 "datos bank";
+}
+
+.datos{
+	grid-area: datos;
+	padding: 14px;
+	background-color: #e4e3ff;
+}
+
+.bank{
+	grid-area: bank;
+	padding: 14px;
+}
+
+h5{
+	display: inline-block;
+}
+
+.form-card{
+	width: 100% !important;
+	padding: 8px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	max-width: 100%;
+	align-content: flex-start;
+	border: 2px solid #120e5a33;
+}
+
+.datos .form-card{
+	flex-direction: column;
+	padding: 20px;
+	justify-content: flex-start;
+}
+
+.input{
+	display: flex;
+	box-shadow: 0 0 3px 1px #464287;
+	background-color: #e4e3ff;
+	padding: 20px;
+	margin: 5px 0;
+	border-radius: 15px 0 15px 0;
+	width: 100%;
+}
+
+.input-item{
+	display: flex;
+	padding-left: 20px;
+}
+
+.input-item span{
+	padding: 0 5px;
+}
+
+.input-item input{
+	border: none;
+	outline: none;
+	background-color: #e8e7fee8; /*#e4e3ff*/
+	color: #464287;
+	border-bottom: solid 2px #464287;
+	text-align: center;
+}
+
+.input-item select, .doc input {
+	text-align: center;
+	width: 90px;
+
+}
+
+.doc input {
+	width: 100px;
+}
+ 
+.bank_header{
+	display: flex;
+	justify-content: space-between;
+}
+
+.bank_header h5{
+	align-self: center;
+}
+
+
+.bank_card{
+	display: grid;
+	margin: 15px;
+	padding: 10px;
+	box-shadow: 0 0 6px 1px rgb(145 150 163 / 50%);
+	border-radius: 10px;
+	/*max-width: 250px;*/
+	width: 250px;
+	grid-template-rows: 25% 25% 25% 25%;
+	grid-auto-columns: 30% 1fr 10%;
+	grid-template-areas: "bank_logo bank_description bank_delete"
+						 "bank_logo bank_title bank_delete"
+						 "bank_logo bank_n bank_delete"
+						 "bank_footer bank_footer bank_delete";
+	color: #636e72;
+	justify-content: start;
+	height: 100px;
+}
+
+.bank_logo{
+	grid-area: bank_logo;
+	width: 50px;
+	height: 50px;
+	box-shadow: 0 0 6px 1px rgb(145 150 163 / 50%);
+	display: inline-block;
+	border-radius: 8px;
+	margin-right: 10px;
+}
+
+.bank_logo img{
+	width: 100%;
+	padding: 8px;
+}
+ 
+.bank_description{
+	grid-area: bank_description;
+	display: inline-block;
+	font-weight: 600;
+	color: #2d3436;
+	align-items: center;
+}
+
+.bank_title{
+	font-size: 10px;
+	align-self: end;
+}
+
+
+.bank_n{
+	font-size: 10px;
+	align-self: start;
+}
+
+.bank_footer{
+	grid-area: bank_footer;
+	display: flex;
+	justify-content: space-around;
+	color: #2d3436;
+}
+
+.bank_delete{
+	grid-area: bank_delete;
+	align-self: center;
+	color: rgba(18, 14, 90, 0.85);
+	cursor: pointer;
+}
+
+.alert{
+	max-width: 300px;
+	align-self: center;
+}
+
+@media (max-width: 576px) {
+
+	.container-datos{
+		grid-template-areas: "nav nav"
+							 "header header"
+						     "datos datos"
+						     "bank bank";
+	}
+
+}

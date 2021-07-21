@@ -1,0 +1,110 @@
+@import url('modalOperaciones.css');
+
+.container-operaciones{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 100px auto auto auto;
+	grid-template-areas: "nav nav"
+						"header header"
+						"fecha-row fecha-row"
+						 "operaciones operaciones";
+}
+
+.operaciones{
+	grid-area: operaciones;
+	margin-top: 20px;
+}
+
+.operacion{
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(2, auto);
+	margin: 0 auto;
+	width: 60%;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+	margin-bottom: 10px;
+}
+
+.operacion-header{
+	/*font-weight: 400;*/
+}
+
+.fecha-row{
+	display: grid;
+	place-items: center;
+	grid-area: fecha-row;
+}
+
+.fecha-row input[type=date]{
+	outline: none;
+	border: none;
+	padding: .5rem;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+}
+
+.fecha-row .btn {
+	font-weight: 500;
+	color: #fff;
+	background-color: rgba(18, 14, 90, 0.85);
+	padding: .5rem;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+}
+
+.operacion-col{
+	display: grid;
+	justify-content: space-between;
+	padding: 10px;
+	width: 100%;
+}
+
+.icono{
+	position: relative;
+    top: 55%;
+    left: 25%;
+    font-size: 40px;
+    transition: all 0.9s ease;
+}
+
+.icono i:hover{
+	cursor: pointer;
+	transform: scale(1.3);
+}
+
+@media (max-width: 828px) {
+
+	.fecha-row{
+		margin: 20px;
+	}
+
+	.operacion{
+		width: 90%;
+		grid-template-columns: repeat(2, 1fr);
+		margin-bottom: 10px;
+		grid-template-areas: "cantidad can"
+							 "cotizacion cot"
+							 "recibe rec"
+							 "fecha fec";
+	}
+	
+	.cantidad{grid-area: cantidad}
+	.cotizacion{grid-area: cotizacion}
+	.recibe{grid-area: recibe}
+	.fecha{grid-area: fecha}
+
+	.can{grid-area: can}
+	.cot{grid-area: cot}
+	.rec{grid-area: rec}
+	.fec{grid-area: fec}
+
+	.icono{
+		position: relative;
+	    top: 0px;
+	    left: 85%;
+	}
+
+}

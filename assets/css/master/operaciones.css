@@ -1,0 +1,111 @@
+@import url('../modalOperaciones.css');
+
+.container-operaciones{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 100px auto auto auto;
+	grid-template-areas: "nav nav"
+						"header header"
+						"fecha-row fecha-row"
+						 "operaciones operaciones";
+}
+
+.operaciones{
+	grid-area: operaciones;
+	margin-top: 20px;
+}
+
+.operacion{
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(2, auto);
+	margin: 0 auto;
+	width: 90%;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+	margin-bottom: 10px;
+}
+
+.operacion-header{
+	/*font-weight: 400;*/
+}
+
+.fecha-row{
+	display: grid;
+	place-items: center;
+	grid-area: fecha-row;
+}
+
+.fecha-row input[type=date]{
+	outline: none;
+	border: none;
+	padding: .5rem;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+}
+
+.fecha-row .btn {
+	font-weight: 500;
+	color: #fff;
+	background-color: rgba(18, 14, 90, 0.85);
+	padding: .5rem;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+}
+
+.operacion-col{
+	padding: 10px;
+	width: 100%;
+}
+
+.che{
+	font-size: 24px;
+}
+
+.che i{
+	cursor: pointer;
+}
+
+.btn-disable{
+	color: white !important;
+	background-color: #ccc;
+	border: none;
+}
+.btn-disable:hover{
+	background-color: #ccc;
+	border: none;
+}
+
+@media (max-width: 828px) {
+
+	.operacion{
+		grid-template-columns: repeat(2, 1fr);
+		margin-bottom: 10px;
+		grid-template-areas: "n_operacion ope"
+							 "cantidad can"
+							 "cotizacion cot"
+							 "recibe rec"
+							 "check che"
+							 "user us"
+							 "estado est";
+	}
+	
+	.n_operacion{grid-area: n_operacion}
+	.cantidad{grid-area: cantidad}
+	.cotizacion{grid-area: cotizacion}
+	.recibe{grid-area: recibe}
+	.check{grid-area: check}
+	.user{grid-area: user}
+	.estado{grid-area: estado}
+
+	.ope{grid-area: ope}
+	.can{grid-area: can}
+	.cot{grid-area: cot}
+	.rec{grid-area: rec}
+	.che{grid-area: che}
+	.us{grid-area: us}
+	.est{grid-area: est}
+
+}

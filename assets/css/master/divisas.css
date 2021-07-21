@@ -1,0 +1,32 @@
+.container-divisas{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 100px auto auto;
+	grid-template-areas: "nav nav"
+						"header header"
+						"divisa-row divisa-row"
+}
+
+.divisa-row{
+	display: grid;
+	place-items: center;
+	grid-area: divisa-row;
+}
+
+.divisa-row input{
+	outline: none;
+	border: none;
+	padding: .5rem;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+}
+
+.divisa-row .btn {
+	font-weight: 500;
+	color: #fff;
+	background-color: rgba(18, 14, 90, 0.85);
+	padding: .5rem;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+}

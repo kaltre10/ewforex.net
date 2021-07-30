@@ -9,7 +9,7 @@
 
 	<nav class="nav">
 		<ul class="nav-items">
-			<li><a href="<?= base_url('./Admin'); ?>">Inicio</a></li>
+			<li><a href="<?= base_url('./Admin'); ?>">Compra  / Venta</a></li>
 			<li><a href="<?= base_url('Datos'); ?>">Datos personales</a></li>
 			<li><a href="<?= base_url('Operaciones'); ?>">Operaciones</a></li>
 			<li><a href="#" id="close">Salir</a></li>

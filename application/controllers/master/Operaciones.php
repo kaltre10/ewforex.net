@@ -25,7 +25,7 @@ class Operaciones extends CI_Controller {
 		$data = serialize($this->input->raw_input_stream);
 		$data = explode('"', $data);
 		$desde = $data[4] . " 00:00:00";
-		$hasta = $data[8] . " 11:59:59";
+		$hasta = $data[8] . " 23:59:59";
 		
 		echo $this->operaciones_model->getOperaciones($id, $desde, $hasta);
 	}

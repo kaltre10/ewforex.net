@@ -16,7 +16,7 @@
 
 .codigo{
 	display: grid;
-	grid-template-columns: repeat(2, 1fr) 10%;
+	grid-template-columns: repeat(3, 1fr) 10%;
 	grid-template-rows: repeat(2, auto);
 	margin: 0 auto;
 	width: 90%;
@@ -64,15 +64,19 @@
 	.codigo{
 		grid-template-columns: 1fr 1fr;
 		margin-bottom: 10px;
-		grid-template-areas: "columna cod"
+		grid-template-areas: 
+							 "tipo tip"
+							 "columna cod"
 							 "cotizacion cot"
 							 "accion acc";
 	}
 	
+	.tipo{grid-area: tipo}
 	.columna{grid-area: columna}
 	.cotizacion{grid-area: cotizacion}
 	.accion{grid-area: accion}
 
+	.tip{grid-area: tip}
 	.cod{grid-area: cod}
 	.cot{grid-area: cot}
 	.acc{grid-area: acc}

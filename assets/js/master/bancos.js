@@ -101,7 +101,7 @@ async function getBancos(){
 
 	await LoadBancos();
 
-	fetch(`Bancos/getBancos`)
+	fetch(`Bancos/getBancosAdmin`)
 	.then(res => res.json())
 	.then(bancos => {
 		let obj = JSON.parse(bancos);

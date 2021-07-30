@@ -34,7 +34,7 @@ class Operaciones extends CI_Controller {
 		$data = serialize($this->input->raw_input_stream);
 		$data = explode('"', $data);
 		$desde = $data[4] . " 00:00:00";
-		$hasta = $data[8] . " 11:59:59";
+		$hasta = $data[8] . " 23:59:59";
 		echo $this->operaciones_model->getOperacionesAll($desde, $hasta);
 	}
 
@@ -44,18 +44,18 @@ class Operaciones extends CI_Controller {
 		$data = explode('"', $data);
 
 		$datos = array(
-			'cot_operacion' => $data[50],
-			'can_operacion' => $data[26],
-			'rec_operacion' => $data[30],
-			'n_operacion' => $data[46],
-			'use_operacion' => $data[54],
+			'cot_operacion' => $data[54],
+			'can_operacion' => $data[30],
+			'rec_operacion' => $data[34],
+			'n_operacion' => $data[50],
+			'use_operacion' => $data[58],
 			'sta_operacion' => 0,
-			'ban_use_operacion' => $data[38],
-			'ban_admin_operacion' => $data[42],
-			'codigo_usuario' => $data[34]
+			'ban_use_operacion' => $data[42],
+			'ban_admin_operacion' => $data[46],
+			'codigo_usuario' => $data[38]
 		);
 
-		// echo json_encode($datos);
+		// echo json_encode($data);
 		echo $this->operaciones_model->setOperaciones($datos);
 	}
 

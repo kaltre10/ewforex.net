@@ -36,35 +36,55 @@
 						<span>Venta: <strong id="venta"></strong></span>
 					</div>	
 				</div>
-				<div class="input">
-					<label>Cuenta de banco desde donde tranfieres:</label>
+				<div class="input mb-3">
+					<label for="bank_user">Cuenta de banco donde recibes tu dinero:</label>
 					<select id="bank_user">
 						<option value=""> - Seleccione - </option>
 						
 					</select>
 					<div class="input form-help">
-						<a href="" id="bank"><i class="fas fa-plus-circle"></i> Agregar nueva cuenta de banco</a>
+						<a
+						 id="bank"
+						 data-bs-toggle="tooltip" 
+					   	 title="Clic si desea agregar una nueva cuenta de banco."><i class="fas fa-plus-circle"></i> Agregar nueva cuenta de banco</a>
 					</div>
 				</div>
-				<div class="input">
-					<label>Cuenta de banco a donde nos tranfieres:</label>
+				<div class="input mb-3">
+					<label for="bank_admin">Cuenta de banco a donde nos tranfieres:</label>
 					<select id="bank_admin">
 						<option value=""> - Seleccione - </option>
 					</select>
 				</div>
-				<div class="input">
-					<label>N° Operación:</label>
+				<div class="input mb-3">
+					<label for="n_operacion"><span
+						data-bs-toggle="tooltip" 
+					    title="Agrege el número de la transferencia que realizó a nuestro banco">
+						<i class="far fa-question-circle"></i> N° Operación</span></label>
 					<input id="n_operacion" type="number" autocomplete="off">
 				</div>
 				<div class="input">
 					<button id="btn" class="btn-form">Continuar <i class="fas fa-arrow-right"></i></button>
 				</div>
 				<div class="input form-help">
-					<a href=""><i class="far fa-question-circle"></i> Necesitas ayuda?</a>
+					<a 
+					   data-bs-toggle="tooltip" 
+					   title="Si necesitas ayuda o tienes alguna duda por favor escribanos a nuestro chat para ayudarle"><i class="far fa-question-circle"></i> Necesitas ayuda?</a>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+		let tooltipTriggerList = []
+				.slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+		let tooltipList = tooltipTriggerList
+				.map(function (tooltipTriggerEl) {
+		 		return new bootstrap.Tooltip(tooltipTriggerEl)
+			})
+	</script>
+
 	<script type="module" src="assets/js/account_data.js"></script> 	
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>

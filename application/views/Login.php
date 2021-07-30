@@ -22,9 +22,8 @@
 		<nav class="nav">
 			<img class="logo-nav" src="<?= base_url('assets/img/logo_negro.png'); ?>" alt="">
 			<ul>
-				<li><a href="#">Inicio</a></li>
-				<li><a href="#">Blog</a></li>
-				<li class="btn-login"><a href="#">Login</a></li>
+				<li><a href="./">Inicio</a></li>
+				<li class="btn-login"><a href="./blog">Blog</a></li>
 			</ul>
 		</nav>
 		<div class="form">

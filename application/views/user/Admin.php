@@ -41,24 +41,43 @@
 					<input id="envias" type="number" min="1" name="" autocomplete="off">
 				</div>
 				<div class="btc-exchange">
-					<i class="fas fa-sync-alt" id="exchange"></i>
+					<i class="fas fa-sync-alt"
+					   data-bs-toggle="tooltip" 
+					   title="Clic para cambiar las monedas."
+					 id="exchange"></i>
 				</div>
 				<div class="input">
 					<label>Recibes: <strong id="recibesText"></strong></label>
 					<input id="recibes" type="number" name="" autocomplete="off">
 				</div>
 				<div class="input form-help">
-					<a href="" id="cupon"><i class="fas fa-ticket-alt"></i> Tengo un codigo</a><span id="codigo"></span>
+					<a id="cupon"
+					   data-bs-toggle="tooltip" 
+					   title="Puede consultar por chat si hay disponible un codigo para mejorar el tipo de cambio."><i class="fas fa-ticket-alt"></i> Tengo un codigo</a><span id="codigo"></span>
 				</div>
 				<div class="input">
 					<button id="btn" class="btn-form">Continuar <i class="fas fa-arrow-right"></i></button>
 				</div>
 				<div class="input form-help">
-					<a href=""><i class="far fa-question-circle"></i> Necesitas ayuda?</a>
+					<a data-bs-toggle="tooltip" 
+					   title="Si necesitas ayuda o tienes alguna duda por favor escribanos a nuestro chat para ayudarle">
+					<i class="far fa-question-circle"></i> Necesitas ayuda?</a>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+		let tooltipTriggerList = []
+				.slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+		let tooltipList = tooltipTriggerList
+				.map(function (tooltipTriggerEl) {
+		 		return new bootstrap.Tooltip(tooltipTriggerEl)
+			})
+	</script>
+
 	<script type="module" src="assets/js/admin.js"></script>	
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>

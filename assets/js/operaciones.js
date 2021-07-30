@@ -4,6 +4,11 @@ let close = document.getElementById('close');
 let $pre = document.querySelector('.operaciones');
 let $btn = document.querySelector('.btn');
 
+let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+
+let tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+		 		return new bootstrap.Tooltip(tooltipTriggerEl)});
+
 // let fecha = new Date();
 // let mes = ((fecha.getMonth() + 1) < 10) ? "0" + (fecha.getMonth() + 1) : fecha.getMonth() + 1;
 
@@ -36,6 +41,8 @@ window.addEventListener('load', () => {
 			openModalOperation(idOperacion);
 		}
 	});
+
+	
 
 });
 
@@ -93,7 +100,10 @@ function showOperacion(objOperacion, idUser){
 							  <div class="operacion-col fw-bolder cotizacion">Cotizacion</div>
 							  <div class="operacion-col fw-bolder recibe">Recibes</div>
 							  <div class="operacion-col fw-bolder fecha">Fecha</div>
-							  <div class="operacion-col icono" data-id="${id_operaciones}"> <i class="far fa-eye" title="Ver todo los datos"></i> </div>
+							  <div class="operacion-col icono" data-id="${id_operaciones}"> 
+							  <i data-bs-toggle="tooltip" 
+					   			 title="Click para ver los detalles de la operacion."
+					   			 class="far fa-eye" title="Ver todo los datos"></i> </div>
 							  <div class="operacion-col can">${can_operacion}</div>
 							  <div class="operacion-col cot">${cot_operacion}</div>
 							  <div class="operacion-col rec">${rec_operacion}</div>

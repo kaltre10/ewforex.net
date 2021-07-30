@@ -109,3 +109,8 @@
 	.est{grid-area: est}
 
 }
+
+.swal-button--cancel, .swal-button--cancel:hover{
+	background-color: #e64942 !important; 
+	color: white;
+}

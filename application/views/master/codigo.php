@@ -37,7 +37,7 @@
 				</div>
 				<div class="col-auto">
 					<select name="tipo" id="tipo">
-						<option value="">TIPO ELECCIONE</option>
+						<option value="">TIPO -SELECCIONE-</option>
 						<option value="COMPRA">COMPRA</option>
 						<option value="VENTA">VENTA</option>
 					</select>

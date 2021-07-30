@@ -317,22 +317,18 @@ function load(){
 }
 
 const consultaPrecio = () => {
-
-	let compra = document.getElementById('compra');
-	let venta = document.getElementById('venta');
 	
-	fetch('Divisas')
+	return fetch('Divisas')
 	.then(res => res.json())
 	.then(res => {
 		const { com_divisa, ven_divisa } = res[0];
 
-		compra.textContent = com_divisa;
-		venta.textContent = ven_divisa;
+		document.getElementById('compra').textContent = com_divisa;
+		document.getElementById('venta').textContent = ven_divisa;
 
 		//activamos el boton
 		document.getElementById('btn').disabled = false;
 	})
-	
 }
 
 async function openModalOperation(idOperacion){
@@ -353,7 +349,16 @@ async function openModalOperation(idOperacion){
 		  n_operacion
 		} = operacion[0];
 
-	(sta_operacion == 0) ? sta_operacion = 'En Proceso' :  sta_operacion = "Completado"; 
+	//ASIGNAR ESTADO DE LA OPERACION
+	if(sta_operacion == 0){
+		sta_operacion = 'En Proceso';
+	}else if(sta_operacion == 1){
+		sta_operacion = "Cancelado"; 
+	}else if(sta_operacion == 2){
+		sta_operacion = "Anulado"; 
+	}else if(sta_operacion == 3){
+		sta_operacion = "Completado"; 
+	}
 
 	//Datos del banco del usuario
 	let queryBanco = await getBanco(ban_use_operacion);
@@ -384,7 +389,7 @@ async function openModalOperation(idOperacion){
 					    	<div class="ticket_items"><span class="fw-bold">Fecha:</span> ${fec_operacion}</div>
 					    	<div class="ticket_items"><span class="fw-bold">Cotizacion:</span> ${cot_operacion}</div>
 					    	<div class="ticket_items"><span class="fw-bold">Codigo:</span> ${codigo_usuario}</div>
-					    	<div class="ticket_items"><span class="fw-bold">Desde Banco:</span> ${nom_banco} - ${n_banco} - ${tip_banco} - ${mon_banco}</div>
+					    	<div class="ticket_items"><span class="fw-bold">Recibes en:</span> ${nom_banco} - ${n_banco} - ${tip_banco} - ${mon_banco}</div>
 					    	<div class="ticket_items"><span class="fw-bold">Al Banco:</span> ${bancoAdmin[0].nom_banco} - ${bancoAdmin[0].n_banco} - ${tip_bancoAdmin} - ${mon_bancoAdmin}</div>
 					    	<div class="ticket_items"><span class="fw-bold">N° Operacion:</span> ${n_operacion}</div>
 					    	
@@ -424,6 +429,14 @@ function getBanco(idBanco){
 			})
 }
 
+const checkCodigo = () => {
+	return fetch('master/Codigo/getCodigos');
+}
+
+const getPrecio = () => {
+	return fetch('Divisas');
+}
+
 export { 
 	addBank,
 	alert, 
@@ -442,4 +455,6 @@ export {
 	load,
 	consultaPrecio,
 	openModalOperation,
+	getPrecio,
+	checkCodigo
 };

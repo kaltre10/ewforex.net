@@ -224,6 +224,11 @@ body{
 .form .input, .btc-exchange{
 	padding: 0 20px;
 }
+
+ .input{
+ 	padding-bottom: 20px;
+ }
+
 .btc-exchange{
 	transition-duration: 1s !important;
 }
@@ -377,6 +382,10 @@ select{
 
 .swal2-styled:focus{
 	box-shadow: none;
+}
+
+.tooltip-inner{
+	text-align: left !important;
 }
 
 @media (max-width: 1243px) {

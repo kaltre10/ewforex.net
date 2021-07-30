@@ -133,13 +133,15 @@ function showCodigos(codigos){
 	}
 	let $fragment = document.createDocumentFragment();
 	codigos.forEach( codigo => {
-		let { id_codigo, num_codigo, cot_codigo } = codigo;
+		let { id_codigo, num_codigo, cot_codigo, tip_codigo } = codigo;
 		let $codigo = document.createElement('div');
 		$codigo.classList.add('codigo');
 		$codigo.innerHTML = `
+							  <div class="cod-col fw-bolder tipo">Tipo</div>
 							  <div class="cod-col fw-bolder columna">Codigo</div>
 							  <div class="cod-col fw-bolder cotizacion">Cotizacion</div>
 							  <div class="cod-col fw-bolder accion text-center">Eliminar</div>
+							  <div class="cod-col tip">${tip_codigo}</div>
 							  <div class="cod-col cod">${num_codigo}</div>
 							  <div class="cod-col cot">${cot_codigo}</div>
 							  <div class="cod-col acc text-center"><a href="#" class="delete" data-id="${id_codigo}"><i class="fas fa-trash-alt"></i></a></div>`;
@@ -159,7 +161,7 @@ function enviandoFormulario(){
 	};
 
 	if(obj.codigo.trim() === '' || obj.cotizacion.trim() === '' || obj.tipo.trim() === '') {
-		const nodo = document.querySelector('.fecha-row');
+		const nodo = document.querySelector('.container-codigos');
 		return alert('todos los campos son obligatorio', 'danger', nodo);
 	}
 	//abrimos la ventana de confirmacion

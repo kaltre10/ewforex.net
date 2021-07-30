@@ -18,6 +18,7 @@ let bank = document.getElementById('bank');
 let bank_user = document.getElementById('bank_user');
 let bank_admin = document.getElementById('bank_admin');
 let $btn = document.getElementById('btn');
+let objOperacion = getLocal();
 
 window.addEventListener('load', () => {
 
@@ -51,10 +52,18 @@ function getBancos(){
 		.then(bancos => {
 			let id = user.uid;
 			const arrayBanco = bancos.filter(banco => banco.use_banco == id );
+
+			let bancosUser = [];
+			if(objOperacion['tipo'] == 'COMPRA'){
+				bancosUser = arrayBanco.filter( b => b.mon_banco == 0 );
+			}else{
+				bancosUser = arrayBanco.filter( b => b.mon_banco == 1 );
+			}
+
 			//seleccionamos el selec
 			const $select = document.getElementById('bank_user');
 			$select.innerHTML = '<option value=""> - Seleccione - </option>';
-			arrayBanco.forEach( banco => {
+			bancosUser.forEach( banco => {
 				let {id_banco, nom_banco, n_banco, tip_banco, mon_banco} = banco;
 
 				(mon_banco == 0) ? mon_banco = 'Soles' : mon_banco = 'Dólares';
@@ -76,8 +85,6 @@ function enviando(){
 
 	if(Number(n_operacion.value) == 0 || bank_user.value == '' || bank_admin.value == '')
 		return alert('Ingrese Valores Validos', 'danger', document.querySelector('.form-card'));
-
-	let objOperacion = getLocal();
 
 	let obj = {
 		...objOperacion, 
@@ -198,14 +205,23 @@ async function addBank(){
 }
 
 function getBancosAdmin(){
+
 	fetch('Bancos/getBancosAdmin')
 		.then(res => res.json())
 		.then(res => {
 			let select = document.getElementById('bank_admin');
-			res.forEach( banco => {
+
+			let bancosAdmin = [];
+			if(objOperacion['tipo'] == 'COMPRA'){
+				bancosAdmin = res.filter( b => b.mon_banco == 1 );
+			}else{
+				bancosAdmin = res.filter( b => b.mon_banco == 0 );
+			}
+
+			bancosAdmin.forEach( banco => {
 				let { id_banco, nom_banco, n_banco, tip_banco, mon_banco } = banco;
 				(tip_banco == 0) ? tip_banco = 'Ahorro' : tip_banco = 'Corriente'; 
-				(mon_banco == 0) ? mon_banco = 'Soles' : tip_banco = 'Dólares'; 
+				(mon_banco == 0) ? mon_banco = 'Soles' : mon_banco = 'Dólares'; 
 				select.innerHTML += `
 							<option value="${id_banco}"> 
 							${nom_banco} - 

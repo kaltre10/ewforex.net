@@ -35,36 +35,48 @@
 						<span>Venta <strong id="venta"></strong></span>
 					</div>	
 				</div>
-				<div class="input mt-3">
+				<div class="input mt-3 mb-1">
 					<strong>Cotizacion: </strong><span id="cotizacion"></span>
 				</div>
-				<div class="input">
+				<div class="input mb-1">
 					<strong>Envias: </strong><span id="envias"></span>
 				</div>
-				<div class="input">
+				<div class="input mb-1">
 					<strong>Recibes: </strong><span id="recibes"></span>
 				</div>
-				<div class="input">
-					<strong>Desde: </strong><span id="bank_user"></span>
+				<div class="input mb-1">
+					<strong>Recibes en: </strong><span id="bank_user"></span>
 				</div>
-				<div class="input">
+				<div class="input mb-1">
 					<strong>A: </strong><span id="bank_admin"></span>
 				</div>
-				<div class="input">
+				<div class="input mb-1">
 					<strong>N° operación: </strong><span id="n_operacion"></span>
 				</div>
-				<div class="input">
+				<div class="input mb-1">
 					<strong>Codigo: </strong><span id="codigo"></span>
 				</div>
-				<div class="input">
+				<div class="input mb-1">
 					<button id="btn" class="btn-form">Completar y finalizar <i class="fas fa-arrow-right"></i></button>
 				</div>
 				<div class="input form-help">
-					<a href=""><i class="far fa-question-circle"></i> Necesitas ayuda?</a>
+					<a data-bs-toggle="tooltip" 
+					   title="Si necesitas ayuda o tienes alguna duda por favor escribanos a nuestro chat para ayudarle"><i class="far fa-question-circle"></i> Necesitas ayuda?</a>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+		let tooltipTriggerList = []
+				.slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+		let tooltipList = tooltipTriggerList
+				.map(function (tooltipTriggerEl) {
+		 		return new bootstrap.Tooltip(tooltipTriggerEl)
+			})
+	</script>
 	<script type="module" src="assets/js/check_data.js"></script> 
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>

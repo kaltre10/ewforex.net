@@ -9,7 +9,7 @@ import {
 	closeWindow, 
 	load,
 	consultaPrecio,
-	getKey
+	getKey,
 } from './module.js';
 
 document.addEventListener("DOMContentLoaded", () => { getUser() });
@@ -21,10 +21,11 @@ let	$envias = document.getElementById('envias');
 let $recibes = document.getElementById('recibes');
 
 let objOperacion = {};
+let precio;
 let numCodigo = 'No aplica';
 let datosPersonales = [];
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
 
 	preLoad();
 
@@ -54,7 +55,7 @@ window.addEventListener('load', () => {
 
 	//verificar si hay datos personales completos
 	consultarDatos();
-	
+
 });
 
 
@@ -100,13 +101,14 @@ function exchangeButton(){
 		$recibesText.textContent = 'Dólares';
 		$recibes.value = (parseFloat(Number($envias.value)) / venta.innerText).toFixed(2);
 		operacion = 'venta';
+		objOperacion.tipo = "VENTA";
 	}else{
 		exchange.style.transform = 'rotate(-120deg)';
 		$enviasText.textContent = 'Dólares';
 		$recibesText.textContent = 'Soles';
 		$recibes.value = (parseFloat(Number($envias.value)) * Number(compra.innerText)).toFixed(2);
-
 		operacion = 'compra';
+		objOperacion.tipo = "COMPRA";
 	}
 
 }
@@ -204,16 +206,16 @@ function consultarCodigo(inputCodigo){
 }
 
 function consultarDatos(){
+
 	firebase
 		.auth()
 		.onAuthStateChanged(user => { 
-
 			if (user) {
 				fetch(`Usuarios/usuario/${user.uid}`)
 					.then(res => res.json())
 					.then(res => {
 						const { nom_user, n_user} = res[0];
-						if( nom_user === '' || n_user === ''){
+						if( nom_user === null || n_user === null){
 							datosPersonales[0] = false;
 						}else{
 							datosPersonales[0] = true;

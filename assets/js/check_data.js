@@ -3,7 +3,9 @@ import {
 	preLoad, 
 	getUser,
 	load,
-	consultaPrecio
+	consultaPrecio,
+	checkCodigo,
+	getPrecio
 } from './module.js';
 
 let $btn = document.getElementById('btn');
@@ -15,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => { getUser() });
 
 let storage = getLocal(); //obtenemos datos de local storage
 
-window.addEventListener('load', ()=>{
+window.addEventListener('load', () =>{
 
 	preLoad();
 	
@@ -49,8 +51,11 @@ window.addEventListener('load', ()=>{
 
 })
 
-function showData(){
-	let cotizacion = (parseFloat(storage['recibes']) / parseFloat(storage['envias'])).toFixed(2);
+async function showData(){
+
+	
+
+	let cotizacion = await getCotizacion(storage['codigo_usuario']);
 	document.getElementById('cotizacion').textContent = cotizacion;
 	document.getElementById('envias').textContent = storage['envias'];
 	document.getElementById('recibes').textContent = storage['recibes'];
@@ -128,13 +133,43 @@ function insertOperacion(){
 					body: JSON.stringify(objOperacion),
 				})
 				// .then(res => res.json())
-				// .then(res => {
-				// 	console.log(res)
-				// })
+				// .then(res => console.log(res))
 			    
 			}else {
 				location.href = 'login';
 		  	}
 
 	})
+}
+
+async function getCotizacion(codigo){
+
+	//obteniendo cotizacion del dolar
+	let queryPrecio = await getPrecio();
+	let precio = await queryPrecio.json();
+
+	if(codigo == 'No aplica'){
+		if(storage['tipo'] == 'COMPRA'){
+			return (parseFloat(storage['recibes']) / parseFloat(storage['envias'])).toFixed(2);
+		}else{
+			return precio[0].ven_divisa;
+		}
+	}
+	
+	//obteniendo codigo
+	let querycodigos = await checkCodigo();
+	let getCodigos = await querycodigos.json();
+	let arrayCodigos = JSON.parse(getCodigos);
+	
+	let getCodigo = arrayCodigos.filter( c => c.num_codigo == codigo && storage['tipo'] == c.tip_codigo);
+	if(getCodigo.length > 0){
+		return getCodigo[0].cot_codigo;
+	}
+	
+	if(storage['tipo'] == 'COMPRA'){
+		return precio[0].com_divisa;
+	}else{
+		return precio[0].ven_divisa;
+	}
+
 }

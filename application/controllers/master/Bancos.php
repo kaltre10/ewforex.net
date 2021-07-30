@@ -24,6 +24,11 @@ class Bancos extends CI_Controller {
 		echo json_encode($this->bancos_model->getBancos());
 	}
 
+	public function getBancosAdmin()
+	{	
+		echo json_encode($this->bancos_model->getBancosAdmin());
+	}
+
 	public function deleteBanco(){
 		$id = $this->input->raw_input_stream;
 		$id_clean = preg_replace('/(^[\"\']|[\"\']$)/', '', $id);

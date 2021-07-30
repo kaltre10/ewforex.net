@@ -3,7 +3,7 @@ let $venta = document.getElementById('venta');
 	$compra.innerHTML = `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`;
 	$venta.innerHTML = `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`;
 
-// price();
+price();
 
 async function price(){
 	const query = await getPrice();

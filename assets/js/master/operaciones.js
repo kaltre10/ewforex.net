@@ -201,7 +201,7 @@ async function openModalOperation(idOperacion) {
 					    	<div class="ticket_items"><span class="fw-bold">Fecha:</span> ${fec_operacion}</div>
 					    	<div class="ticket_items"><span class="fw-bold">Cotizacion:</span> ${cot_operacion}</div>
 					    	<div class="ticket_items"><span class="fw-bold">Codigo:</span> ${codigo_usuario}</div>
-					    	<div class="ticket_items"><span class="fw-bold">Desde Banco:</span> ${nom_banco} - ${n_banco} - ${tip_banco} - ${mon_banco}</div>
+					    	<div class="ticket_items"><span class="fw-bold">Recibe en:</span> ${nom_banco} - ${n_banco} - ${tip_banco} - ${mon_banco}</div>
 					    	<div class="ticket_items"><span class="fw-bold">Al Banco:</span> ${bancoAdmin[0].nom_banco} - ${bancoAdmin[0].n_banco} - ${tip_bancoAdmin} - ${mon_bancoAdmin}</div>
 					    	<div class="ticket_items"><span class="fw-bold">N° Operacion:</span> ${n_operacion}</div>
 					    	
@@ -253,7 +253,24 @@ function accion(e){
 	if(e.target.children.length == 1) estado = e.target;
 	let idOperacion = estado.parentNode.previousElementSibling.dataset.id;
 
-	estadoOperacion(estado.getAttribute('title'), idOperacion);
+		
+	swal({
+		  title: "Asignar estado?",
+		  text: "confime que desea asignar el estado para esta operacion!",
+		  icon: "warning",
+		  buttons: true,
+		  dangerMode: true,
+		})
+		.then((willDelete) => {
+		  if (willDelete) {
+		  	estadoOperacion(estado.getAttribute('title'), idOperacion);
+		    swal("Asignado con exito!", {
+		      icon: "success",
+		    });
+
+		  } 
+		});
+	
 }
 
 function estadoOperacion(status, idOperacion){
@@ -272,8 +289,6 @@ function estadoOperacion(status, idOperacion){
 		body: JSON.stringify(data)
     })
     .then(res => getOperaciones());
- //    .then(res => res.json())
-	// .then(res => console.log(res))
 }
 
 function btnEstado(){
@@ -297,3 +312,4 @@ function btnEstado(){
 	});
 
 }
+

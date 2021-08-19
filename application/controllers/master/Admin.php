@@ -21,7 +21,7 @@ class Admin extends CI_Controller {
 	}
 
 	public function check_admin($key){
-		return get_id($key);
+		echo get_id($key);
 	}
 
 }

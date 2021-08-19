@@ -1,16 +1,17 @@
 import { preLoad, getUser, closeWindow, checkAdmin, getKey, checkServer } from '../module.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-	checkServer();
-	checkAdmin();
+	verificationUser();
 });
 
+function verificationUser(){
+	checkServer();
+	checkAdmin();
+}
 
 window.addEventListener('load', () => {
 	
 	let close = document.getElementById('close');
-
-	preLoad();
 
 	document.addEventListener('click', e => {
 		closeWindow(e);	
@@ -30,6 +31,8 @@ window.addEventListener('load', () => {
 		  		location.href = '../login';
 			});
 	});
+
+	preLoad();
 
 });
 

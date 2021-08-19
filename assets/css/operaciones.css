@@ -18,7 +18,7 @@
 
 .operacion{
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(6, 1fr);
 	grid-template-rows: repeat(2, auto);
 	margin: 0 auto;
 	width: 60%;
@@ -88,6 +88,7 @@
 		grid-template-areas: "cantidad can"
 							 "cotizacion cot"
 							 "recibe rec"
+							 "status sta"
 							 "fecha fec";
 	}
 	
@@ -95,11 +96,13 @@
 	.cotizacion{grid-area: cotizacion}
 	.recibe{grid-area: recibe}
 	.fecha{grid-area: fecha}
+	.status{grid-area: status}
 
 	.can{grid-area: can}
 	.cot{grid-area: cot}
 	.rec{grid-area: rec}
 	.fec{grid-area: fec}
+	.sta{grid-area: sta}
 
 	.icono{
 		position: relative;

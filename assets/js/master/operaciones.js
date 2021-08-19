@@ -19,14 +19,12 @@ document.getElementById('hasta').value = fecha.getFullYear() + '-' + mes + "-" +
 
 
 document.addEventListener('DOMContentLoaded', () => {
-				checkServer();
-				checkAdmin();
-				// getUser();
+	checkServer();
+	checkAdmin();
+	preLoad()
 });
 
 window.addEventListener('load', () => {
-
-				preLoad();
 				close.addEventListener('click', closeSession);
 
 				getOperaciones();
@@ -52,7 +50,6 @@ window.addEventListener('load', () => {
 					}
 
 				});
-
 });
 
 async function getOperaciones() {

@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="icon" href="<?= base_url('assets/img/icono.png'); ?>">
 	<title>ewforex.net</title>
+
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
@@ -13,6 +14,8 @@
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<link rel="stylesheet" href="<?= base_url('assets/css/user.css'); ?>">	
 	<link rel="stylesheet" href="<?= base_url('assets/css/operaciones.css'); ?>">	
+
+
 </head>
 <body>
 	<div class="pre-loader d-flex align-items-center justify-content-center">
@@ -43,13 +46,6 @@
 		</div>
 		<div class="operaciones"></div>
 	</div>
-
-	<!-- Bootstrap JS -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-	<script type="text/javascript">
-		
-	</script>
 	
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
@@ -63,6 +59,14 @@
   	<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js"></script>
 	<script src="<?= base_url('assets/js/config-firebase.js'); ?>"></script>
 	<script type="module" src="assets/js/operaciones.js"></script>
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+		
+	</script>
+
 
 </body>
 </html>

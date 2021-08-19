@@ -227,7 +227,7 @@ function getBancosAdmin(){
 							${nom_banco} - 
 							${n_banco} - 
 							${tip_banco} - 
-							${mon_banco} - 
+							${mon_banco}
 							</optio>`;
 			})
 		})

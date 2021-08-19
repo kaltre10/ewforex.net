@@ -9,10 +9,10 @@
 
 	<nav class="nav">
 		<ul class="nav-items">
-			<li><a href="<?= base_url('./Admin'); ?>">Compra  / Venta</a></li>
-			<li><a href="<?= base_url('Datos'); ?>">Datos personales</a></li>
-			<li><a href="<?= base_url('Operaciones'); ?>">Operaciones</a></li>
-			<li><a href="#" id="close">Salir</a></li>
+			<li><a href="<?= base_url('./Admin'); ?>"><i class="fas fa-hand-holding-usd mx-2"></i> Compra  / Venta</a></li>
+			<li><a href="<?= base_url('Datos'); ?>"><i class="fas fa-digital-tachograph mx-2"></i>Datos personales</a></li>
+			<li><a href="<?= base_url('Operaciones'); ?>"><i class="fas fa-clipboard mx-2"></i>Operaciones</a></li>
+			<li><a href="#" id="close"><i class="fas fa-sign-out-alt mx-2"></i>Salir</a></li>
 		</ul>
 	</nav>
 </div>

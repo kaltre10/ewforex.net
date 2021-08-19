@@ -8,7 +8,7 @@
 
 .ticket_head{
 	grid-area: head;
-	border-radius: 10px 10px 0 0;
+	border-radius: 0;
 	display: flex;
 	justify-content: space-around;
 	padding: 15px;
@@ -26,9 +26,26 @@
 	text-align: start;
 }
 
+.ticket_rigth{
+	background-color: rgba(18, 14, 90, 0.85);
+	padding: 5px;
+	color: white;
+}
+
 .ticket_amount{
 	font-size: 26px;
 	text-align: center;
-	color: steelblue;
+	color: white;
 	font-weight: 900;
+}
+
+.border{
+	border: 4px dashed #fff !important;
+	padding: 5px;
+}
+
+.swal-content{
+	padding: 0;
+    margin-top: 0;
+    border-radius: 
 }

@@ -30,14 +30,14 @@ class Bancos extends CI_Controller {
 	}
 
 
-	public function deleteBanco()
-	{
+	// public function deleteBanco()
+	// {
 
-		$id = $this->input->raw_input_stream;
-		$id_clean = preg_replace('/(^[\"\']|[\"\']$)/', '', $id);
-		$this->bancos_model->deleteBanco($id_clean);
+	// 	$id = $this->input->raw_input_stream;
+	// 	$id_clean = preg_replace('/(^[\"\']|[\"\']$)/', '', $id);
+	// 	$this->bancos_model->deleteBanco($id_clean);
 
-	}
+	// }
 
 	public function getBancosAdmin()
 	{

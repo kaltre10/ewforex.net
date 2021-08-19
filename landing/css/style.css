@@ -189,7 +189,6 @@ body{
 }
 
 /*SERVICES*/
-
 .service{
 	display: grid;
 	grid-template-rows: minmax(150px, auto);

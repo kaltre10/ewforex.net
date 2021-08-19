@@ -31,9 +31,9 @@ window.addEventListener('load', () => {
 	getData()
 	getBancos();
 
-	contentBanck[1].addEventListener('click', e => {
-		deleteBank(e);
-	});
+	// contentBanck[1].addEventListener('click', e => {
+	// 	deleteBank(e);
+	// });
 
 	contentBanck[0].addEventListener('click', e => {
 		addData(e);

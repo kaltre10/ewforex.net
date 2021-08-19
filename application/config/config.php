@@ -24,7 +24,7 @@ date_default_timezone_set('America/Lima');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://[::1]/appew/app-dolar/';
+$config['base_url'] = 'http://localhost/appew/app-dolar/';
 
 /*
 |--------------------------------------------------------------------------

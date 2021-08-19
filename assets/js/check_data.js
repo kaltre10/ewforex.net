@@ -94,7 +94,7 @@ function loadBtn(){
 async function guardarOperacion(){
 	await validarOperacion();
 	insertOperacion();
-	await swal("Bien Hecho!", "Su orden se ha guardado exitosamente!", "success");
+	await swal("Muy Bien!", "Su orden se ha guardado exitosamente! Por favor realice la transferecia a nuestra cuenta para Finalizar su orden", "success");
 	location.href = 'Operaciones';
 }
 

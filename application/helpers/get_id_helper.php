@@ -1,6 +1,7 @@
 <?php
 
 function get_id($key){
+	
 	$CI =& get_instance();
 	$CI->load->model('usuarios_model');
 	$user = $CI->usuarios_model->getUsuario($key);
@@ -8,9 +9,8 @@ function get_id($key){
 
 	if($array[3] == 1){
 		$result = true;
-		
 	}else{
 		$result = false;
 	}
-	echo json_encode($array);
+	return json_encode($result);
 }

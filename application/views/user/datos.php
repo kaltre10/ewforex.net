@@ -6,7 +6,6 @@
 	<link rel="icon" href="<?= base_url('assets/img/icono.png'); ?>">
 	<title>ewforex.net</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"> -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -33,24 +32,6 @@
 				<h5 class="">Datos personales:</h5>
 			</div>
 			<div class="form-card">
-				<!-- <div class="input">
-					<div class="input-item">
-						<span><i class="fas fa-user"></i></span>
-						<span> Jason Hernandez</span>
-					</div>	
-				</div>
-				<div class="input">
-					<div class="input-item">
-						<span><i class="fas fa-envelope-open"></i></span>
-						<span> kaltre10@gmail.com</span>
-					</div>	
-				</div>
-				<div class="input">
-					<div class="input-item">
-						<span><i class="fas fa-id-card"></i></span>
-						<span>DNI 149889214</span>
-					</div>
-				</div> -->
 			</div>
 		</div>
 		<div class="bank">
@@ -59,23 +40,24 @@
 				<button class="btn btn-primary swal-button" id="btn"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar banco</button>
 			</div>
 			<div class="form-card">
-				<!-- <div class="bank_card">
-					<div class="bank_logo"><img src="<?= base_url('assets/img/logos/interbank.png'); ?>" alt=""></div>
-					<div class="bank_description">Banco Personal</div>
-					<div class="bank_title">INTERBANK</div>
-					<div class="bank_n">13345535455</div>
-					<div class="bank_footer">
-						<div class="bank_cuenta">Ahorro</div>
-						<div class="bank_moneda">Soles</div>
-					</div>
-					<div class="bank_delete"><div class="bank_delete" id="btn-delete"><i class="fa fa-trash" aria-hidden="true"></i></div></div>
-				</div> -->
-				
 			</div>
 
 		</div>
 	</div>
   	<script type="module" src="assets/js/datos.js"></script>
+
+  	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+	<script type="text/javascript">
+		let tooltipTriggerList = []
+				.slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+		let tooltipList = tooltipTriggerList
+				.map(function (tooltipTriggerEl) {
+		 		return new bootstrap.Tooltip(tooltipTriggerEl)
+			})
+	</script>
+
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
 

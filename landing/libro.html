@@ -4,11 +4,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" href="images/icono.png">
+	<link rel="stylesheet" href="css/libro.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css2?family=Tomorrow:wght@100;300;400&display=swap" rel="stylesheet">
-	<title>Casa de cambios Miraflores | ewforex.net</title>
+	<title>Libro de Reclamaciones | ewforex.net</title>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.15.5/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
 	<div class="pre-loader">
@@ -19,7 +21,8 @@
 			<nav class="nav">
 				<div class="logo"><a href="#"><img src="images/logo_white.png" alt="logo ewforex.net"></a></div>
 				<ul class="nav-items">
-					<li><a href="#nosotros">Nosotros</a></li>
+					<li><a href="index.html">Inicio</a></li>
+					<li><a href="index.html#nosotros">Nosotros</a></li>
 					<li><a href="#">Blog</a></li>
 					<li><span style="font-size: 2em;">😎</span></i></li>
 				</ul>
@@ -33,55 +36,72 @@
 				<picture class="header-picture">
 					<img src="images/logo-header.png" alt="">
 				</picture>
-				<h1 class="header-title">Casa de cambios Online <br>Miraflores Lima Perú</h1>
+				<h1 class="header-title">Libro de Reclamaciones</h1>
+				<p>A continuación por favor ingrese el reclamo o queja en el siguiente formulario:</p>
 			</section>
-			<div class="service">
-				<div class="service-card">
-					<div class="service-img">
-						<img src="images/dolar.png" alt="">
-					</div>
-					<p>Intercambio de Dólares en Perú</p>
-					<div class="price">
-						<!-- <h2>Precio del Dólar</h2> -->
-						<div class="compra">
-							<p>Compra</p>
-							<p id="compra"></p>
-						</div>
-						<div class="bar"></div>
-						<div class="venta">
-							<p>Venta</p>
-							<p id="venta"></p>	
-						</div>
-					</div>
-					
-				</div>
-				<div class="service-card">
-					<div class="service-img">
-						<img src="images/criptos.png" alt="">
-					</div>
-					<p>Intercambio de Criptomonedas, bitcoins, ethereum, litcoin y más</p>
-				</div>
-				<div class="service-card">
-					<div class="service-img">
-						<img src="images/casino.png" alt="">	
-					</div>
-					<p>Evolution Gaming, Adquiere las fichas (FFT) aquí y Disfruta jugando en el mejór casino online.</p>
-				</div>
-			</div>
 		</header>
 		<div class="wrapper">
-			<div class="nosotros" id="nosotros">
-				<img src="images/down-arrow.svg" alt="sobre ewforex.net">
-				<div class="nosotros-text">
-					<h2>Sobre ewforex.net</h2>
-					<p>Compra y Vende Dólares online de forma rápida, facíl y con total seguridad en cualquier parte de Perú.</p>
-					<p>Nuestro establecimiento se encuentra en Lima, Distrito Miraflores - <a target="_blank" href="https://goo.gl/maps/jQcEfz1wRCigPhQHA">avenida del Ejercito 768.</a> Asimismo, contamos con las licencias correspondientes para ejercer actividades de cambio de monedas.</p>
-				</div>
-				<div class="nosotros-img">
-					<a target="_blank" href="https://goo.gl/maps/jQcEfz1wRCigPhQHA"><img src="images/maps.webp" alt="Direccion de ewforex.net"></a>
+			<div class="container-form">
+				<div id=App>
+					<div class="form">
+		    			<h2>Libro de Reclamaciones</h2>
+			    		<form id="form">
+			    			<div class="form-row">
+			    				<div class="form-control">
+									<label>Nombre</label>
+									<input id="nombre" type="text" name="nombre" />
+									<div id="invalid-nombre"></div>
+								</div>
+			    				<div class="form-control">
+									<label>Apellido</label>
+									<input id="apellido" type="text" name="apellido" />
+									<div id="invalid-apellido"></div>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-control">
+									<label>Tipo de Documento</label>
+									<select id="documento">
+										<option value="">-Seleccion-</option>
+										<option value="DNI">DNI</option>
+										<option value="CE">CARNET DE EXTRANJERIA</option>
+										<option value="PASS">PASAPORTE</option>
+									</select>
+									<div id="invalid-documento"></div>
+								</div>
+								<div class="form-control">
+									<label>N° de Documento</label>
+									<input id="n_documento" type="number" name="n_documento" />
+									<div id="invalid-n_documento"></div>
+								</div>
+							</div>
+							<div class="form-row">
+								<div class="form-control">
+									<label>Correo</label>
+									<input id="correo" type="email" name="correo" />
+									<div id="invalid-correo"></div>
+								</div>
+								<div class="form-control">
+									<label>Telefono</label>
+									<input id="tel" type="number" name="telefono" />
+									<div id="invalid-tel"></div>
+								</div>
+							</div>
+							
+							<div>
+								<label>Detalle del reclamo</label>
+								<textarea id="detalle" name="detalle" maxlength="300"></textarea>
+								<div id="invalid-detalle"></div>
+							</div>
+							<div>
+								<button id="btn" type="submit">Enviar</button>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
+		
 		<div class="footer-over">
 			<div class="footer">
 				<div class="container-card">
@@ -111,7 +131,7 @@
 	<script src="js/preload.js"></script>
 	<script src="js/particles/particles.min.js"></script>
 	<script src="js/particles/config-particle.js"></script>
+	<script src="js/validate.js"></script>
 	<script src="js/menu.js"></script>
-	<script src="js/divisa.js"></script>
 </body>
 </html>

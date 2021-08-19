@@ -260,7 +260,9 @@ function showBanco(banco){
 						<div class="bank_moneda">${moneda}</div>
 					</div>
 					<div class="bank_delete" id="btn-delete" data-id="${id_banco}">
-						<i class="fa fa-trash" aria-hidden="true"></i>
+						<span id="cupon"
+					   data-bs-toggle="tooltip" 
+					   title="Para eliminar una cuenta de banco por favor comuniquese con nosotros via chat para validar esta acción."><i class="fa fa-trash" aria-hidden="true"></i></span>
 					</div>
 	`;
 
@@ -272,23 +274,28 @@ function showBanco(banco){
 }
 
 async function checkAdmin(){
-	firebase
-		.auth()
-		.onAuthStateChanged((user) => {
-			if (!user) {
-			    return location.href = '../login';
-			}
-		})
+	return new Promise(resolve => {
+		firebase
+			.auth()
+			.onAuthStateChanged((user) => {
+				if (!user) {
+				    return location.href = '../login';
+				}
+			});
+	})
 }
 
 function checkServer(){
-	firebase
+
+	return new Promise(resolve => {
+		firebase
 		.auth()
 		.onAuthStateChanged(user => {
 
 			if(!user) return;
 
 			let key = user.uid;
+
 			fetch(`Admin/check_admin/${key}`)
 				.then(res => res.json())
 				.then(res => {
@@ -296,8 +303,9 @@ function checkServer(){
 						location.href = '../Login';
 					}
 				})	
-
-		})
+			})
+	}) 
+		
 }
 
 function load(){
@@ -395,12 +403,14 @@ async function openModalOperation(idOperacion){
 					    	
 					    </div>
 					    <div class="ticket_rigth">
-					    	<div>Envías:</div>
-					    	<div><span class="ticket_amount">${can_operacion}</div>
-					    	<div>Recibes:</div>
-					    	<div><span class="ticket_amount">${rec_operacion}</div>
-					    	<div>Estado:</div>
-					    	<div class="ticket_amount">${sta_operacion}</div>
+					    	<div class="border">
+					    		<div>Envías:</div>
+					    		<div><span class="ticket_amount">${can_operacion}</div>
+					    		<div>Recibes:</div>
+					    		<div><span class="ticket_amount">${rec_operacion}</div>
+					    		<div>Estado:</div>
+					    		<div class="ticket_amount">${sta_operacion}</div>
+					    	</div>
 					    </div>
 					  </div>`;
 

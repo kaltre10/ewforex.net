@@ -211,6 +211,8 @@ function consultarDatos(){
 		.auth()
 		.onAuthStateChanged(user => { 
 			if (user) {
+				if(!user.emailVerified) return location.href = "Verifique";
+
 				fetch(`Usuarios/usuario/${user.uid}`)
 					.then(res => res.json())
 					.then(res => {
@@ -223,7 +225,5 @@ function consultarDatos(){
 					})
 					// .catch( error => console.error( error ))
 			}
-
-			
 		});
 }

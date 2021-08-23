@@ -116,5 +116,4 @@ function send(values){
 				body: JSON.stringify(values)
 			})
 	})
-	
 }

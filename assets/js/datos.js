@@ -158,7 +158,6 @@ function showUsuario(usuario, email){
 							<div class="input-item">
 								<span><i class="fas fa-user"></i></span>
 								<span><input name="nom_user" autocomplete="off"/> <a href="" id="add"> Agregar</a></span>
-							
 							</div>
 		`;
 	}
@@ -196,7 +195,7 @@ function showUsuario(usuario, email){
 		$divTelefono.innerHTML = `
 							<div class="input-item">
 								<span><i class="fas fa-mobile-alt"></i></span>
-								<span><input name="tel_user" autocomplete="off"/> <a href="" id="add"> Agregar</a>
+								<span><input name="tel_user" type="text" autocomplete="off"/> <a href="" id="add"> Agregar</a>
 								</span>
 							</div>
 		`;

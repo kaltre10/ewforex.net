@@ -66,7 +66,8 @@ h5{
 	background-color: #e8e7fee8; /*#e4e3ff*/
 	color: #464287;
 	border-bottom: solid 2px #464287;
-	text-align: center;
+	text-align: left;
+    padding-left: 5px;
 }
 
 .input-item select, .doc input {
@@ -77,6 +78,8 @@ h5{
 
 .doc input {
 	width: 100px;
+	text-align: left;
+    padding-left: 5px;
 }
  
 .bank_header{

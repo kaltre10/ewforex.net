@@ -246,6 +246,7 @@ body{
 	justify-content: space-between;
 	gap: 80px;
 	padding: 40px 0;
+	/*margin-top: 150px;*/
 	/*background: rgb(30,24,97);
 	background: linear-gradient(0deg, rgba(30,24,97,1) 40%, rgba(19,15,64,1) 75%);*/
 }
@@ -254,7 +255,7 @@ body{
 	color: white;
 }
 
-.nosotros img{
+.nosotros .arrow{
 	width: 100px;
 }
 
@@ -279,7 +280,51 @@ body{
 
 /*MEDIAS QUERYS*/
 
-@media only screen and (max-width: 960px) {
+@media (max-width: 576px) {
+
+	.nav{
+		width: 100%;
+		position: fixed;
+		height: 60px;
+	}
+
+	.nav-items{
+		width: 200px;
+	}
+
+	.wrapper{
+		padding: 0px 10px;
+		padding-bottom: 100px;
+	}
+
+	.service{
+		gap: 10px;
+	}
+
+	.nosotros{
+		margin-top: 900px;
+		width: 100%;
+		gap: 0px;
+	}
+
+	.nosotros .arrow img{
+		width: 1rem;
+	}
+
+	.hero{
+		width: 100%;
+		margin-top: 60px;
+	}
+
+}
+
+@media (max-width: 576px) {
+	.nosotros{
+		margin-top: 500px;
+	}
+}
+
+@media (min-width: 992px) {
 
 	#particles-js{
 		min-height: 500px;
@@ -309,19 +354,12 @@ body{
 	}
 
 	.nosotros{
-		margin-top: 150px;
+		margin-top: 380px;
 	}
-
 }
 
-@media screen and (max-width: 680px) {
-
+@media (max-width: 1200px) {
 	.nosotros{
-		margin-top: 450px;
+		margin-top: 150px;
 	}
-
-	.hero{
-		width: 500px;
-	}
-
 }

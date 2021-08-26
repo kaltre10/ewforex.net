@@ -78,6 +78,8 @@
 
 }
 
-@media only screen and (max-width: 840px) {
-
+@media (max-width: 576px) {
+	.container-card {
+		gap: 10px;
+	}
 }

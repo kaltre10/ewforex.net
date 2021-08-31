@@ -1,6 +1,6 @@
 <?php
 
-class codigo_model extends CI_Model {
+class Codigo_model extends CI_Model {
 
 	public function addCodigo($datos)
 	{

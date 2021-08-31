@@ -1,6 +1,6 @@
 <?php
 
-class divisas_model extends CI_Model {
+class Divisas_model extends CI_Model {
 
 	public function getDivisas()
 	{

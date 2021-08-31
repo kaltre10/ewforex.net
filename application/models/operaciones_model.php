@@ -1,6 +1,6 @@
 <?php
 
-class operaciones_model extends CI_Model {
+class Operaciones_model extends CI_Model {
 
 	// public function getOperaciones()
 	// {

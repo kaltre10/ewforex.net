@@ -1,6 +1,6 @@
 <?php
 
-class bancos_model extends CI_Model {
+class Bancos_model extends CI_Model {
 
 	public function getBancosAdmin()
 	{

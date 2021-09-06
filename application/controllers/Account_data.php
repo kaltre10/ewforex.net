@@ -9,7 +9,7 @@ class Account_data extends CI_Controller {
 			'nav' => $this->load->view('user/nav', "", true)
 		);
 		
-		$this->load->view('user/account_data', $data);
+		$this->load->view('user/Account_data', $data);
 	}
 
 }

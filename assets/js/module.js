@@ -398,7 +398,7 @@ async function openModalOperation(idOperacion){
 					    	<div class="ticket_items"><span class="fw-bold">Cotizacion:</span> ${cot_operacion}</div>
 					    	<div class="ticket_items"><span class="fw-bold">Codigo:</span> ${codigo_usuario}</div>
 					    	<div class="ticket_items"><span class="fw-bold">Recibes en:</span> ${nom_banco} - ${n_banco} - ${tip_banco} - ${mon_banco}</div>
-					    	<div class="ticket_items"><span class="fw-bold">Al Banco:</span> ${bancoAdmin[0].nom_banco} - ${bancoAdmin[0].n_banco} - ${tip_bancoAdmin} - ${mon_bancoAdmin}</div>
+					    	<div class="ticket_items"><span class="fw-bold">Transferiste a:</span> ${bancoAdmin[0].nom_banco} - ${bancoAdmin[0].n_banco} - ${tip_bancoAdmin} - ${mon_bancoAdmin}</div>
 					    	<div class="ticket_items"><span class="fw-bold">N° Operacion:</span> ${n_operacion}</div>
 					    	
 					    </div>

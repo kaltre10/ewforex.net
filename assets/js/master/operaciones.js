@@ -14,8 +14,8 @@ let $btn = document.querySelector('.btn');
 let fecha = new Date();
 let mes = ((fecha.getMonth() + 1) < 10) ? "0" + (fecha.getMonth() + 1) : fecha.getMonth() + 1;
 
-document.getElementById('desde').value = fecha.getFullYear() + '-' + mes + "-" + fecha.getDate();
-document.getElementById('hasta').value = fecha.getFullYear() + '-' + mes + "-" + fecha.getDate();
+// document.getElementById('desde').value = mes + "/" + fecha.getDate() + "/" + fecha.getFullYear();
+// document.getElementById('hasta').value = fecha.getFullYear() + '/' + mes + "/" + fecha.getDate();
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -253,7 +253,7 @@ function accion(e){
 		
 	swal({
 		  title: "Asignar estado?",
-		  text: "confime que desea asignar el estado para esta operacion!",
+		  text: "confirme que desea asignar el estado para esta operacion!",
 		  icon: "warning",
 		  buttons: true,
 		  dangerMode: true,

@@ -276,6 +276,10 @@ select{
 	padding: 10px 20px;
 }
 
+.form-help{
+	cursor: pointer;
+}
+
 .btc-exchange{
 	text-align: center;
 	font-size: 30px;

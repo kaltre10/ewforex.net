@@ -1,4 +1,5 @@
 async function addBank(){
+
 	event.preventDefault();
 
 	const { value: formValues } = await Swal.fire({
@@ -64,7 +65,7 @@ async function addBank(){
 	  		tipo.addEventListener('change', () => tipo.classList.remove('swal2-inputerror'));
 	  		moneda.addEventListener('change', () => moneda.classList.remove('swal2-inputerror'));
 	  		  
-	  		Swal.showValidationMessage('Todos los campos son obligatorios');
+	  		Swal.showValidationMessage();
 	  		
 	  	}else{
 

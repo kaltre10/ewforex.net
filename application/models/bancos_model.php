@@ -26,9 +26,9 @@ class Bancos_model extends CI_Model {
 	}
 
 
-	// public function deleteBanco($id)
-	// {
-	// 	$this->db->delete('bancos', array('id_banco' => $id));
-	// }
+	public function deleteBanco($id)
+	{
+		$this->db->delete('bancos', array('id_banco' => $id));
+	}
 
 }

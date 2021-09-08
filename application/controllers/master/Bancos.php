@@ -42,7 +42,8 @@ class Bancos extends CI_Controller {
 			'nom_banco' => $array[3],
 			'n_banco' => $array[7],
 			'tip_banco' => $array[11],
-			'mon_banco' => $array[15]
+			'mon_banco' => $array[15],
+			'use_banco' => $array[19]
 		);
 		// echo json_encode($array);
 		$this->bancos_model->addBanco($datos);

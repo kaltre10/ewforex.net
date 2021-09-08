@@ -166,7 +166,7 @@ function enviandoFormulario(){
 	};
 
 	if(obj.banco.trim() === '' || obj.cuenta.trim() === '' || obj.moneda.trim() === '' || obj.numero.trim() === '') {
-		const nodo = document.querySelector('.banco-row');
+		const nodo = document.querySelector('.container-bancos');
 		return alert('Todos los campos son obligatorio', 'danger', nodo);
 	}
 
@@ -193,19 +193,30 @@ function enviandoFormulario(){
 }
 
 function addBanco(obj){
-	fetch('Bancos/addBanco', {
-		method: "POST",
-		headers: {
-				'Content-Type': 'application/json'
-			},
-		body: JSON.stringify(obj)
-	})
-	.then(res => getBancos())
-	// .then(res => res.json())
-	.then(res => {
-		document.getElementById('swal-input1').selectedIndex = 0;
-		document.getElementById('swal-input2').value = '';
-		document.getElementById('swal-input3').selectedIndex = 0;
-		document.getElementById('swal-input4').selectedIndex = 0;
-	})
+
+	firebase
+		.auth()
+		.onAuthStateChanged((user) => {
+
+			let uid = user.uid;
+			obj = { ...obj, uid };
+
+			fetch('Bancos/addBanco', {
+				method: "POST",
+				headers: {
+						'Content-Type': 'application/json'
+					},
+				body: JSON.stringify(obj)
+			})
+			// .then(res => res.json())
+			// .then(res => console.log(res))
+			.then(res => getBancos())
+			.then(res => res.json())
+			.then(res => {
+				document.getElementById('swal-input1').selectedIndex = 0;
+				document.getElementById('swal-input2').value = '';
+				document.getElementById('swal-input3').selectedIndex = 0;
+				document.getElementById('swal-input4').selectedIndex = 0;
+			})
+	});
 }

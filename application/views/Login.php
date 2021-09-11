@@ -32,7 +32,7 @@
 					<form id="form">
 					<div id="correo">
 						<label>Correo</label>
-						<input id="email" type="mail" name="correo" autocomplete="off" autofocus>
+						<input id="email" type="mail" name="correo" autofocus autocomplete="off">
 					</div>
 					<div id="password">
 						<label>Contraseña</label>

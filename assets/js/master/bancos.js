@@ -188,6 +188,7 @@ function enviandoFormulario(){
 	      'Banco registrado correctamente.',
 	      'success'
 	    )
+	    document.querySelector('form').reset();
 	  }
 	})
 }

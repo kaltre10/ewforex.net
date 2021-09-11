@@ -44,6 +44,7 @@
 	padding: .5rem;
 	border-radius: 5px;
 	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+	background-color: white;
 }
 
 .fecha-row .btn {
@@ -78,7 +79,16 @@
 @media (max-width: 828px) {
 
 	.fecha-row{
-		margin: 20px;
+		margin: 0 auto;
+		width: 200px;
+	}
+
+	.col-auto {
+		width: 100%;
+	}
+	
+	.fecha-row .btn {
+		width: 100%;
 	}
 
 	.operacion{

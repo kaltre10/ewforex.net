@@ -142,7 +142,7 @@ function showUsuario(usuario, email){
 	$divEmail.innerHTML = `
 						<div class="input-item">
 							<span><i class="fas fa-envelope-open"></i></span>
-							<span> ${email}</span>
+							<span> ${email} <span>
 						</div>
 	`;
 

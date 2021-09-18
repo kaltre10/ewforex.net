@@ -5,14 +5,11 @@ let $btn = document.querySelector('.btn');
 let $pre = document.querySelector('.codigos');
 
 document.addEventListener('DOMContentLoaded', () => {
-	checkServer();
-	getCodigos();
-	checkAdmin();
+	verificarPermisos();
 });
 
 window.addEventListener('load', () => {
 
-	preLoad();
 	close.addEventListener('click', closeSession);
 
 	document.addEventListener('click', e => {
@@ -30,6 +27,9 @@ window.addEventListener('load', () => {
 		enviandoFormulario();
 	});
 
+	getCodigos()
+		.then(() => preLoad('container-codigos'))
+	
 });
 
 function deletecodigo(e){
@@ -109,6 +109,7 @@ async function getCodigos(){
 		removeLoad();
 		showCodigos(obj);
 	})
+	// .then(() => preLoad('container-codigos'))
 	.catch(error => console.log(error))
 	
 }
@@ -200,4 +201,25 @@ function addCodigo(obj){
 		document.getElementById('cotizacion').value = '';
 		document.getElementById('tipo').selectedIndex = 0;
  	})
+}
+
+function verificarPermisos(){
+	checkServer();
+	// let query = await checkServer();
+	// let server = await query.json();
+	// let user = await checkAdmin;
+
+	// server()
+
+
+
+	// .then(res => res.json())
+				// .then(res => {
+				// 	if(!res) {
+				// 		location.href = '../Login';
+				// 	}
+				// })	
+
+	// server()
+	// 	.then(() => user())
 }

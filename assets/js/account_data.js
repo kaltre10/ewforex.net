@@ -23,7 +23,7 @@ let objOperacion = getLocal();
 window.addEventListener('load', () => {
 
 	//preload pagina
-	preLoad();
+	// preLoad('container-home');
 
 	//preload para el precio
 	load();
@@ -39,44 +39,44 @@ window.addEventListener('load', () => {
 	});
 
 	consultaPrecio();
-	getBancos();
 	getBancosAdmin();
+	getBancos();
 
 })
 
 function getBancos(){
 
 	firebase.auth().onAuthStateChanged(user => {
-		fetch('Bancos')
-		.then(res => res.json())
-		.then(bancos => {
-			let id = user.uid;
-			const arrayBanco = bancos.filter(banco => banco.use_banco == id );
+			fetch('Bancos')
+				.then(res => res.json())
+				.then(bancos => {
+					let id = user.uid;
+					const arrayBanco = bancos.filter(banco => banco.use_banco == id );
 
-			let bancosUser = [];
-			if(objOperacion['tipo'] == 'COMPRA'){
-				bancosUser = arrayBanco.filter( b => b.mon_banco == 0 );
-			}else{
-				bancosUser = arrayBanco.filter( b => b.mon_banco == 1 );
-			}
+					let bancosUser = [];
+					if(objOperacion['tipo'] == 'COMPRA'){
+						bancosUser = arrayBanco.filter( b => b.mon_banco == 0 );
+					}else{
+						bancosUser = arrayBanco.filter( b => b.mon_banco == 1 );
+					}
 
-			//seleccionamos el selec
-			const $select = document.getElementById('bank_user');
-			$select.innerHTML = '<option value=""> - Seleccione - </option>';
-			bancosUser.forEach( banco => {
-				let {id_banco, nom_banco, n_banco, tip_banco, mon_banco} = banco;
+					//seleccionamos el selec
+					const $select = document.getElementById('bank_user');
+					$select.innerHTML = '<option value=""> - Seleccione - </option>';
+					bancosUser.forEach( banco => {
+						let {id_banco, nom_banco, n_banco, tip_banco, mon_banco} = banco;
 
-				(mon_banco == 0) ? mon_banco = 'Soles' : mon_banco = 'Dólares';
-				(tip_banco == 0) ? tip_banco = 'Ahorro' : tip_banco = 'Corriente';
+						(mon_banco == 0) ? mon_banco = 'Soles' : mon_banco = 'Dólares';
+						(tip_banco == 0) ? tip_banco = 'Ahorro' : tip_banco = 'Corriente';
 
-				$select.innerHTML += `<option value="${banco.id_banco}">
-										${nom_banco} - 
-										${n_banco} - 
-										${tip_banco} -
-										${mon_banco}
-									 </option>`
-			});
-		})
+						$select.innerHTML += `<option value="${banco.id_banco}">
+												${nom_banco} - 
+												${n_banco} - 
+												${tip_banco} -
+												${mon_banco}
+											 </option>`
+					});
+			})
 	});
 
 }
@@ -231,4 +231,5 @@ function getBancosAdmin(){
 							</optio>`;
 			})
 		})
+		.then(() => preLoad('container-home'))
 }

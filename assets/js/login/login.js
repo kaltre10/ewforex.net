@@ -6,7 +6,7 @@ let $password = document.getElementById('pas');
 
 window.addEventListener('load', () => {
 
-	preLoad();
+	preLoad('login-container');
 
 	$form.addEventListener('click', e => {
 		e.preventDefault();

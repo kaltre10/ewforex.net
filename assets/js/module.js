@@ -10,7 +10,7 @@ async function addBank(){
 			<select id="swal-input1" class="swal2-input">
 				<option value=""> - Seleccione - </option>
 				<option value="BCP">(BCP) - Banco de Crédito del Perú</option>
-				<option value="INTERBANCK">(Interbank) - Banco Internacional del Perú</option>
+				<option value="INTERBANK">(Interbank) - Banco Internacional del Perú</option>
 				<option value="BBVA">(BBVA) - BBVA Continental</option>
 				<option value="BANBIF">(BanBif) - BanBif</option>
 				<option value="SCOTIABANK">(Scotiabank) - Scotiabank</option>
@@ -170,9 +170,9 @@ function getKey() {
 	return key;
 }
 
-function preLoad(){
+function preLoad(nodeNone){
 	let $pre = document.querySelector('.pre-loader');
-	let $container = document.querySelector('.login-container');
+	let $container = document.querySelector(`.${nodeNone}`);
 	$pre.remove();
 	if ($container) $container.style.display = 'grid';	
 }
@@ -274,7 +274,7 @@ function showBanco(banco){
 
 }
 
-async function checkAdmin(){
+function checkAdmin(){
 	return new Promise(resolve => {
 		firebase
 			.auth()
@@ -288,28 +288,39 @@ async function checkAdmin(){
 
 function checkServer(){
 
-	return new Promise(resolve => {
-		firebase
-		.auth()
+	firebase.auth()
 		.onAuthStateChanged(user => {
 
 			if(!user) return;
 
+
 			let key = user.uid;
 
-			fetch(`Admin/check_admin/${key}`)
-				.then(res => res.json())
-				.then(res => {
-					if(!res) {
-						location.href = '../Login';
-					}
-				})	
-			})
-	}) 
+			async () => {
+				let query = await fetch(`Admin/check_admin/${key}`);
+				let server = await query.json();
+
+				server()
+					.then(() => {
+						if(!res) {
+							location.href = '../Login';
+						}
+					})
+
+			}
+				// .then(res => res.json())
+				// .then(res => {
+				// 	if(!res) {
+				// 		location.href = '../Login';
+				// 	}
+				// })	
 		
+	}) 		
 }
 
+
 function load(){
+
 	//preload para los precios
 	let $compra = document.getElementById('compra');
 	let $venta = document.getElementById('venta');

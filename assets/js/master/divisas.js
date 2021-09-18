@@ -5,13 +5,12 @@ let $pre = document.querySelector('.codigos');
 
 document.addEventListener('DOMContentLoaded', () => { 
 	checkServer();
-	getDivisas();
 	checkAdmin();
+	
 });
 
 window.addEventListener('load', () => {
 
-	preLoad();
 	close.addEventListener('click', closeSession);
 
 	document.addEventListener('click', e => {
@@ -23,6 +22,8 @@ window.addEventListener('load', () => {
 		e.preventDefault();
 		enviandoFormulario();
 	});
+
+	getDivisas();
 
 });
 
@@ -39,12 +40,13 @@ function setDivisas(cotizacion){
 
 async function getDivisas(){
 
-	fetch(`Divisas/getDivisas`)
+	await fetch(`Divisas/getDivisas`)
 	.then(res => res.json())
 	.then(divisa => {
 		let obj = JSON.parse(divisa);
 		showDivisa(obj);
 	})
+	.then(() => preLoad('container-divisas'))
 	.catch(error => console.log(error))
 }
 

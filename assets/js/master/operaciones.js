@@ -21,13 +21,10 @@ let mes = ((fecha.getMonth() + 1) < 10) ? "0" + (fecha.getMonth() + 1) : fecha.g
 document.addEventListener('DOMContentLoaded', () => {
 	checkServer();
 	checkAdmin();
-	preLoad()
 });
 
 window.addEventListener('load', () => {
 				close.addEventListener('click', closeSession);
-
-				getOperaciones();
 
 				$btn.addEventListener('click', e => {
 					e.preventDefault();
@@ -50,6 +47,7 @@ window.addEventListener('load', () => {
 					}
 
 				});
+				getOperaciones();
 });
 
 async function getOperaciones() {
@@ -75,6 +73,7 @@ async function getOperaciones() {
 								removeLoad();
 								showOperacion(obj);
 				})
+				.then(() => preLoad('container-operaciones'))
 				.catch(error => console.log('error'))
 
 }

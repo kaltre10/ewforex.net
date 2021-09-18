@@ -18,8 +18,6 @@ document.addEventListener("DOMContentLoaded", () => { getUser() });
 let storage = getLocal(); //obtenemos datos de local storage
 
 window.addEventListener('load', () =>{
-
-	preLoad();
 	
 	$btn.addEventListener('click', enviando);
 	
@@ -47,7 +45,8 @@ window.addEventListener('load', () =>{
 			objOperacion = { ...objOperacion, obj }
 			showData();
 		})
-	});
+	})
+	.then(() => preLoad('container-home'));
 
 })
 

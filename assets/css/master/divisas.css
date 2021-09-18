@@ -1,6 +1,6 @@
 .container-divisas{
 	width: 100%;
-	display: grid;
+	display: none;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 100px auto auto;
 	grid-template-areas: "nav nav"

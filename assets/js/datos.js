@@ -6,7 +6,6 @@ let contentBanck = document.querySelectorAll('.form-card');
 
 window.addEventListener('load', () => {
 
-	preLoad();
 	let close = document.getElementById('close');
 	let btn = document.getElementById('btn');
 
@@ -28,8 +27,10 @@ window.addEventListener('load', () => {
 	contentBanck[0].style.justifyContent = 'center';
 	contentBanck[0].style.alignContent = 'center';
 
-	getData()
-	getBancos();
+	getData();
+
+	getBancos()
+
 
 	// contentBanck[1].addEventListener('click', e => {
 	// 	deleteBank(e);
@@ -114,12 +115,12 @@ function getData(){
 
 			})
 		})
+		.then(() => preLoad('container-datos'))
 		.catch(error => {
-			console.log('error')
+			console.error( new Error(error))
 		})
 
 	});
-
 }
 
 function showUsuario(usuario, email){ 

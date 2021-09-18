@@ -27,8 +27,6 @@ let datosPersonales = [];
 
 window.addEventListener('load', async () => {
 
-	preLoad();
-
 	//preload para el precio
 	load();
 
@@ -54,7 +52,7 @@ window.addEventListener('load', async () => {
 	exchangeButton();
 
 	//verificar si hay datos personales completos
-	consultarDatos();
+	consultarDatos()
 
 });
 
@@ -223,6 +221,7 @@ function consultarDatos(){
 							datosPersonales[0] = true;
 						}
 					})
+					.then(() => preLoad('container-home'))
 					// .catch( error => console.error( error ))
 			}
 		});

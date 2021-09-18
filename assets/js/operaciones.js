@@ -16,11 +16,9 @@ document.addEventListener('DOMContentLoaded', () => getUser());
 
 window.addEventListener('load', () => {
 
-
-	preLoad();
+	getOperaciones();	
+	
 	close.addEventListener('click', closeSession);
-
-	getOperaciones();
 
 	$btn.addEventListener('click', e => {
 		e.preventDefault();
@@ -38,8 +36,7 @@ window.addEventListener('load', () => {
 		}
 	});
 
-	
-
+	preLoad('container-operaciones');
 });
 
 async function getOperaciones(){

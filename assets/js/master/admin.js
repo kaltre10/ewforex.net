@@ -17,13 +17,6 @@ window.addEventListener('load', () => {
 		closeWindow(e);	
 	});
 
-	const users = getUsers();
-
-	users.then(res => {
-		showUsers(res);	
-	})
-	
-
 	close.addEventListener('click', e => {
 		e.preventDefault();
 		firebase.auth().signOut()
@@ -32,7 +25,12 @@ window.addEventListener('load', () => {
 			});
 	});
 
-	preLoad();
+	// preLoad();
+	const users = getUsers();
+	users
+		.then(res => showUsers(res))
+		.then(() => preLoad('container-home'))
+	
 
 });
 

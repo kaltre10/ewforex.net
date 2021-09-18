@@ -5,13 +5,11 @@ let $pre = document.querySelector('.bancos');
 
 document.addEventListener('DOMContentLoaded', () => {
 	checkServer();
-	getBancos();
 	checkAdmin();
 });
 
 window.addEventListener('load', () => {
 
-	preLoad();
 	close.addEventListener('click', closeSession);
 
 	document.addEventListener('click', e => {
@@ -29,6 +27,8 @@ window.addEventListener('load', () => {
 		enviandoFormulario();
 	});
 
+
+	getBancos();
 });
 
 function deleteBanco(e){
@@ -108,6 +108,7 @@ async function getBancos(){
 		removeLoad();
 		showBancos(obj);
 	})
+	.then(() => preLoad('container-bancos'))
 	.catch(error => console.log(error))
 	
 }

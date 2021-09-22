@@ -32,9 +32,9 @@ window.addEventListener('load', () => {
 	getBancos()
 
 
-	// contentBanck[1].addEventListener('click', e => {
-	// 	deleteBank(e);
-	// });
+	contentBanck[1].addEventListener('click', e => {
+		deleteBank(e);
+	});
 
 	contentBanck[0].addEventListener('click', e => {
 		addData(e);
@@ -46,9 +46,9 @@ window.addEventListener('load', () => {
 })
 
 function deleteBank(e){
-	let nodo = e.target.parentNode.className;
-	let id = e.target.parentNode.getAttribute('data-id');
-	
+	let nodo = e.target.parentNode.parentNode.className;
+	let id = e.target.parentNode.parentNode.getAttribute('data-id');
+
 	if(nodo == 'bank_delete'){
 		Swal.fire({
 		  scrollbarPadding: false,
@@ -106,12 +106,11 @@ function getData(){
 			if(usuario.length == 0) return contentBanck[0].innerHTML = 'No hay datos';
 
 			usuario.forEach(elemento => {
+				//eliminamos las propiedasdes para centrar 
+				contentBanck[0].style.justifyContent = '';
+				contentBanck[0].style.alignContent = '';
 
-			//eliminamos las propiedasdes para centrar 
-			contentBanck[0].style.justifyContent = '';
-			contentBanck[0].style.alignContent = '';
-
-			showUsuario(elemento, user.email);
+				showUsuario(elemento, user.email);
 
 			})
 		})

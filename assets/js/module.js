@@ -9,19 +9,19 @@ async function addBank(){
 	    `<label>Seleccione banco:</label>
 			<select id="swal-input1" class="swal2-input">
 				<option value=""> - Seleccione - </option>
-				<option value="BCP">(BCP) - Banco de Crédito del Perú</option>
-				<option value="INTERBANK">(Interbank) - Banco Internacional del Perú</option>
-				<option value="BBVA">(BBVA) - BBVA Continental</option>
-				<option value="BANBIF">(BanBif) - BanBif</option>
-				<option value="SCOTIABANK">(Scotiabank) - Scotiabank</option>
-				<option value="FALABELLA">(Falabella) - Banco Falabella</option>
-				<option value="FINANCIERO">(Financiero) - Banco Financiero</option>
-				<option value="BANCOMERCIO">(Bancomercio) - Banco de Comercio</option>
-				<option value="CITIBANK">(Citibank) - Citibank Perú</option>
-				<option value="MIBANCO">(Mibanco) - Mi Banco</option>
-				<option value="GNB">(GNB) - Banco GNB</option>
-				<option value="RIPLEY">(Ripley) - Banco Ripley</option>
-				<option value="NACION">(Nacion) - Banco de la Nación</option>
+				<option value="bcp">(BCP) - Banco de Crédito del Perú</option>
+				<option value="interbank">(Interbank) - Banco Internacional del Perú</option>
+				<option value="bbva">(BBVA) - BBVA Continental</option>
+				<option value="banbif">(BanBif) - BanBif</option>
+				<option value="scotiabank">(Scotiabank) - Scotiabank</option>
+				<option value="falabela">(Falabella) - Banco Falabella</option>
+				<option value="financiero">(Financiero) - Banco Financiero</option>
+				<option value="bancomercio">(Bancomercio) - Banco de Comercio</option>
+				<option value="citibank">(Citibank) - Citibank Perú</option>
+				<option value="mibanco">(Mibanco) - Mi Banco</option>
+				<option value="gnu">(GNB) - Banco GNB</option>
+				<option value="ripley">(Ripley) - Banco Ripley</option>
+				<option value="nacion">(Nacion) - Banco de la Nación</option>
 			</select>` +
 	    `<label>Ingrese número de cuenta:</label>
 		 <input id="swal-input2" type="text" class="swal2-input" placeholder="N° de cuenta">
@@ -263,7 +263,7 @@ function showBanco(banco){
 					<div class="bank_delete" id="btn-delete" data-id="${id_banco}">
 						<span id="cupon"
 					   data-bs-toggle="tooltip" 
-					   title="Para eliminar una cuenta de banco por favor comuniquese con nosotros via chat para validar esta acción."><i class="fa fa-trash" aria-hidden="true"></i></span>
+					   title="Eliminar Banco"><i class="fa fa-trash" aria-hidden="true"></i></span>
 					</div>
 	`;
 

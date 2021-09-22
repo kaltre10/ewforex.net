@@ -10,7 +10,10 @@ class Bancos_model extends CI_Model {
 
 	public function getbancos()
 	{
-		$bancos = $this->db->get('bancos');
+		// $bancos = $this->db->get('bancos');
+		$bancos = $this->db->select('*')->from('bancos')
+						                ->where('sta_banco !=', 1)
+										->get();
 		return json_encode($bancos->result());
 	}
 
@@ -25,10 +28,13 @@ class Bancos_model extends CI_Model {
 		return json_encode($banco->result());
 	}
 
-
 	public function deleteBanco($id)
 	{
-		$this->db->delete('bancos', array('id_banco' => $id));
+		//$this->db->delete('bancos', array('id_banco' => $id));
+		$this->db->set('sta_banco', 1, FALSE);
+		$this->db->where('id_banco', $id);
+		$this->db->update('bancos');
+
 	}
 
 }

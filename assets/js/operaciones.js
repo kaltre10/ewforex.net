@@ -86,7 +86,6 @@ function showOperacion(objOperacion, idUser){
 	operacionesUser.forEach(element => {
 
 		let { id_operaciones, can_operacion, cot_operacion, rec_operacion, sta_operacion, fec_operacion } = element;
-
 		//configurar estado de la operacion
 		if(sta_operacion == 0){
 			sta_operacion = "<span class='badge bg-info text-dark'>En Proceso</span>";
@@ -101,21 +100,22 @@ function showOperacion(objOperacion, idUser){
 		let divOperacion = document.createElement('div');
 		divOperacion.classList.add('operacion');
 		divOperacion.innerHTML = `
-							  <div class="operacion-col fw-bolder cantidad">Envías</div>
-							  <div class="operacion-col fw-bolder cotizacion">Cotizacion</div>
-							  <div class="operacion-col fw-bolder recibe">Recibes</div>
-							  <div class="operacion-col fw-bolder status">Estado</div>
-							  <div class="operacion-col fw-bolder fecha">Fecha</div>
-							  <div class="operacion-col icono" data-id="${id_operaciones}">
-					   		  <i data-bs-toggle="tooltip" 
-					   			 title="Click para ver los detalles de la operacion." class="fas fa-clipboard-list"></i>
-							  </div>
-							  <div class="operacion-col can">${can_operacion}</div>
-							  <div class="operacion-col cot">${cot_operacion}</div>
-							  <div class="operacion-col rec">${rec_operacion}</div>
-							  <div class="operacion-col sta d-flex align-items-start">${sta_operacion}</div>
-							  <div class="operacion-col fec">${fec_operacion}</div>`;
+		  <div class="operacion-col fw-bolder cantidad">Envías</div>
+		  <div class="operacion-col fw-bolder cotizacion">Cotizacion</div>
+		  <div class="operacion-col fw-bolder recibe">Recibes</div>
+		  <div class="operacion-col fw-bolder status">Estado</div>
+		  <div class="operacion-col fw-bolder fecha">Fecha</div>
+		  <div class="operacion-col fw-bolder detalle">Detalle</div>
 
+		  <div class="operacion-col can">${can_operacion}</div>
+		  <div class="operacion-col cot">${cot_operacion}</div>
+		  <div class="operacion-col rec">${rec_operacion}</div>
+		  <div class="operacion-col sta d-flex align-items-start">${sta_operacion}</div>
+		  <div class="operacion-col fec">${fec_operacion}</div>
+		  <div class="operacion-col icono det" data-id="${id_operaciones}">
+   		  <i data-bs-toggle="tooltip" 
+   			 title="Click para ver los detalles de la operacion." class="fas fa-clipboard-list"></i>
+		  </div>`;
 		fragment.appendChild(divOperacion);
 	});
 

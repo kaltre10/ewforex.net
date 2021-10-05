@@ -147,7 +147,7 @@ async function enviando(){
 		let obj = { ...objOperacion, 
 			'envias': `${$envias.value} ${$enviasText.textContent}`, 
 			'recibes': `${$recibes.value} ${$recibesText.textContent}`,
-			'codigo_usuario': numCodigo
+			'codigo_usuario': numCodigo, 
 		};
 
 		addLocal(obj);

@@ -35,28 +35,28 @@
 						<span>Venta <strong id="venta"></strong></span>
 					</div>	
 				</div>
-				<div class="input mt-3 mb-1">
+				<div class="cotizacion input mt-3 mb-1">
 					<strong>Cotizacion: </strong><span id="cotizacion"></span>
 				</div>
-				<div class="input mb-1">
+				<div class="envias input mb-1">
 					<strong>Envias: </strong><span id="envias"></span>
 				</div>
-				<div class="input mb-1">
+				<div class="recibes input mb-1">
 					<strong>Recibes: </strong><span id="recibes"></span>
 				</div>
-				<div class="input mb-1">
-					<strong>Recibes en: </strong><span id="bank_user"></span>
+				<div class="input mb-1 bank_user_area">
+					<strong class="mb-1">Recibes en: </strong><span class="bank_user bank"></span>
 				</div>
-				<div class="input mb-1">
-					<strong>A: </strong><span id="bank_admin"></span>
+				<div class="input mb-1 bank_admin_area">
+					<strong class="mb-1">Transferiste a: </strong><span class="bank_admin bank"></span>
 				</div>
-				<div class="input mb-1">
+				<div class="input mb-1 n_operacion">
 					<strong>N° operación: </strong><span id="n_operacion"></span>
 				</div>
-				<div class="input mb-1">
+				<div class="input mb-1 codigo">
 					<strong>Codigo: </strong><span id="codigo"></span>
 				</div>
-				<div class="input mb-1">
+				<div class="input mb-1 btn">
 					<button id="btn" class="btn-form">Completar y finalizar <i class="fas fa-arrow-right"></i></button>
 				</div>
 				<div class="input form-help">

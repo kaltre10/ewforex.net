@@ -191,11 +191,32 @@ body{
 .form-card{
 	background-color: white;
 	display: grid;
-	min-height: 400px;
+	min-width: 400px;
 	border-radius: 5px;
 	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
 	width: 100%;
 	max-width: 400px;
+	grid-template-areas: "form-title form-title"
+						 "cotizacion cotizacion"
+						 "envias envias"
+						 "recibes recibes"
+						 "bank_admin_area bank_admin_area"
+						 "bank_user_area bank_user_area"
+						 "n_operacion codigo"
+						 "btn btn"
+						 "form-help form-help";
+}
+
+.card-column{
+	display: flex;
+	flex-direction: column;
+}
+
+.bank_admin_area{
+	position: relative;
+}
+.bank_admin_area{
+	position: relative;
 }
 
 .form-card h1{
@@ -204,6 +225,7 @@ body{
 }
 
 .form-title{
+	grid-area: form-title;
 	padding: 15px;
 	background-color: rgba(18, 14, 90, 0.85);
 	color: #fff;
@@ -228,9 +250,13 @@ body{
 	padding: 0 20px;
 }
 
- .input{
+.input{
  	padding-bottom: 20px;
- }
+}
+
+.bank{
+	margin: 10px auto !important;
+}
 
 .btc-exchange{
 	transition-duration: 1s !important;
@@ -282,6 +308,7 @@ select{
 
 .form-help{
 	cursor: pointer;
+	grid-area: form-help;
 }
 
 .btc-exchange{
@@ -305,6 +332,13 @@ select{
 .form-detail{
 	text-align: center;
 }
+
+.cotizacion{grid-area: cotizacion}
+.envias{
+	grid-area: envias;
+	align-self: self-end;
+}
+.recibes{grid-area: recibes}
 
 @keyframes alert {
   0% {opacity: 0}
@@ -394,6 +428,180 @@ select{
 
 .tooltip-inner{
 	text-align: left !important;
+}
+
+#bank_admin, #bank_user{
+	border: 1px solid #f4f7ff;
+    box-shadow: 4px 4px 1px rgb(0 0 0 / 10%);
+    outline: none;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 6px 0px;
+    width: 100%;
+    color: #120e5a;
+    background-color: #f4f7ff;
+    text-align: center;
+    cursor: pointer;
+}
+
+#bank_admin:hover, #bank_user:hover {
+	border: 1px solid #120e5a;
+}
+
+.bank_admin, .bank_user{
+	display: grid;
+	margin: 15px;
+	padding: 10px;
+	box-shadow: 0 0 6px 1px rgb(145 150 163 / 50%);
+	border-radius: 10px;
+	width: 250px;
+	grid-template-rows: 25% 25% 25% 25%;
+	grid-auto-columns: 30% 1fr 10%;
+	grid-template-areas: "bank_logo bank_description"
+						 "bank_logo bank_title"
+						 "bank_logo bank_doc"
+						 "bank_logo bank_n"
+						 "bank_footer bank_footer";
+	color: #636e72;
+	justify-content: start;
+	height: 100px;
+	cursor: pointer;
+	border: 1px solid transparent;
+}
+
+.bank_admin_area{grid-area: bank_admin_area}
+.bank_user_area{grid-area: bank_user_area}
+.n_operacion{grid-area: n_operacion}
+.codigo{grid-area: codigo}
+.btn{grid-area: btn}
+
+.container-card {
+    width: 100%;
+    padding: 8px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100%;
+    align-content: flex-start;
+    border: 2px solid #120e5a33;
+}
+
+.bank_card{
+	display: grid;
+	margin: 15px;
+	padding: 10px;
+	box-shadow: 0 0 6px 1px rgb(145 150 163 / 50%);
+	border-radius: 10px;
+	width: 250px;
+	grid-template-rows: 25% 25% 25% 25%;
+	grid-auto-columns: 30% 1fr 10%;
+	grid-template-areas: "bank_logo bank_description"
+						 "bank_logo bank_title"
+						 "bank_logo bank_doc"
+						 "bank_logo bank_n"
+						 "bank_footer bank_footer";
+	color: #636e72;
+	justify-content: start;
+	height: 100px;
+	cursor: pointer;
+	border: 1px solid transparent;
+}
+
+.bank_card:hover {
+	border: 1px solid #120e5a;
+}
+
+#bank_admin .bank_select, #bank_user .bank_select{
+	display: grid;
+	grid-template-areas: "bank_logo bank_description bank_title"
+						 "bank_logo bank_n bank_title"
+						 "bank_logo bank_n bank_doc"
+						 "bank_logo bank_footer bank_doc";
+	font-size: 12px;
+	margin-top: -5px;
+    margin-bottom: -5px;
+    justify-content: space-evenly;
+}
+
+.divModal{
+	position: fixed;
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	background: rgba(0,0,0,.4);
+	top: 0px;
+	transition: background-color .1s;
+	justify-content: center;
+}
+
+.popup {
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    width: 32em;
+    max-width: 100%;
+    padding: 1.25em;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: .3s ease-;
+    align-self: center;
+    align-items: center;
+}
+
+.bank_logo{
+	grid-area: bank_logo;
+	width: 50px;
+	height: 50px;
+	box-shadow: 0 0 6px 1px rgb(145 150 163 / 50%);
+	display: inline-block;
+	border-radius: 8px;
+	margin-right: 10px;
+}
+
+.bank_logo img{
+	width: 100%;
+	padding: 8px;
+}
+ 
+.bank_description{
+	grid-area: bank_description;
+	display: inline-block;
+	font-weight: 600;
+	color: #2d3436;
+	align-items: center;
+}
+
+.bank_title{
+	font-size: 10px;
+	align-self: end;
+	margin: -5px;
+}
+
+.bank_doc{
+	grid-area: bank_doc;
+	font-size: 10px;
+	align-self: center;
+	margin: -5px;
+}
+
+.bank_n{
+	font-size: 10px;
+	align-self: start;
+	margin: -5px;
+}
+
+.bank_footer{
+	grid-area: bank_footer;
+	display: flex;
+	justify-content: space-around;
+	color: #2d3436;
+	margin: -13px 0px;
 }
 
 @media (max-width: 1243px) {

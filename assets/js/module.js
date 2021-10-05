@@ -117,6 +117,38 @@ async function addBank(){
 
 }
 
+async function getBankAdmin(data, addNode){
+
+	let div = document.createElement('div');
+	let fragment = document.createDocumentFragment();
+
+	data.forEach( banco => {
+						let { id_banco, nom_banco, n_banco, tip_banco, mon_banco, rut_banco, tit_banco, doc_banco, n_doc_banco } = banco;
+
+						(tip_banco == 0) ? tip_banco = 'Ahorro' : tip_banco = 'Corriente'; 
+						(mon_banco == 0) ? mon_banco = 'Soles' : mon_banco = 'Dólares'; 
+
+						let bank_card = document.createElement('div');
+						bank_card.classList.add('bank_card');
+						bank_card.dataset.id = id_banco;
+						let item = document.createElement('div');
+						item = `<div class="bank_logo"><img src="assets/img/logos/${rut_banco}"></div>
+								<div class="bank_description">${nom_banco}</div>
+								<div class="bank_title">${tit_banco}</div>
+								<div class="bank_doc">${doc_banco}: ${n_doc_banco}</div>
+								<div class="bank_n">${n_banco}</div>
+								<div class="bank_footer">
+									<div class="bank_cuenta">${tip_banco}</div>
+									<div class="bank_moneda">${mon_banco}</div>
+								</div>`;
+						bank_card.innerHTML = item;
+						fragment.appendChild(bank_card);
+				});
+	
+	showModal(fragment, data, addNode);
+
+}
+
 function alert(msj, type, nodo){
 
 	nodo.parentNode.style.display = "flex";
@@ -173,7 +205,7 @@ function getKey() {
 function preLoad(nodeNone){
 	let $pre = document.querySelector('.pre-loader');
 	let $container = document.querySelector(`.${nodeNone}`);
-	$pre.remove();
+	if($pre) $pre.remove();
 	if ($container) $container.style.display = 'grid';	
 }
 
@@ -197,13 +229,16 @@ function addLocal(operacion){
 
 
 function closeWindow(e){
-	let click = e.target.parentNode.className || null;
-	let check = document.querySelector('input');
+	try{
+		let click = e.target.parentNode.className || null;
+		let check = document.querySelector('input');
 
-	if(click !== 'hamburguesa' && click !== 'nav-items'){
-		check.checked = false;
+		if(click !== 'hamburguesa' && click !== 'nav-items'){
+			check.checked = false;
+		}
+	}catch(e){
+		return;
 	}
-
 }
 
 function getBancos(){
@@ -231,7 +266,6 @@ function getBancos(){
 			}
 
 			bancosUser.forEach(elemento => {
-
 				showBanco(elemento);
 
 			})	
@@ -245,30 +279,32 @@ function showBanco(banco){
 
 	let contentBanck = document.querySelectorAll('.form-card');
 
-	let { id_banco, nom_banco, n_banco, tip_banco, mon_banco, rut_banco } = banco;
-	let tipo = tip_banco == 0 ? "AHORRO" : "CORRIENTE";
-	let moneda = mon_banco == 0 ? "SOLES" : "DÓLARES";
+	let { id_banco, nom_banco, n_banco, tip_banco, mon_banco, rut_banco, tit_banco, doc_banco, n_doc_banco } = banco;
+	(tip_banco == 0) ? tip_banco = 'Ahorro' : tip_banco = 'Corriente'; 
+	(mon_banco == 0) ? mon_banco = 'Soles' : mon_banco = 'Dólares'; 
 	let $div = document.createElement('div');
+
 	$div.classList.add('bank_card');
 
 	$div.innerHTML = `
 					<div class="bank_logo"><img src="assets/img/logos/${rut_banco}"></div>
-					<div class="bank_description">Banco Personal</div>
-					<div class="bank_title">${nom_banco}</div>
+					<div class="bank_description">${nom_banco}</div>
+					<div class="bank_title"></div>
 					<div class="bank_n">${n_banco}</div>
 					<div class="bank_footer">
-						<div class="bank_cuenta">${tipo}</div>
-						<div class="bank_moneda">${moneda}</div>
+						<div class="bank_cuenta">${tip_banco}</div>
+						<div class="bank_moneda">${mon_banco
+
+						}</div>
 					</div>
 					<div class="bank_delete" id="btn-delete" data-id="${id_banco}">
 						<span id="cupon"
 					   data-bs-toggle="tooltip" 
-					   title="Eliminar Banco"><i class="fa fa-trash" aria-hidden="true"></i></span>
+					   title="Eliminar cuenta de banco."><i class="fa fa-trash" aria-hidden="true"></i></span>
 					</div>
+					
+					
 	`;
-
-	// let btnDelete = document.querySelector('.bank_delete');
-	// btnDelete.addEventListener('click', deleteBank);
 	
 	contentBanck[1].appendChild($div);
 
@@ -459,6 +495,80 @@ const getPrecio = () => {
 	return fetch('Divisas');
 }
 
+function showModal(modal, data, addNode){
+	const divModal = document.createElement('div');
+	const popup = document.createElement('div');
+	popup.classList.add('popup');
+	popup.innerHTML = `<h5>Seleccione el banco donde nos transfiere:</h5>`;
+	divModal.classList.add('divModal');
+	divModal.appendChild(popup);
+	document.body.appendChild(divModal);
+	popup.appendChild(modal);
+	popup.innerHTML +=  `<button class="btn btn-secondary">Cerrar</button>`;
+
+	document.querySelector('.btn-secondary').addEventListener('click', closePopup);
+	addEventListener('click', e => {
+		let nodo = e.target.classList[0];
+		let idBank;
+
+		if(nodo === 'bank_card') idBank = e.target.dataset.id;
+		if(nodo === 'bank_description') idBank = e.target.parentNode.dataset.id;
+		if(nodo === 'bank_title') idBank = e.target.parentNode.dataset.id;
+		if(nodo === 'bank_doc') idBank = e.target.parentNode.dataset.id;
+		if(nodo === 'bank_n') idBank = e.target.parentNode.dataset.id;
+		if(nodo === 'bank_moneda') idBank = e.target.parentNode.parentNode.dataset.id;
+		if(nodo === 'bank_cuenta') idBank = e.target.parentNode.parentNode.dataset.id;
+		if(nodo === 'bank_footer') idBank = e.target.parentNode.dataset.id;
+		if(typeof nodo === 'undefined') idBank = e.target.parentNode.parentNode.dataset.id;
+		if(typeof idBank === 'undefined') return;
+
+		addBack(idBank, data, addNode);
+	});
+}
+
+function addBack(idBank, data, addNode){
+	// const query = data.filter(b => b.id_banco === idBank);
+	let query = [];
+	data.forEach( b => {
+		
+		if(b.id_banco === idBank){
+			query = [b];
+		}
+
+	})
+	
+	const bank_admin = document.getElementById(addNode);
+
+	try{
+		let { id_banco , rut_banco, nom_banco, n_banco, tip_banco, mon_banco, tit_banco, doc_banco, n_doc_banco } = query[0];
+
+		(tip_banco == 0) ? tip_banco = 'Ahorro' : tip_banco = 'Corriente'; 
+		(mon_banco == 0) ? mon_banco = 'Soles' : mon_banco = 'Dólares'; 
+
+		bank_admin.children[0].classList.add('bank_select');
+		bank_admin.dataset.id = id_banco;
+
+		bank_admin.children[0].innerHTML = `
+				<div class="bank_logo"><img src="assets/img/logos/${rut_banco}"></div>
+				<div class="bank_description">${nom_banco}</div>
+				<div class="bank_title">${tit_banco}</div>
+				<div class="bank_doc">${doc_banco}: ${n_doc_banco}</div>
+				<div class="bank_n">${n_banco}</div>
+				<div class="bank_footer">
+					<div class="bank_cuenta">${tip_banco}-</div>
+					<div class="bank_moneda">${mon_banco}</div>
+				</div>`;
+		closePopup();
+	}catch(e){
+		return;
+	}
+	
+}
+
+function closePopup() {
+	if(document.querySelector('.divModal')) document.querySelector('.divModal').remove();
+}
+
 export { 
 	addBank,
 	alert, 
@@ -478,5 +588,6 @@ export {
 	consultaPrecio,
 	openModalOperation,
 	getPrecio,
-	checkCodigo
+	checkCodigo,
+	getBankAdmin
 };

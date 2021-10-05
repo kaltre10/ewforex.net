@@ -28,7 +28,7 @@
 			<h1>Compra y venta de dólares:</h1>
 		</div>
 		<div class="form" id="form">
-			<div class="form-card">
+			<div class="card-column form-card">
 				<div class="form-title">
 					<div class="form-detail">
 						<h6>Seleccione los datos de banco: </h6>
@@ -38,10 +38,9 @@
 				</div>
 				<div class="input mb-3">
 					<label for="bank_user">Cuenta de banco donde recibes tu dinero:</label>
-					<select id="bank_user">
-						<option value=""> - Seleccione - </option>
-						
-					</select>
+					<div id="bank_user">
+						<div style="padding: 4px 0px;"> - Seleccione - </div>
+					</div>
 					<div class="input form-help">
 						<a
 						 id="bank"
@@ -51,9 +50,7 @@
 				</div>
 				<div class="input mb-3">
 					<label for="bank_admin">Cuenta de banco a donde nos tranfieres:</label>
-					<select id="bank_admin">
-						<option value=""> - Seleccione - </option>
-					</select>
+					<div id="bank_admin"><div style="padding: 4px 0px;"> - Seleccione - </div></div>
 				</div>
 				<div class="input mb-3">
 					<label for="n_operacion"><span

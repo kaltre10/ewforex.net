@@ -28,7 +28,7 @@
 			<h1>Compra y Venta de Dólares:</h1>
 		</div>
 		<div class="form">
-			<div class="form-card" id="form">
+			<div class="card-column form-card" id="form">
 				<div class="form-title">
 					<div class="form-detail">
 						<h6>Registre su operacion: </h6>

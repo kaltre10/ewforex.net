@@ -33,6 +33,7 @@ h5{
 	max-width: 100%;
 	align-content: flex-start;
 	border: 2px solid #120e5a33;
+	justify-content: space-evenly;
 }
 
 .datos .form-card{
@@ -113,6 +114,11 @@ h5{
 	height: 100px;
 }
 
+.bank_card:hover{
+	border: 1px solid transparent;
+	cursor: default;
+}
+
 .bank_logo{
 	grid-area: bank_logo;
 	width: 50px;
@@ -138,7 +144,7 @@ h5{
 
 .bank_title{
 	font-size: 10px;
-	align-self: end;
+	align-self: center;
 }
 
 
@@ -152,13 +158,18 @@ h5{
 	display: flex;
 	justify-content: space-around;
 	color: #2d3436;
+	align-items: center;
 }
 
 .bank_delete{
 	grid-area: bank_delete;
 	align-self: center;
-	color: rgba(18, 14, 90, 0.85);
+	color: rgb(131 130 135 / 85%);
 	cursor: pointer;
+}
+
+.bank_delete:hover{
+	color: rgba(18, 14, 90, 0.85);
 }
 
 .alert{

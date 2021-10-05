@@ -8,7 +8,6 @@ class Check_data extends CI_Controller {
 		$data = array(
 			'nav' => $this->load->view('user/nav', "", true)
 		);
-		
 		$this->load->view('user/Check_data', $data);
 	}
 

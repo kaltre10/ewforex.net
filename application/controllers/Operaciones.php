@@ -44,19 +44,21 @@ class Operaciones extends CI_Controller {
 		$data = explode('"', $data);
 
 		$datos = array(
-			'cot_operacion' => $data[54],
-			'can_operacion' => $data[30],
-			'rec_operacion' => $data[34],
-			'n_operacion' => $data[50],
-			'use_operacion' => $data[58],
+			'tip_operacion' => $data[4],
+			'cot_operacion' => $data[32],
+			'can_operacion' => $data[8],
+			'rec_operacion' => $data[12],
+			'n_operacion' => $data[28],
+			'use_operacion' => $data[36],
 			'sta_operacion' => 0,
-			'ban_use_operacion' => $data[42],
-			'ban_admin_operacion' => $data[46],
-			'codigo_usuario' => $data[38]
+			'ban_use_operacion' => $data[20],
+			'ban_admin_operacion' => $data[24],
+			'codigo_usuario' => $data[16]
 		);
 
-		// echo json_encode($data);
-		echo $this->operaciones_model->setOperaciones($datos);
+		// echo json_encode($datos);
+		// echo $this->operaciones_model->setOperaciones($datos);
+		$this->operaciones_model->setOperaciones($datos);
 	}
 
 	public function getOperacion()
@@ -64,7 +66,6 @@ class Operaciones extends CI_Controller {
 		$data = serialize($this->input->raw_input_stream);
 		$data = explode('"', $data);
 		$id = $data[1];
-		// echo json_encode($id);
 		echo $this->operaciones_model->getOperacion($id);
 	}
 

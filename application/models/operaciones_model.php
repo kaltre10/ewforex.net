@@ -24,6 +24,7 @@ class Operaciones_model extends CI_Model {
 
 	public function getOperaciones($desde, $hasta, $id) 
 	{
+		$this->db->order_by('id_operaciones', 'DESC');
 		$sql = $this->db->where('use_operacion', $id);
 		$sql = $this->db->where("fec_operacion BETWEEN '$desde' AND '$hasta'");
 		$sql = $this->db->get('operaciones');

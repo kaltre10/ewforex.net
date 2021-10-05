@@ -8,7 +8,8 @@ import {
 	addLocal, 
 	closeWindow, 
 	consultaPrecio,
-	load
+	load,
+	getBankAdmin
 } from './module.js';
 
 document.addEventListener("DOMContentLoaded", () => { getUser() });
@@ -23,7 +24,6 @@ let objOperacion = getLocal();
 window.addEventListener('load', () => {
 
 	//preload pagina
-	// preLoad('container-home');
 
 	//preload para el precio
 	load();
@@ -38,65 +38,57 @@ window.addEventListener('load', () => {
 		closeWindow(e);	
 	});
 
+	bank_admin.addEventListener('click', () => {
+		getBancosAdmin();
+	});
+
+	bank_user.addEventListener('click', () => {
+		getBancos();
+	});
+
 	consultaPrecio();
-	getBancosAdmin();
-	getBancos();
+
+	preLoad('container-home');
 
 })
 
 function getBancos(){
 
 	firebase.auth().onAuthStateChanged(user => {
-			fetch('Bancos')
-				.then(res => res.json())
-				.then(bancos => {
-					let id = user.uid;
-					const arrayBanco = bancos.filter(banco => banco.use_banco == id );
+		fetch('Bancos')
+			.then(res => res.json())
+			.then(bancos => {
+				let id = user.uid;
+				const arrayBanco = bancos.filter(banco => banco.use_banco == id );
+				let bancosUser = [];
+				if(objOperacion['tipo'] == 'COMPRA'){
+					bancosUser = arrayBanco.filter( b => b.mon_banco == 0 );
+				}else{
+					bancosUser = arrayBanco.filter( b => b.mon_banco == 1 );
+				}
+				// console.log(bancosUser)
+				getBankAdmin(bancosUser, 'bank_user');
 
-					let bancosUser = [];
-					if(objOperacion['tipo'] == 'COMPRA'){
-						bancosUser = arrayBanco.filter( b => b.mon_banco == 0 );
-					}else{
-						bancosUser = arrayBanco.filter( b => b.mon_banco == 1 );
-					}
-
-					//seleccionamos el selec
-					const $select = document.getElementById('bank_user');
-					$select.innerHTML = '<option value=""> - Seleccione - </option>';
-					bancosUser.forEach( banco => {
-						let {id_banco, nom_banco, n_banco, tip_banco, mon_banco} = banco;
-
-						(mon_banco == 0) ? mon_banco = 'Soles' : mon_banco = 'Dólares';
-						(tip_banco == 0) ? tip_banco = 'Ahorro' : tip_banco = 'Corriente';
-
-						$select.innerHTML += `<option value="${banco.id_banco}">
-												${nom_banco} - 
-												${n_banco} - 
-												${tip_banco} -
-												${mon_banco}
-											 </option>`
-					});
-			})
-	});
+		})
+	})
 
 }
 
 function enviando(){
 
-	if(Number(n_operacion.value) == 0 || bank_user.value == '' || bank_admin.value == '')
+	if(Number(n_operacion.value) == 0 || bank_user.dataset.id == '' || bank_admin.dataset.id == '')
 		return alert('Ingrese Valores Validos', 'danger', document.querySelector('.form-card'));
 
 	let obj = {
 		...objOperacion, 
-		'bankUser': `${bank_user.value}`,
-		'bankAdmin': `${bank_admin.value}`,
+		'bankUser': `${bank_user.dataset.id}`,
+		'bankAdmin': `${bank_admin.dataset.id}`,
 		'n_operacion': `${n_operacion.value}`,
 	};
 
 	addLocal(obj);
 	loadBtn();
 	location.href = 'check_data';
-
 }
 
 async function addBank(){
@@ -209,7 +201,6 @@ function getBancosAdmin(){
 	fetch('Bancos/getBancosAdmin')
 		.then(res => res.json())
 		.then(res => {
-			let select = document.getElementById('bank_admin');
 
 			let bancosAdmin = [];
 			if(objOperacion['tipo'] == 'COMPRA'){
@@ -218,18 +209,7 @@ function getBancosAdmin(){
 				bancosAdmin = res.filter( b => b.mon_banco == 0 );
 			}
 
-			bancosAdmin.forEach( banco => {
-				let { id_banco, nom_banco, n_banco, tip_banco, mon_banco } = banco;
-				(tip_banco == 0) ? tip_banco = 'Ahorro' : tip_banco = 'Corriente'; 
-				(mon_banco == 0) ? mon_banco = 'Soles' : mon_banco = 'Dólares'; 
-				select.innerHTML += `
-							<option value="${id_banco}"> 
-							${nom_banco} - 
-							${n_banco} - 
-							${tip_banco} - 
-							${mon_banco}
-							</optio>`;
-			})
+			getBankAdmin(bancosAdmin, 'bank_admin');
+
 		})
-		.then(() => preLoad('container-home'))
 }

@@ -18,10 +18,12 @@
 
 .operacion{
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
-	grid-template-rows: repeat(2, auto);
+	/*grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(2, auto);*/
+	grid-template-areas: "cantidad cotizacion recibe fecha status detalle"
+						 "can cot rec fec sta icono";
 	margin: 0 auto;
-	width: 60%;
+	width: 80%;
 	background-color: white;
 	border-radius: 5px;
 	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
@@ -64,17 +66,28 @@
 }
 
 .icono{
-	position: relative;
-    top: 55%;
-    left: 25%;
-    font-size: 40px;
+	font-size: 40px;
     transition: all 0.9s ease;
+    grid-area: icono;
 }
 
 .icono i:hover{
 	cursor: pointer;
 	transform: scale(1.3);
 }
+
+.cantidad{grid-area: cantidad}
+.cotizacion{grid-area: cotizacion}
+.recibe{grid-area: recibe}
+.fecha{grid-area: fecha}
+.status{grid-area: status}
+.detalle{grid-area: detalle}
+
+.can{grid-area: can}
+.cot{grid-area: cot}
+.rec{grid-area: rec}
+.fec{grid-area: fec}
+.sta{grid-area: sta}
 
 @media (max-width: 828px) {
 
@@ -99,25 +112,16 @@
 							 "cotizacion cot"
 							 "recibe rec"
 							 "status sta"
-							 "fecha fec";
+							 "fecha fec"
+							 "detalle det";
 	}
-	
-	.cantidad{grid-area: cantidad}
-	.cotizacion{grid-area: cotizacion}
-	.recibe{grid-area: recibe}
-	.fecha{grid-area: fecha}
-	.status{grid-area: status}
-
-	.can{grid-area: can}
-	.cot{grid-area: cot}
-	.rec{grid-area: rec}
-	.fec{grid-area: fec}
-	.sta{grid-area: sta}
 
 	.icono{
-		position: relative;
+		/*position: relative;
 	    top: 0px;
-	    left: 85%;
+	    left: 85%;*/
 	}
+
+	.det{grid-area: det;place-content: flex-start;}
 
 }

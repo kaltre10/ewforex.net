@@ -27,44 +27,81 @@ window.addEventListener('load', () =>{
 	consultaPrecio();
 
 	//obteniendo datos del banco del usuario
-	getDataBanco(storage['bankUser']).then(res => {
-		let { nom_banco, n_banco, tip_banco, mon_banco } = res[0];
+	try{
+		getDataBanco(storage['bankUser']).then(res => {
+		let { tip_banco, mon_banco } = res[0];
 		(tip_banco == 0) ? tip_banco = "Ahorro" : tip_banco = "Corriente";
 		(mon_banco == 0) ? mon_banco = "Soles" : mon_banco = "Dólares";
-		objOperacion.desde = [ nom_banco, n_banco, tip_banco, mon_banco ];
-	})
-	.then(res => {
-		getDataBanco(storage['bankAdmin']).then(res => {
-		let { nom_banco, n_banco, tip_banco, mon_banco } = res[0];
-		(tip_banco == 0) ? tip_banco = "Ahorro" : tip_banco = "Corriente";
-		(mon_banco == 0) ? mon_banco = "Soles" : mon_banco = "Dólares";
-		objOperacion.a = [ nom_banco, n_banco, tip_banco, mon_banco ];
+		objOperacion.desde = res[0];
 		})
 		.then(res => {
-			let obj = getLocal();
-			objOperacion = { ...objOperacion, obj }
-			showData();
+			getDataBanco(storage['bankAdmin']).then(res => {
+			let { tip_banco, mon_banco } = res[0];
+			(tip_banco == 0) ? tip_banco = "Ahorro" : tip_banco = "Corriente";
+			(mon_banco == 0) ? mon_banco = "Soles" : mon_banco = "Dólares";
+			objOperacion.a = res[0];
+			})
+			.then(res => {
+				let obj = getLocal();
+				objOperacion = { ...objOperacion, obj }
+				showData();
+			})
 		})
-	})
-	.then(() => preLoad('container-home'));
+		.then(() => preLoad('container-home'))
+	}catch(e){
+		location.href = 'Admin';
+	}
 
 })
 
 async function showData(){
 
-	
-
 	let cotizacion = await getCotizacion(storage['codigo_usuario']);
 	document.getElementById('cotizacion').textContent = cotizacion;
 	document.getElementById('envias').textContent = storage['envias'];
 	document.getElementById('recibes').textContent = storage['recibes'];
-	document.getElementById('bank_user').textContent = objOperacion.desde;
-	document.getElementById('bank_admin').textContent = objOperacion.a;
+	// document.querySelector('.bank_user').textContent = objOperacion.desde;
+
+	(() => {
+		let { rut_banco, id_banco, nom_banco, n_banco, tip_banco, mon_banco, tit_banco, doc_banco, n_doc_banco } = objOperacion.desde;
+
+		(tip_banco == 0) ? tip_banco = 'Ahorro' : tip_banco = 'Corriente'; 
+		(mon_banco == 0) ? mon_banco = 'Soles' : mon_banco = 'Dólares'; 
+
+		document.querySelector('.bank_user').innerHTML = `
+			<div class="bank_logo"><img src="assets/img/logos/${rut_banco}"></div>
+			<div class="bank_description">${nom_banco}</div>
+			<div class="bank_title">${tit_banco}</div>
+			<div class="bank_doc">${doc_banco}: ${n_doc_banco}</div>
+			<div class="bank_n">${n_banco}</div>
+			<div class="bank_footer">
+				<div class="bank_cuenta">${tip_banco}</div>
+				<div class="bank_moneda">${mon_banco}</div>
+			</div>`;
+	})()
+
+	// document.querySelector('.bank_admin').textContent = objOperacion.a;
+
+	let { rut_banco, id_banco, nom_banco, n_banco, tip_banco, mon_banco, tit_banco, doc_banco, n_doc_banco } = objOperacion.a;
+
+	(tip_banco == 0) ? tip_banco = 'Ahorro' : tip_banco = 'Corriente'; 
+	(mon_banco == 0) ? mon_banco = 'Soles' : mon_banco = 'Dólares'; 
+
+	document.querySelector('.bank_admin').innerHTML = `
+		<div class="bank_logo"><img src="assets/img/logos/${rut_banco}"></div>
+		<div class="bank_description">${nom_banco}</div>
+		<div class="bank_title">${tit_banco}</div>
+		<div class="bank_doc">${doc_banco}: ${n_doc_banco}</div>
+		<div class="bank_n">${n_banco}</div>
+		<div class="bank_footer">
+			<div class="bank_cuenta">${tip_banco}</div>
+			<div class="bank_moneda">${mon_banco}</div>
+		</div>`;
+
 	document.getElementById('n_operacion').textContent = storage['n_operacion'];
 	document.getElementById('codigo').textContent = storage['codigo_usuario'];
 	
 	objOperacion = { ...objOperacion, cotizacion }
-
 }
 
 function getLocal(){
@@ -122,8 +159,13 @@ function insertOperacion(){
 		.onAuthStateChanged((user) => {
 			if (user) {
 			    let uid = user.uid;
-			    objOperacion = { ...objOperacion, uid };
 
+			    objOperacion = { 
+			    	...objOperacion.obj,
+			    	cotizacion: objOperacion.cotizacion,
+			    	uid 
+			    }
+			    
 			    fetch('Operaciones/insertOperaciones', {
 					method: 'POST',
 					headers: {

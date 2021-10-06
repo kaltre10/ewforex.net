@@ -116,6 +116,10 @@
 							 "detalle det";
 	}
 
+	.ticket_body {
+		grid-template-columns: 100%;
+	}
+
 	.icono{
 		/*position: relative;
 	    top: 0px;

@@ -37,6 +37,18 @@ async function addBank(){
 				<option value="0">Soles</option>
 				<option value="1">Dólares</option>
 			</select>
+		<label>Nombre del Titular / Razón Social:</label>
+		 <input id="swal-input5" type="text" class="swal2-input" placeholder="Nombre del Titular / Razón Social">
+		<label>Tipo de Documento:</label>
+			<select id="swal-input6" class="swal2-input">
+				<option value=""> - Seleccione - </option>
+				<option value="DNI">DNI</option>
+				<option value="PASS">Pasaporte</option>
+				<option value="CE">Carnet de Extranjería</option>
+				<option value="RUC">RUC</option>
+			</select>
+		<label>Número de Documento:</label>
+		 <input id="swal-input7" type="text" class="swal2-input" placeholder="Número de Documento">
 		`,
 	showCancelButton: true,
 	preConfirm: () => {
@@ -45,8 +57,17 @@ async function addBank(){
 	  	let numero = document.getElementById('swal-input2');
 	  	let tipo = document.getElementById('swal-input3');
 	  	let moneda = document.getElementById('swal-input4');
+	  	let titular = document.getElementById('swal-input5');
+	  	let documento = document.getElementById('swal-input6');
+	  	let n_documento = document.getElementById('swal-input7');
 
-	  	if(banco.value.trim() === '' || numero.value.trim() === '' || tipo.value.trim() === '' || moneda.value.trim() === ''){
+	  	if( banco.value.trim() === '' || 
+	  		numero.value.trim() === '' ||
+	  		tipo.value.trim() === '' ||
+	  		moneda.value.trim() === '' ||
+	  		titular.value.trim() === '' ||
+	  		documento.value.trim() === '' ||
+	  		n_documento.value.trim() === ''){
 
 	  		if(banco.value.trim() === '')
 	  			banco.classList.add('swal2-inputerror');
@@ -60,10 +81,22 @@ async function addBank(){
 	  		if(moneda.value.trim() === '')
 	  			moneda.classList.add('swal2-inputerror');
 
+	  		if(titular.value.trim() === '')
+	  			titular.classList.add('swal2-inputerror');
+
+	  		if(documento.value.trim() === '')
+	  			documento.classList.add('swal2-inputerror');
+
+	  		if(n_documento.value.trim() === '')
+	  			n_documento.classList.add('swal2-inputerror');
+
 	  		banco.addEventListener('change', () => banco.classList.remove('swal2-inputerror'));
 	  		numero.addEventListener('change', () => numero.classList.remove('swal2-inputerror'));
 	  		tipo.addEventListener('change', () => tipo.classList.remove('swal2-inputerror'));
 	  		moneda.addEventListener('change', () => moneda.classList.remove('swal2-inputerror'));
+	  		titular.addEventListener('change', () => titular.classList.remove('swal2-inputerror'));
+	  		documento.addEventListener('change', () => documento.classList.remove('swal2-inputerror'));
+	  		n_documento.addEventListener('change', () => n_documento.classList.remove('swal2-inputerror'));
 	  		  
 	  		Swal.showValidationMessage();
 	  		
@@ -75,6 +108,9 @@ async function addBank(){
 		  			numero: numero.value,
 		  			tipo: tipo.value,
 		  			moneda: moneda.value,
+		  			titular: titular.value,
+		  			documento: documento.value,
+		  			n_documento: n_documento.value,
 		  			user: user.uid
 		  		}
 
@@ -86,6 +122,7 @@ async function addBank(){
 		  			body: JSON.stringify(data)
 	  			})
 		  		// .then(res => res.json())
+		  		// .then(res => console.log(res))
 		  		.then(res => {
 		  			//limpiamos si hay bancos pintados previamente
 		  			while(document.querySelectorAll('.form-card')[1].children.length > 0){

@@ -1,3 +1,5 @@
+@import 'modalBancos.css';
+
 .container-datos{
 	width: 100%;
 	display: none;
@@ -30,6 +32,7 @@ h5{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	min-width: 100%;
 	max-width: 100%;
 	align-content: flex-start;
 	border: 2px solid #120e5a33;
@@ -101,8 +104,8 @@ h5{
 	padding: 10px;
 	box-shadow: 0 0 6px 1px rgb(145 150 163 / 50%);
 	border-radius: 10px;
-	/*max-width: 250px;*/
-	width: 250px;
+	max-width: 250px;
+	width: 100%;
 	grid-template-rows: 25% 25% 25% 25%;
 	grid-auto-columns: 30% 1fr 10%;
 	grid-template-areas: "bank_logo bank_description bank_delete"
@@ -184,6 +187,10 @@ h5{
 							 "header header"
 						     "datos datos"
 						     "bank bank";
+	}
+
+	.bank_card {
+		column-gap: 5px;
 	}
 
 }

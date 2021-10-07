@@ -6,50 +6,71 @@ async function addBank(){
 	  scrollbarPadding: false,
 	  title: 'Registre cuenta de Banco:',
 	  html:
-	    `<label>Seleccione banco:</label>
-			<select id="swal-input1" class="swal2-input">
-				<option value=""> - Seleccione - </option>
-				<option value="bcp">(BCP) - Banco de Crédito del Perú</option>
-				<option value="interbank">(Interbank) - Banco Internacional del Perú</option>
-				<option value="bbva">(BBVA) - BBVA Continental</option>
-				<option value="banbif">(BanBif) - BanBif</option>
-				<option value="scotiabank">(Scotiabank) - Scotiabank</option>
-				<option value="falabela">(Falabella) - Banco Falabella</option>
-				<option value="financiero">(Financiero) - Banco Financiero</option>
-				<option value="bancomercio">(Bancomercio) - Banco de Comercio</option>
-				<option value="citibank">(Citibank) - Citibank Perú</option>
-				<option value="mibanco">(Mibanco) - Mi Banco</option>
-				<option value="gnu">(GNB) - Banco GNB</option>
-				<option value="ripley">(Ripley) - Banco Ripley</option>
-				<option value="nacion">(Nacion) - Banco de la Nación</option>
-			</select>` +
-	    `<label>Ingrese número de cuenta:</label>
-		 <input id="swal-input2" type="text" class="swal2-input" placeholder="N° de cuenta">
-		<label>Tipo de cuenta:</label>
-			<select id="swal-input3" class="swal2-input">
-				<option value=""> - Seleccione - </option>
-				<option value="0">Ahorro</option>
-				<option value="1">Corriente</option>
-			</select>
-		<label>Moneda:</label>
-			<select id="swal-input4" class="swal2-input">
-				<option value=""> - Seleccione - </option>
-				<option value="0">Soles</option>
-				<option value="1">Dólares</option>
-			</select>
-		<label>Nombre del Titular / Razón Social:</label>
-		 <input id="swal-input5" type="text" class="swal2-input" placeholder="Nombre del Titular / Razón Social">
-		<label>Tipo de Documento:</label>
-			<select id="swal-input6" class="swal2-input">
-				<option value=""> - Seleccione - </option>
-				<option value="DNI">DNI</option>
-				<option value="PASS">Pasaporte</option>
-				<option value="CE">Carnet de Extranjería</option>
-				<option value="RUC">RUC</option>
-			</select>
-		<label>Número de Documento:</label>
-		 <input id="swal-input7" type="text" class="swal2-input" placeholder="Número de Documento">
-		`,
+	    `<div class="modal-banco">
+	    	<div class="form-group">
+	    		<div>
+		    		<label>Seleccione banco:</label>
+					<select id="swal-input1" class="swal2-input">
+						<option value=""> - Seleccione - </option>
+						<option value="bcp">(BCP) - Banco de Crédito del Perú</option>
+						<option value="interbank">(Interbank) - Banco Internacional del Perú</option>
+						<option value="bbva">(BBVA) - BBVA Continental</option>
+						<option value="banbif">(BanBif) - BanBif</option>
+						<option value="scotiabank">(Scotiabank) - Scotiabank</option>
+						<option value="falabela">(Falabella) - Banco Falabella</option>
+						<option value="financiero">(Financiero) - Banco Financiero</option>
+						<option value="bancomercio">(Bancomercio) - Banco de Comercio</option>
+						<option value="citibank">(Citibank) - Citibank Perú</option>
+						<option value="mibanco">(Mibanco) - Mi Banco</option>
+						<option value="gnu">(GNB) - Banco GNB</option>
+						<option value="ripley">(Ripley) - Banco Ripley</option>
+						<option value="nacion">(Nacion) - Banco de la Nación</option>
+					</select>
+				</div>
+	    	` +
+			`
+				<div>
+					<label>Tipo de cuenta:</label>
+					<select id="swal-input3" class="swal2-input">
+						<option value=""> - Seleccione - </option>
+						<option value="0">Ahorro</option>
+						<option value="1">Corriente</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<div>
+					<label>Ingrese número de cuenta:</label>
+					<input id="swal-input2" type="text" class="swal2-input" placeholder="N° de cuenta">
+				</div>
+				<div>
+					<label>Moneda:</label>
+					<select id="swal-input4" class="swal2-input">
+						<option value=""> - Seleccione - </option>
+						<option value="0">Soles</option>
+						<option value="1">Dólares</option>
+					</select>
+				</div>
+			</div>
+				<label>Nombre del Titular / Razón Social:</label>
+				 <input id="swal-input5" type="text" class="swal2-input" placeholder="Nombre del Titular / Razón Social">
+			<div class="form-group">
+				<div>
+					<label>Tipo de Documento:</label>
+					<select id="swal-input6" class="swal2-input">
+						<option value=""> - Seleccione - </option>
+						<option value="DNI">DNI</option>
+						<option value="PASS">Pasaporte</option>
+						<option value="CE">Carnet de Extranjería</option>
+						<option value="RUC">RUC</option>
+					</select>
+				</div>
+				<div>
+					<label>Número de Documento:</label>
+				 	<input id="swal-input7" type="text" class="swal2-input" placeholder="Número de Documento">
+				</div>
+			</div>
+		<div>`,
 	showCancelButton: true,
 	preConfirm: () => {
 

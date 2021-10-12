@@ -14,17 +14,6 @@
 	margin-top: 20px;
 }
 
-.codigo{
-	display: grid;
-	grid-template-columns: repeat(3, 1fr) 10%;
-	grid-template-rows: repeat(2, auto);
-	margin: 0 auto;
-	width: 90%;
-	background-color: white;
-	border-radius: 5px;
-	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
-	margin-bottom: 10px;
-}
 
 .fecha-row{
 	display: grid;
@@ -59,6 +48,28 @@
 	font-size: 24px;
 }
 
+.codigo{
+	display: grid;
+	grid-template-areas: "tipo columna cotizacion accion"
+						 "tip cod cot acc";
+	margin: 0 auto;
+	width: 90%;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+	margin-bottom: 10px;
+}
+
+.tipo{grid-area: tipo}
+.columna{grid-area: columna}
+.cotizacion{grid-area: cotizacion}
+.accion{grid-area: accion}
+
+.tip{grid-area: tip}
+.cod{grid-area: cod}
+.cot{grid-area: cot}
+.acc{grid-area: acc}
+
 @media (max-width: 828px) {
 
 	.codigo{
@@ -70,15 +81,5 @@
 							 "cotizacion cot"
 							 "accion acc";
 	}
-	
-	.tipo{grid-area: tipo}
-	.columna{grid-area: columna}
-	.cotizacion{grid-area: cotizacion}
-	.accion{grid-area: accion}
-
-	.tip{grid-area: tip}
-	.cod{grid-area: cod}
-	.cot{grid-area: cot}
-	.acc{grid-area: acc}
 
 }

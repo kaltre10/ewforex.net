@@ -98,47 +98,89 @@ async function addBank(){
 	  scrollbarPadding: false,
 	  title: 'Registre cuenta de Banco:',
 	  html:
-	    `<label>Seleccione banco:</label>
-			<select id="swal-input1" class="swal2-input">
-				<option value=""> - Seleccione - </option>
-				<option value="BCP">(BCP) - Banco de Crédito del Perú</option>
-				<option value="INTERBANCK">(Interbank) - Banco Internacional del Perú</option>
-				<option value="BBVA">(BBVA) - BBVA Continental</option>
-				<option value="BANBIF">(BanBif) - BanBif</option>
-				<option value="SCOTIABANK">(Scotiabank) - Scotiabank</option>
-				<option value="FALABELLA">(Falabella) - Banco Falabella</option>
-				<option value="FINANCIERO">(Financiero) - Banco Financiero</option>
-				<option value="BANCOMERCIO">(Bancomercio) - Banco de Comercio</option>
-				<option value="CITIBANK">(Citibank) - Citibank Perú</option>
-				<option value="MIBANCO">(Mibanco) - Mi Banco</option>
-				<option value="GNB">(GNB) - Banco GNB</option>
-				<option value="RIPLEY">(Ripley) - Banco Ripley</option>
-				<option value="NACION">(Nacion) - Banco de la Nación</option>
-			</select>` +
-	    `<label>Ingrese número de cuenta:</label>
-		 <input id="swal-input2" type="text" class="swal2-input" placeholder="N° de cuenta">
-		<label>Tipo de cuenta:</label>
-			<select id="swal-input3" class="swal2-input">
-				<option value=""> - Seleccione - </option>
-				<option value="0">Ahorro</option>
-				<option value="1">Corriente</option>
-			</select>
-		<label>Moneda:</label>
-			<select id="swal-input4" class="swal2-input">
-				<option value=""> - Seleccione - </option>
-				<option value="0">Soles</option>
-				<option value="1">Dólares</option>
-			</select>
-		`,
+	    `<div class="modal-banco">
+	    	<div class="form-group">
+	    		<div>
+		    		<label>Seleccione banco:</label>
+					<select id="swal-input1" class="swal2-input">
+						<option value=""> - Seleccione - </option>
+						<option value="bcp">(BCP) - Banco de Crédito del Perú</option>
+						<option value="interbank">(Interbank) - Banco Internacional del Perú</option>
+						<option value="bbva">(BBVA) - BBVA Continental</option>
+						<option value="banbif">(BanBif) - BanBif</option>
+						<option value="scotiabank">(Scotiabank) - Scotiabank</option>
+						<option value="falabela">(Falabella) - Banco Falabella</option>
+						<option value="financiero">(Financiero) - Banco Financiero</option>
+						<option value="bancomercio">(Bancomercio) - Banco de Comercio</option>
+						<option value="citibank">(Citibank) - Citibank Perú</option>
+						<option value="mibanco">(Mibanco) - Mi Banco</option>
+						<option value="gnu">(GNB) - Banco GNB</option>
+						<option value="ripley">(Ripley) - Banco Ripley</option>
+						<option value="nacion">(Nacion) - Banco de la Nación</option>
+					</select>
+				</div>
+	    	` +
+			`
+				<div>
+					<label>Tipo de cuenta:</label>
+					<select id="swal-input3" class="swal2-input">
+						<option value=""> - Seleccione - </option>
+						<option value="0">Ahorro</option>
+						<option value="1">Corriente</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<div>
+					<label>Ingrese número de cuenta:</label>
+					<input id="swal-input2" type="text" class="swal2-input" placeholder="N° de cuenta">
+				</div>
+				<div>
+					<label>Moneda:</label>
+					<select id="swal-input4" class="swal2-input">
+						<option value=""> - Seleccione - </option>
+						<option value="0">Soles</option>
+						<option value="1">Dólares</option>
+					</select>
+				</div>
+			</div>
+				<label>Nombre del Titular / Razón Social:</label>
+				 <input id="swal-input5" type="text" class="swal2-input" placeholder="Nombre del Titular / Razón Social">
+			<div class="form-group">
+				<div>
+					<label>Tipo de Documento:</label>
+					<select id="swal-input6" class="swal2-input">
+						<option value=""> - Seleccione - </option>
+						<option value="DNI">DNI</option>
+						<option value="PASS">Pasaporte</option>
+						<option value="CE">Carnet de Extranjería</option>
+						<option value="RUC">RUC</option>
+					</select>
+				</div>
+				<div>
+					<label>Número de Documento:</label>
+				 	<input id="swal-input7" type="text" class="swal2-input" placeholder="Número de Documento">
+				</div>
+			</div>
+		<div>`,
 	showCancelButton: true,
 	preConfirm: () => {
 
-		let banco = document.getElementById('swal-input1');
+	  	let banco = document.getElementById('swal-input1');
 	  	let numero = document.getElementById('swal-input2');
 	  	let tipo = document.getElementById('swal-input3');
 	  	let moneda = document.getElementById('swal-input4');
+	  	let titular = document.getElementById('swal-input5');
+	  	let documento = document.getElementById('swal-input6');
+	  	let n_documento = document.getElementById('swal-input7');
 
-	  	if(banco.value.trim() === '' || numero.value.trim() === '' || tipo.value.trim() === '' || moneda.value.trim() === ''){
+	  	if( banco.value.trim() === '' || 
+	  		numero.value.trim() === '' ||
+	  		tipo.value.trim() === '' ||
+	  		moneda.value.trim() === '' ||
+	  		titular.value.trim() === '' ||
+	  		documento.value.trim() === '' ||
+	  		n_documento.value.trim() === ''){
 
 	  		if(banco.value.trim() === '')
 	  			banco.classList.add('swal2-inputerror');
@@ -152,11 +194,23 @@ async function addBank(){
 	  		if(moneda.value.trim() === '')
 	  			moneda.classList.add('swal2-inputerror');
 
+	  		if(titular.value.trim() === '')
+	  			titular.classList.add('swal2-inputerror');
+
+	  		if(documento.value.trim() === '')
+	  			documento.classList.add('swal2-inputerror');
+
+	  		if(n_documento.value.trim() === '')
+	  			n_documento.classList.add('swal2-inputerror');
+
 	  		banco.addEventListener('change', () => banco.classList.remove('swal2-inputerror'));
 	  		numero.addEventListener('change', () => numero.classList.remove('swal2-inputerror'));
 	  		tipo.addEventListener('change', () => tipo.classList.remove('swal2-inputerror'));
 	  		moneda.addEventListener('change', () => moneda.classList.remove('swal2-inputerror'));
-	  		  
+	  		titular.addEventListener('change', () => titular.classList.remove('swal2-inputerror'));
+	  		documento.addEventListener('change', () => documento.classList.remove('swal2-inputerror'));
+	  		n_documento.addEventListener('change', () => n_documento.classList.remove('swal2-inputerror'));
+
 	  		Swal.showValidationMessage('Todos los campos son obligatorios');
 	  		
 	  	}else{
@@ -167,6 +221,9 @@ async function addBank(){
 		  			numero: numero.value,
 		  			tipo: tipo.value,
 		  			moneda: moneda.value,
+		  			titular: titular.value,
+		  			documento: documento.value,
+		  			n_documento: n_documento.value,
 		  			user: user.uid
 		  		}
 

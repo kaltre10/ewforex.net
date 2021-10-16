@@ -39,8 +39,17 @@
 		</div>
 	</div>
 	<script src="<?= base_url('assets/js/login/functions.js'); ?>"></script>
-	<script type="module" src="<?= base_url('assets/js/login/reset.js'); ?>"></script>
+	<script type="text/javascript">
 
+		(function () {
+		    let $pre = document.querySelector('.pre-loader');
+			let $container = document.querySelector('.login-container');
+			if($pre) $pre.remove();
+			if ($container) $container.style.display = 'grid';
+		})();
+
+
+	</script>
   	
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>

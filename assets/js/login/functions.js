@@ -118,6 +118,7 @@ function removeLoadBtn(text){
 }
 
 function createUser(userObj, nodo){
+	
 	firebase.auth().createUserWithEmailAndPassword(userObj.correo, userObj.password)
 	  .then( credencial => {
 

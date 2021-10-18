@@ -5,8 +5,7 @@ let $btn = document.querySelector('.btn');
 let $pre = document.querySelector('.codigos');
 
 document.addEventListener('DOMContentLoaded', () => {
-	checkServer();
-	checkAdmin();
+	verificarPermisos();
 });
 
 window.addEventListener('load', () => {
@@ -202,4 +201,25 @@ function addCodigo(obj){
 		document.getElementById('cotizacion').value = '';
 		document.getElementById('tipo').selectedIndex = 0;
  	})
+}
+
+function verificarPermisos(){
+	checkServer();
+	// let query = await checkServer();
+	// let server = await query.json();
+	// let user = await checkAdmin;
+
+	// server()
+
+
+
+	// .then(res => res.json())
+				// .then(res => {
+				// 	if(!res) {
+				// 		location.href = '../Login';
+				// 	}
+				// })	
+
+	// server()
+	// 	.then(() => user())
 }

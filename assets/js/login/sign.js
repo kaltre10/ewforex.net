@@ -7,7 +7,7 @@ let $check_pas = document.getElementById('check_pas');
 
 window.addEventListener('load', () => {
 
-	preLoad('login-container');
+	preLoad();
 
 	$form.addEventListener('submit', e => {
 		e.preventDefault();

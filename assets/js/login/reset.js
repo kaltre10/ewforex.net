@@ -5,7 +5,7 @@ let $correo = document.getElementById('email');
 
 window.addEventListener('load', () => {
 
-	preLoad('login-container');
+	preLoad();
 
 	$form.addEventListener('submit', e => {
 		e.preventDefault();

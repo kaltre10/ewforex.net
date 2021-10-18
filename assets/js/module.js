@@ -119,7 +119,7 @@ async function addBank(){
 	  		documento.addEventListener('change', () => documento.classList.remove('swal2-inputerror'));
 	  		n_documento.addEventListener('change', () => n_documento.classList.remove('swal2-inputerror'));
 	  		  
-	  		Swal.showValidationMessage('Todos los campos son obligatorios');
+	  		Swal.showValidationMessage();
 	  		
 	  	}else{
 

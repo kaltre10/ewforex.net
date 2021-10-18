@@ -235,9 +235,15 @@ body{
 }
 
 @media (max-width: 828px) {
+
 	.container{
 		grid-template-columns: 1fr;
 	}
+
+	.nav{
+		padding-top: 20px;
+	}
+
 	.nav li{
 		padding-top: 20px;
 		padding: 12px 15px;	

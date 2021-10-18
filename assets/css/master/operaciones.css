@@ -18,14 +18,14 @@
 
 .operacion{
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
-	grid-template-rows: repeat(2, auto);
 	margin: 0 auto;
 	width: 90%;
 	background-color: white;
 	border-radius: 5px;
 	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
 	margin-bottom: 10px;
+	grid-template-areas: "n_operacion cantidad cotizacion recibe check user estado"
+						  "ope can cot rec che us est";
 }
 
 .operacion-header{
@@ -78,21 +78,7 @@
 	border: none;
 }
 
-@media (max-width: 828px) {
-
-	.operacion{
-		grid-template-columns: repeat(2, 1fr);
-		margin-bottom: 10px;
-		grid-template-areas: "n_operacion ope"
-							 "cantidad can"
-							 "cotizacion cot"
-							 "recibe rec"
-							 "check che"
-							 "user us"
-							 "estado est";
-	}
-	
-	.n_operacion{grid-area: n_operacion}
+n_operacion{grid-area: n_operacion}
 	.cantidad{grid-area: cantidad}
 	.cotizacion{grid-area: cotizacion}
 	.recibe{grid-area: recibe}
@@ -107,6 +93,20 @@
 	.che{grid-area: che}
 	.us{grid-area: us}
 	.est{grid-area: est}
+
+@media (max-width: 828px) {
+
+	.operacion{
+		grid-template-columns: repeat(2, 1fr);
+		margin-bottom: 10px;
+		grid-template-areas: "n_operacion ope"
+							 "cantidad can"
+							 "cotizacion cot"
+							 "recibe rec"
+							 "check che"
+							 "user us"
+							 "estado est";
+	}
 
 }
 

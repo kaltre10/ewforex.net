@@ -198,7 +198,7 @@ a{
 .service{
 	display: grid;
 	grid-template-rows: minmax(150px, auto);
-	grid-template-columns: 20% 20% 20%;
+	grid-template-columns: 20% 20%;
 	justify-content: center;
 	text-align: center;
 	grid-column-gap: 25px;
@@ -317,6 +317,15 @@ a{
 
 
 @media (max-width: 576px) {
+
+	.header-picture img {
+    	width: 90px;
+	}
+
+	.header-title {
+    	font-size: 30px;
+	}
+
 	.nav-items {
 	    width: 250px;
 	}

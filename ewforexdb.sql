@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2021 a las 17:38:12
+-- Tiempo de generación: 19-10-2021 a las 18:25:08
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -68,10 +68,7 @@ INSERT INTO `bancos` (`id_banco`, `nom_banco`, `n_banco`, `tip_banco`, `mon_banc
 (53, 'BBVA', '12334322', 0, 0, 'BBVA.png', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 'Jason Hernandez', 'PASS', '149889214'),
 (54, 'BANBIF', '122333', 0, 1, 'BANBIF.png', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 'Jason Hernandez', 'PASS', '149889214'),
 (57, 'INTERBANK', '122222', 0, 0, 'INTERBANK.png', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 'Jason Hernandez', 'PASS', '149889214'),
-(59, 'banbif', '321321321', 0, 1, 'banbif.png', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 1, 'Jason Hernandez', 'DNI', '123123123'),
-(60, 'ripley', '12343212', 0, 0, 'ripley.png', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 'Jason Hernandez', 'PASS', '149889214'),
-(61, 'banbif', '123212', 0, 0, 'banbif.png', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 'Jason Herndex', 'DNI', '1222211'),
-(62, 'interbank', '123232332', 0, 1, 'interbank.png', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 'Jason Hernandez', 'DNI', '913311');
+(59, 'banbif', '321321321', 0, 1, 'banbif.png', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 1, 'Jason Hernandez', 'DNI', '123123123');
 
 -- --------------------------------------------------------
 
@@ -128,7 +125,7 @@ CREATE TABLE `operaciones` (
   `cot_operacion` decimal(6,2) NOT NULL,
   `rec_operacion` varchar(50) NOT NULL,
   `n_operacion` varchar(45) NOT NULL,
-  `fec_operacion` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `fec_operacion` varchar(15) NOT NULL,
   `use_operacion` varchar(100) NOT NULL,
   `sta_operacion` int(11) NOT NULL,
   `ban_use_operacion` int(11) NOT NULL,
@@ -141,12 +138,13 @@ CREATE TABLE `operaciones` (
 --
 
 INSERT INTO `operaciones` (`id_operaciones`, `tip_operacion`, `can_operacion`, `cot_operacion`, `rec_operacion`, `n_operacion`, `fec_operacion`, `use_operacion`, `sta_operacion`, `ban_use_operacion`, `ban_admin_operacion`, `codigo_usuario`) VALUES
-(41, 'COMPRA', '250 Dólares', '4.09', '1022.50 Soles', '2', '2021-10-04 13:08:49', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 53, 52, 'No aplica'),
-(42, 'COMPRA', '10 Dólares', '4.09', '40.90 Soles', '1234', '2021-10-04 13:13:19', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 53, 48, 'No aplica'),
-(43, 'COMPRA', '100 Dólares', '4.09', '409.00 Soles', '10221', '2021-10-04 17:22:01', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 57, 50, 'No aplica'),
-(44, 'COMPRA', '100 Dólares', '4.09', '409.00 Soles', '4321', '2021-10-05 16:11:30', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 40, 50, 'No aplica'),
-(45, 'COMPRA', '10 Dólares', '4.09', '40.90 Soles', '1', '2021-10-05 16:35:44', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 53, 52, 'No aplica'),
-(46, 'VENTA', '200 Soles', '4.12', '48.54 Dólares', '1232', '2021-10-12 09:53:03', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 62, 51, 'No aplica');
+(41, 'COMPRA', '250 Dólares', '4.09', '1022.50 Soles', '2', '2021-10-04 13:0', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 53, 52, 'No aplica'),
+(42, 'COMPRA', '10 Dólares', '4.09', '40.90 Soles', '1234', '2021-10-04 13:1', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 53, 48, 'No aplica'),
+(43, 'COMPRA', '100 Dólares', '4.09', '409.00 Soles', '10221', '2021-10-04 17:2', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 57, 50, 'No aplica'),
+(44, 'COMPRA', '100 Dólares', '4.09', '409.00 Soles', '4321', '2021-10-05 16:1', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 40, 50, 'No aplica'),
+(45, 'COMPRA', '10 Dólares', '4.09', '40.90 Soles', '1', '2021-10-05 16:3', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 53, 52, 'No aplica'),
+(46, 'COMPRA', '100 Dólares', '4.09', '409.00 Soles', '1232', '2021-10-18 16:5', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 53, 52, 'No aplica'),
+(47, 'COMPRA', '100 Dólares', '4.09', '409.00 Soles', '1212', '2021-10-19 11:0', 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 0, 40, 52, 'No aplica');
 
 -- --------------------------------------------------------
 
@@ -215,7 +213,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `bancos`
 --
 ALTER TABLE `bancos`
-  MODIFY `id_banco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id_banco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de la tabla `codigo`
@@ -233,7 +231,7 @@ ALTER TABLE `divisas`
 -- AUTO_INCREMENT de la tabla `operaciones`
 --
 ALTER TABLE `operaciones`
-  MODIFY `id_operaciones` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_operaciones` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

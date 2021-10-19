@@ -53,7 +53,8 @@ class Operaciones extends CI_Controller {
 			'sta_operacion' => 0,
 			'ban_use_operacion' => $data[20],
 			'ban_admin_operacion' => $data[24],
-			'codigo_usuario' => $data[16]
+			'codigo_usuario' => $data[16],
+			'fec_operacion' => date("Y-m-d H:i")
 		);
 
 		// echo json_encode($datos);

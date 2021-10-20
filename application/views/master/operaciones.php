@@ -30,10 +30,11 @@
 		<div class="fecha-row">
 			<form class="mt-3 row">
 				<div class="col-auto">
-					<input id="desde" type="date" name="desde">
+					<?php $fecha = date("Y-m-d"); ?>
+					<input id="desde" type="date" name="desde" value="<?= $fecha; ?>">
 				</div>
 				<div class="col-auto">
-					<input id="hasta" type="date" name="hasta">
+					<input id="hasta" type="date" name="hasta" value="<?= $fecha; ?>">
 				</div>
 				<div class="col-auto">
 					<button class="btn">Consultar</button>

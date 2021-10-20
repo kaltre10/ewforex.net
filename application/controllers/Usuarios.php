@@ -29,9 +29,10 @@ class Usuarios extends CI_Controller {
 		$array = explode('"', $data);
 
 		$datos = array(
-			'user' => $array[1],
+			'user' => $array[3],
+			'email' => $array[7]
 		); 
-
+		// echo json_encode($array);
 		echo $this->usuarios_model->insertUsuario($datos);
 	}
 

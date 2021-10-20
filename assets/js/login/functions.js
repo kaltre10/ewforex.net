@@ -122,7 +122,7 @@ function createUser(userObj, nodo){
 	  .then( credencial => {
 
     		let user = credencial.user;
-    		insertUserDB(user.uid);
+    		insertUserDB(user.uid, user.email);
 
 	  })
 	  .then(res => {
@@ -211,12 +211,12 @@ function getUserDB(user){
 				.then(respuesta => respuesta[0].id_user)
 }
 
-function insertUserDB(id){
+function insertUserDB(id, email){
 	fetch(`Usuarios/insertUsuario`, {
 		method: "POST",
 		headers: {
 			'Content-Type': 'application/json'
 		},
-		body: JSON.stringify(id)
+		body: JSON.stringify({id,email})
 	})
 }

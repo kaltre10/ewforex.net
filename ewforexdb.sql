@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-10-2021 a las 18:25:08
+-- Tiempo de generación: 20-10-2021 a las 20:37:15
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -155,6 +155,7 @@ INSERT INTO `operaciones` (`id_operaciones`, `tip_operacion`, `can_operacion`, `
 CREATE TABLE `usuarios` (
   `id_user` int(11) NOT NULL,
   `user` varchar(100) NOT NULL,
+  `email` varchar(150) NOT NULL,
   `nom_user` varchar(100) DEFAULT NULL,
   `doc_user` varchar(40) DEFAULT NULL,
   `n_user` varchar(40) DEFAULT NULL,
@@ -165,11 +166,12 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_user`, `user`, `nom_user`, `doc_user`, `n_user`, `tel_user`) VALUES
-(1, 'jhw1CqidroccEXQQUtEAw6D6UWq2', 'Jason', '', '149889214', '917545622'),
-(2, 'MnXzSNip49WNFhWBQEAxlgdHV5H3', 'Jason Hernandez', 'PASS', '149889214', '0141'),
-(7, '4P6EazXUvYc0hueQ60YUvr74TnT2', 'JASON HERNANDEZ', 'DNI', '23605893', '917545622'),
-(8, 'vOoW7GHO20XAcZcjXdj7qljRC1H3', 'wefdc', 'DNI', '1231', '1234');
+INSERT INTO `usuarios` (`id_user`, `user`, `email`, `nom_user`, `doc_user`, `n_user`, `tel_user`) VALUES
+(1, 'jhw1CqidroccEXQQUtEAw6D6UWq2', '', 'Jason', '', '149889214', '917545622'),
+(2, 'MnXzSNip49WNFhWBQEAxlgdHV5H3', '', 'Jason Hernandez', 'PASS', '149889214', '0141'),
+(7, '4P6EazXUvYc0hueQ60YUvr74TnT2', '', 'JASON HERNANDEZ', 'DNI', '23605893', '917545622'),
+(8, 'vOoW7GHO20XAcZcjXdj7qljRC1H3', '', 'wefdc', 'DNI', '1231', '1234'),
+(9, 'VMj3duFPRHa5quTFNQ6xevHrzuy1', 'correo@gmail.com', NULL, NULL, NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -237,7 +239,7 @@ ALTER TABLE `operaciones`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

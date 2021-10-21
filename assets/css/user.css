@@ -193,7 +193,7 @@ body{
 .form-card{
 	background-color: white;
 	display: grid;
-	min-width: 400px;
+	/*min-width: 400px;*/
 	border-radius: 5px;
 	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
 	width: 100%;
@@ -249,7 +249,7 @@ body{
 }
 
 .form .input, .btc-exchange{
-	padding: 0 20px;
+	padding: 0 30px;
 }
 
 .input{
@@ -305,7 +305,7 @@ select{
 }
 
 .form-card .form-help{
-	padding: 10px 20px;
+	padding: 10px 30px;
 }
 
 .form-help{

@@ -60,6 +60,7 @@ class Operaciones extends CI_Controller {
 		// echo json_encode($datos);
 		// echo $this->operaciones_model->setOperaciones($datos);
 		$this->operaciones_model->setOperaciones($datos);
+		$this->sendEmail();
 	}
 
 	public function getOperacion()
@@ -70,4 +71,19 @@ class Operaciones extends CI_Controller {
 		echo $this->operaciones_model->getOperacion($id);
 	}
 
+	public function sendEmail()
+	{
+
+		$this->load->library('email');
+		$this->email->from('ewforex.net');
+		$this->email->to('bitmarketperu@gmail.com');
+		$this->email->cc('bitmarketperu@gmail.com');
+		$this->email->bcc('bitmarketperu@gmail.com');
+		$this->email->subject('Nueva Operacion en ewforex.net');
+		$this->email->message('Se ha registrado una nueva operacion en ewforex.net!');
+		$this->email->send();
+
+	}
+
 }
+

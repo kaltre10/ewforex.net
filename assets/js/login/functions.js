@@ -131,6 +131,7 @@ function createUser(userObj, nodo){
 	    	removeLoadBtn('Registrar');	
 	    	nodo.reset();
 	  })
+	  .then(() => location.href = './Login')
 	  .catch( error => {
 	  	let msjError;
 	    switch(error.code){

@@ -75,9 +75,24 @@ function getBancos(){
 }
 
 function enviando(){
+	let banUser = bank_user.dataset.id || '';
+	let banAdmin = bank_admin.dataset.id || '';
 
-	if(Number(n_operacion.value) == 0 || bank_user.dataset.id == '' || bank_admin.dataset.id == '')
-		return alert('Ingrese Valores Validos', 'danger', document.querySelector('.form-card'));
+	if(Number(n_operacion.value) == 0 || banUser == '' || banAdmin == ''){
+
+		if(banUser == '') bank_user.style.border = `1px solid tomato`;
+		if(banAdmin == '') bank_admin.style.border = `1px solid tomato`;
+		if(Number(n_operacion.value) == 0) n_operacion.style.border = `1px solid tomato`;
+
+		setTimeout(() => {
+			bank_user.style.border = `1px solid #f4f7ff`;
+			bank_admin.style.border = `1px solid #f4f7ff`;
+			n_operacion.style.border = `1px solid #f4f7ff`;
+		}, 4000);
+		
+		alert('Ingrese Valores Validos', 'danger', document.querySelector('.form-card'));
+		return;
+	}
 
 	let obj = {
 		...objOperacion, 

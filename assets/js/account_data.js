@@ -109,6 +109,13 @@ function enviando(){
 async function addBank(){
 	event.preventDefault();
 
+	let moneda;
+	if(objOperacion['tipo'] == 'COMPRA'){
+		moneda = `<option value="0">Soles</option>`;
+	}else{
+		moneda = `<option value="1">Dólares</option>`;
+	}
+
 	const { value: formValues } = await Swal.fire({
 	  scrollbarPadding: false,
 	  title: 'Registre cuenta de Banco:',
@@ -141,8 +148,7 @@ async function addBank(){
 		<label>Moneda:</label>
 			<select id="swal-input4" class="swal2-input">
 				<option value=""> - Seleccione - </option>
-				<option value="0">Soles</option>
-				<option value="1">Dólares</option>
+				${moneda}
 			</select>
 		`,
 	showCancelButton: true,

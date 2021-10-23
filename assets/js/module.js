@@ -479,8 +479,8 @@ async function openModalOperation(idOperacion){
 	let bancoUser = await queryBanco.json();
 	let { nom_banco, n_banco, tip_banco, mon_banco } = bancoUser[0];
 
-	(tip_banco) ? tip_banco = 'Corriente' : tip_banco = "Ahorro";
-	(mon_banco) ? mon_banco = 'Dólares' : mon_banco = "Soles";
+	(tip_banco) ? tip_banco = 'Ahorro' : tip_banco = "Corriente";
+	(mon_banco) ? mon_banco = 'Soles' : mon_banco = "Dólares";
 
 
 	//Datos del banco del admin
@@ -489,7 +489,7 @@ async function openModalOperation(idOperacion){
 	let tip_bancoAdmin;
 	let mon_bancoAdmin;
 	(bancoAdmin[0].tip_banco) ? tip_bancoAdmin = "Corriente" : tip_bancoAdmin = "Ahorro";
-	(bancoAdmin[0].mon_banco) ? mon_bancoAdmin = "Soles" : mon_bancoAdmin = "Dólares";
+	(bancoAdmin[0].mon_banco) ? mon_bancoAdmin = "Dólares" : mon_bancoAdmin = "Soles";
 
 	let $div = document.createElement('div');
 	$div.classList.add('ticket');

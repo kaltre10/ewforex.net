@@ -17,7 +17,7 @@ async function addBank(){
 						<option value="bbva">(BBVA) - BBVA Continental</option>
 						<option value="banbif">(BanBif) - BanBif</option>
 						<option value="scotiabank">(Scotiabank) - Scotiabank</option>
-						<option value="falabela">(Falabella) - Banco Falabella</option>
+						<option value="falabella">(Falabella) - Banco Falabella</option>
 						<option value="financiero">(Financiero) - Banco Financiero</option>
 						<option value="bancomercio">(Bancomercio) - Banco de Comercio</option>
 						<option value="citibank">(Citibank) - Citibank Perú</option>
@@ -25,6 +25,7 @@ async function addBank(){
 						<option value="gnu">(GNB) - Banco GNB</option>
 						<option value="ripley">(Ripley) - Banco Ripley</option>
 						<option value="nacion">(Nacion) - Banco de la Nación</option>
+						<option value="pichincha">(Pichincha) - Banco Pichincha</option>
 					</select>
 				</div>
 	    	` +

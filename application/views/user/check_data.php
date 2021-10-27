@@ -60,7 +60,7 @@
 					<button id="btn" class="btn-form">Completar y finalizar <i class="fas fa-arrow-right"></i></button>
 				</div>
 				<div class="input form-help">
-					<a data-bs-toggle="tooltip" 
+					<a href="https://api.whatsapp.com/send?phone=51955269142"  target="_blank" data-bs-toggle="tooltip" 
 					   title="Si necesitas ayuda o tienes alguna duda por favor escribanos a nuestro chat para ayudarle"><i class="far fa-question-circle"></i> Necesitas ayuda?</a>
 				</div>
 			</div>

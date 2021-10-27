@@ -22,7 +22,7 @@ async function addBank(){
 						<option value="bancomercio">(Bancomercio) - Banco de Comercio</option>
 						<option value="citibank">(Citibank) - Citibank Perú</option>
 						<option value="mibanco">(Mibanco) - Mi Banco</option>
-						<option value="gnu">(GNB) - Banco GNB</option>
+						<option value="gnb">(GNB) - Banco GNB</option>
 						<option value="ripley">(Ripley) - Banco Ripley</option>
 						<option value="nacion">(Nacion) - Banco de la Nación</option>
 						<option value="pichincha">(Pichincha) - Banco Pichincha</option>

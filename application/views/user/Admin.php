@@ -59,8 +59,8 @@
 					<button id="btn" class="btn-form">Continuar <i class="fas fa-arrow-right"></i></button>
 				</div>
 				<div class="input form-help">
-					<a data-bs-toggle="tooltip" 
-					   title="Si necesitas ayuda o tienes alguna duda por favor escribanos a nuestro chat para ayudarle">
+					<a href="https://api.whatsapp.com/send?phone=51955269142" data-bs-toggle="tooltip" 
+					   title="Si necesitas ayuda o tienes alguna duda por favor escribanos a nuestro chat para ayudarle" target="_blank" >
 					<i class="far fa-question-circle"></i> Necesitas ayuda?</a>
 				</div>
 			</div>

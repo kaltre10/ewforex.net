@@ -60,6 +60,19 @@ a{
   z-index: -1;
 }
 
+.chat{
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) 0.1s;
+}
+
+.chat:hover{
+	cursor: pointer;
+	transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) 0s;
+    transform: scale(1.1);
+}
+
 .nav{
 	display: flex;
 	align-items: center;
@@ -224,6 +237,7 @@ a{
     color: rgb(242, 242, 242);
 	align-content: center;
 	min-width: 210px;
+	min-height: 235px;
 }
 
 .service-card:hover{

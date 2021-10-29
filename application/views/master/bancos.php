@@ -31,20 +31,21 @@
 				<div class="col-auto">
 					<label>Seleccione banco:</label>
 					<select id="swal-input1" class="swal2-input">
-						<option> - Seleccione - </option>
-						<option value="BCP">(BCP) - Banco de Crédito del Perú</option>
-						<option value="INTERBANCK">(Interbank) - Banco Internacional del Perú</option>
-						<option value="BBVA">(BBVA) - BBVA Continental</option>
-						<option value="BANBIF">(BanBif) - BanBif</option>
-						<option value="SCOTIABANK">(Scotiabank) - Scotiabank</option>
-						<option value="FALABELLA">(Falabella) - Banco Falabella</option>
-						<option value="FINANCIERO">(Financiero) - Banco Financiero</option>
-						<option value="BANCOMERCIO">(Bancomercio) - Banco de Comercio</option>
-						<option value="CITIBANK">(Citibank) - Citibank Perú</option>
-						<option value="MIBANCO">(Mibanco) - Mi Banco</option>
-						<option value="GNB">(GNB) - Banco GNB</option>
-						<option value="RIPLEY">(Ripley) - Banco Ripley</option>
-						<option value="NACION">(Nacion) - Banco de la Nación</option>
+						<option value=""> - Seleccione - </option>
+						<option value="bcp">(BCP) - Banco de Crédito del Perú</option>
+						<option value="interbank">(Interbank) - Banco Internacional del Perú</option>
+						<option value="bbva">(BBVA) - BBVA Continental</option>
+						<option value="banbif">(BanBif) - BanBif</option>
+						<option value="scotiabank">(Scotiabank) - Scotiabank</option>
+						<option value="falabella">(Falabella) - Banco Falabella</option>
+						<option value="financiero">(Financiero) - Banco Financiero</option>
+						<option value="bancomercio">(Bancomercio) - Banco de Comercio</option>
+						<option value="citibank">(Citibank) - Citibank Perú</option>
+						<option value="mibanco">(Mibanco) - Mi Banco</option>
+						<option value="gnb">(GNB) - Banco GNB</option>
+						<option value="ripley">(Ripley) - Banco Ripley</option>
+						<option value="nacion">(Nacion) - Banco de la Nación</option>
+						<option value="pichincha">(Pichincha) - Banco Pichincha</option>
 					</select>
 				</div>
 				<div class="col-auto">
@@ -66,6 +67,24 @@
 						<option value="0">Soles</option>
 						<option value="1">Dólares</option>
 					</select>
+				</div>
+				<div class="col-auto">
+					<label>Nombre del Titular / Razón Social:</label>
+					<input id="swal-input5" type="text" class="swal2-input" placeholder="Nombre del Titular / Razón Social">
+				</div>
+				<div class="col-auto">
+					<label>Tipo de Documento:</label>
+					<select id="swal-input6" class="swal2-input">
+						<option value=""> - Seleccione - </option>
+						<option value="DNI">DNI</option>
+						<option value="PASS">Pasaporte</option>
+						<option value="CE">Carnet de Extranjería</option>
+						<option value="RUC">RUC</option>
+					</select>
+				</div>
+				<div class="col-auto">
+					<label>Número de Documento:</label>
+				 	<input id="swal-input7" type="text" class="swal2-input" placeholder="Número de Documento">
 				</div>
 				<div class="col-auto">
 					<button id="submit" class="btn">Registrar</button>

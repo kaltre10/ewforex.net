@@ -16,7 +16,7 @@
 
 .banco{
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(6, 1fr);
 	grid-template-rows: repeat(2, auto);
 	margin: 0 auto;
 	width: 90%;
@@ -91,6 +91,7 @@
 							 "numero n_banco"
 							 "tipo tip_banco"
 							 "moneda mon_banco"
+							 "titular tit_banco"
 							 "accion acc";
 	}
 	
@@ -98,13 +99,14 @@
 	.numero{grid-area: numero}
 	.tipo{grid-area: tipo}
 	.moneda{grid-area: moneda}
+	.titular{grid-area: titular}
 	.accion{grid-area: accion}
 
 	.nom_banco{grid-area: nom_banco}
 	.n_banco{grid-area: n_banco}
 	.tip_banco{grid-area: tip_banco}
+	.tit_banco{grid-area: tit_banco}
 	.mon_banco{grid-area: mon_banco}
-	.acc{grid-area: acc}
 
 }
 

@@ -348,7 +348,7 @@ function showBanco(banco){
 	$div.innerHTML = `
 					<div class="bank_logo"><img src="assets/img/logos/${rut_banco}"></div>
 					<div class="bank_description">${nom_banco}</div>
-					<div class="bank_title"></div>
+					<div class="bank_title">${tit_banco}</div>
 					<div class="bank_n">${n_banco}</div>
 					<div class="bank_footer">
 						<div class="bank_cuenta">${tip_banco}</div>

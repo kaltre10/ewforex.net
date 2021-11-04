@@ -14,6 +14,15 @@ async function price(){
 }
 
 function getPrice(){
-	return fetch('http://localhost/appew/app-dolar/Divisas')
-		   		.catch(error => console.error('Ha ocurrido un problema'));
+	return fetch('http://localhost/appew/app-dolar/Divisas', 
+				{
+					method: 'GET',
+				    mode: 'cors',
+				    cache: 'no-cache',
+				    credentials: 'same-origin',
+				    headers: {
+				      'Content-Type': 'application/json'
+				  	}
+			    })
+		   		// .catch(error => console.error('Ha ocurrido un problema'));
 }

@@ -1,15 +1,8 @@
-import { closeSession, preLoad, getUser, closeWindow, openModalOperation } from './module.js';
+import { closeSession, preLoad, getUser, closeWindow, openModalOperation, openLoad } from './module.js';
 
 let close = document.getElementById('close');
 let $pre = document.querySelector('.operaciones');
 let $btn = document.querySelector('.btn');
-
-// let fecha = new Date();
-// let mes = ((fecha.getMonth() + 1) < 10) ? "0" + (fecha.getMonth() + 1) : fecha.getMonth() + 1;
-
-// document.getElementById('desde').value = fecha.getFullYear() + '-' + mes + "-" + fecha.getDate();
-
-// document.getElementById('hasta').value = fecha.getFullYear() + '-' + mes + "-" + fecha.getDate();
 
 
 document.addEventListener('DOMContentLoaded', () => getUser());
@@ -32,6 +25,7 @@ window.addEventListener('load', () => {
 	document.addEventListener('click', e => {
 		if(e.target.parentNode.classList[1] == 'icono'){
 			let idOperacion = e.target.parentNode.dataset.id;
+			openLoad();
 			openModalOperation(idOperacion);
 		}
 	});

@@ -36,6 +36,7 @@ window.addEventListener('load', () => {
 
 					if (e.target.parentNode.classList[1] == 'che') {
 						let idOperacion = e.target.parentNode.dataset.id;
+						openLoad();
 						openModalOperation(idOperacion);
 					}
 
@@ -173,8 +174,8 @@ async function openModalOperation(idOperacion) {
 	let bancoUser = await queryBanco.json();
 
    	let { nom_banco = '', n_banco, tip_banco, mon_banco } = bancoUser[0];
-	(tip_banco) ? tip_banco = 'Corriente': tip_banco = "Ahorro";
-	(mon_banco) ? mon_banco = 'Dólares': mon_banco = "Soles";
+	(tip_banco == 0) ? tip_banco = 'Ahorro': tip_banco = "Corriente";
+	(mon_banco == 0) ? mon_banco = 'Soles': mon_banco = "Dólares";
 
 	//Datos del banco del admin
 	let queryBancoAdmin = await getBanco(ban_admin_operacion);
@@ -182,8 +183,8 @@ async function openModalOperation(idOperacion) {
 	let tip_bancoAdmin;
 	let mon_bancoAdmin;
 
-	(bancoAdmin[0].tip_banco) ? tip_bancoAdmin = "Corriente": tip_bancoAdmin = "Ahorro";
-	(bancoAdmin[0].mon_banco) ? mon_bancoAdmin = "Soles": mon_bancoAdmin = "Dólares";
+	(bancoAdmin[0].tip_banco == 0) ? tip_bancoAdmin = "Ahorro": tip_bancoAdmin = "Corriente";
+	(bancoAdmin[0].mon_banco == 0) ? mon_bancoAdmin = "Soles": mon_bancoAdmin = "Dólares";
 
 	let $div = document.createElement('div');
 	$div.classList.add('ticket');
@@ -219,6 +220,10 @@ async function openModalOperation(idOperacion) {
 					  </div>`;
 
 				swal($div);
+
+	setTimeout(() => document.querySelector('.overlay').remove(), 50);
+
+	
 }
 
 
@@ -309,3 +314,9 @@ function btnEstado(){
 
 }
 
+function openLoad(){
+	let $div = document.createElement('div');
+	$div.classList.add('overlay');
+	$div.innerHTML = `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`;
+	document.body.appendChild($div);
+}

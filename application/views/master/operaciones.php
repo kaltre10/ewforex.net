@@ -43,7 +43,6 @@
 		</div>
 		<div class="operaciones"></div>
 	</div>
-
 	<!-- <script src="<?= base_url('assets/js/pre.js'); ?>"></script> -->
   	
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -58,6 +57,5 @@
   	<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js"></script>
 	<script src="<?= base_url('assets/js/config-firebase.js'); ?>"></script>
 	<script type="module" src="<?= base_url('assets/js/master/operaciones.js'); ?>"></script>
-
 </body>
 </html>

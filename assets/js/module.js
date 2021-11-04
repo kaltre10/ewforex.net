@@ -480,8 +480,8 @@ async function openModalOperation(idOperacion){
 	let bancoUser = await queryBanco.json();
 	let { nom_banco, n_banco, tip_banco, mon_banco } = bancoUser[0];
 
-	(tip_banco) ? tip_banco = 'Ahorro' : tip_banco = "Corriente";
-	(mon_banco) ? mon_banco = 'Soles' : mon_banco = "Dólares";
+	(tip_banco == 0) ? tip_banco = 'Ahorro' : tip_banco = "Corriente";
+	(mon_banco == 0) ? mon_banco = 'Soles' : mon_banco = "Dólares";
 
 
 	//Datos del banco del admin
@@ -489,8 +489,8 @@ async function openModalOperation(idOperacion){
 	let bancoAdmin = await queryBancoAdmin.json();
 	let tip_bancoAdmin;
 	let mon_bancoAdmin;
-	(bancoAdmin[0].tip_banco) ? tip_bancoAdmin = "Corriente" : tip_bancoAdmin = "Ahorro";
-	(bancoAdmin[0].mon_banco) ? mon_bancoAdmin = "Dólares" : mon_bancoAdmin = "Soles";
+	(bancoAdmin[0].tip_banco == 0) ? tip_bancoAdmin = "Ahorro" : tip_bancoAdmin = "Corriente";
+	(bancoAdmin[0].mon_banco == 0) ? mon_bancoAdmin = "Soles" : mon_bancoAdmin = "Dólares";
 
 	let $div = document.createElement('div');
 	$div.classList.add('ticket');
@@ -522,6 +522,8 @@ async function openModalOperation(idOperacion){
 					  </div>`;
 
 	swal($div);
+
+	setTimeout(() => document.querySelector('.overlay').remove(), 50);
 }
 
 function getOperacion(idOperacion){
@@ -628,6 +630,13 @@ function closePopup() {
 	if(document.querySelector('.divModal')) document.querySelector('.divModal').remove();
 }
 
+function openLoad(){
+	let $div = document.createElement('div');
+	$div.innerHTML = `<div class="lds-ring"><div></div><div></div><div></div><div></div></div>`;
+	$div.classList.add('overlay');
+	document.body.appendChild($div);
+}
+
 export { 
 	addBank,
 	alert, 
@@ -648,5 +657,6 @@ export {
 	openModalOperation,
 	getPrecio,
 	checkCodigo,
-	getBankAdmin
+	getBankAdmin,
+	openLoad
 };

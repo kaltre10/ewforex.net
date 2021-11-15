@@ -176,8 +176,7 @@ async function addBank(){
 
 }
 
-async function getBankAdmin(data, addNode){
-
+async function getBankAdmin(data, addNode, banks, callback){
 	let div = document.createElement('div');
 	let fragment = document.createDocumentFragment();
 
@@ -204,7 +203,10 @@ async function getBankAdmin(data, addNode){
 						fragment.appendChild(bank_card);
 				});
 	
-	showModal(fragment, data, addNode);
+	showModal(fragment, data, addNode, banks, callback);
+
+	//eliminamos el div del preload 
+	setTimeout(() => document.querySelector('.overlay').remove(), 10);
 
 }
 
@@ -326,7 +328,6 @@ function getBancos(){
 
 			bancosUser.forEach(elemento => {
 				showBanco(elemento);
-
 			})	
 		})
 
@@ -556,11 +557,11 @@ const getPrecio = () => {
 	return fetch('Divisas');
 }
 
-function showModal(modal, data, addNode){
+function showModal(modal, data, addNode, banks, callback){
 	const divModal = document.createElement('div');
 	const popup = document.createElement('div');
 	popup.classList.add('popup');
-	popup.innerHTML = `<h5>Seleccione el banco donde nos transfiere:</h5>`;
+	popup.innerHTML = `<h5>Seleccione el banco:</h5>`;
 	divModal.classList.add('divModal');
 	divModal.appendChild(popup);
 	document.body.appendChild(divModal);
@@ -583,12 +584,11 @@ function showModal(modal, data, addNode){
 		if(typeof nodo === 'undefined') idBank = e.target.parentNode.parentNode.dataset.id;
 		if(typeof idBank === 'undefined') return;
 
-		addBack(idBank, data, addNode);
+		addBack(idBank, data, addNode, banks, callback);
 	});
 }
 
-function addBack(idBank, data, addNode){
-	// const query = data.filter(b => b.id_banco === idBank);
+function addBack(idBank, data, addNode, banks, callback){
 	let query = [];
 	data.forEach( b => {
 		
@@ -598,9 +598,17 @@ function addBack(idBank, data, addNode){
 
 	})
 	
+
+	
+
 	const bank_admin = document.getElementById(addNode);
 
 	try{
+		//agregamos el banco para comparar los bancos
+	
+		if(addNode == 'bank_user') banks[1] = query[0].nom_banco.toUpperCase();
+		if(addNode == 'bank_admin') banks[0] = query[0].nom_banco.toUpperCase();
+
 		let { id_banco , rut_banco, nom_banco, n_banco, tip_banco, mon_banco, tit_banco, doc_banco, n_doc_banco } = query[0];
 
 		(tip_banco == 0) ? tip_banco = 'Ahorro' : tip_banco = 'Corriente'; 
@@ -619,6 +627,7 @@ function addBack(idBank, data, addNode){
 					<div class="bank_cuenta">${tip_banco}-</div>
 					<div class="bank_moneda">${mon_banco}</div>
 				</div>`;
+		callback(banks);
 		closePopup();
 	}catch(e){
 		return;

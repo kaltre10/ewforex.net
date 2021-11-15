@@ -169,6 +169,7 @@ h5{
 	align-self: center;
 	color: rgb(131 130 135 / 85%);
 	cursor: pointer;
+	font-size: 25px;
 }
 
 .bank_delete:hover{

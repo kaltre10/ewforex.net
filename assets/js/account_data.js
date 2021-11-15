@@ -9,7 +9,8 @@ import {
 	closeWindow, 
 	consultaPrecio,
 	load,
-	getBankAdmin
+	getBankAdmin,
+	openLoad
 } from './module.js';
 
 document.addEventListener("DOMContentLoaded", () => { getUser() });
@@ -20,6 +21,7 @@ let bank_user = document.getElementById('bank_user');
 let bank_admin = document.getElementById('bank_admin');
 let $btn = document.getElementById('btn');
 let objOperacion = getLocal();
+const compareBank = [];
 
 window.addEventListener('load', () => {
 
@@ -39,10 +41,12 @@ window.addEventListener('load', () => {
 	});
 
 	bank_admin.addEventListener('click', () => {
+		openLoad();
 		getBancosAdmin();
 	});
 
 	bank_user.addEventListener('click', () => {
+		openLoad();
 		getBancos();
 	});
 
@@ -66,9 +70,8 @@ function getBancos(){
 				}else{
 					bancosUser = arrayBanco.filter( b => b.mon_banco == 1 );
 				}
-				// console.log(bancosUser)
-				getBankAdmin(bancosUser, 'bank_user');
-
+				
+				getBankAdmin(bancosUser, 'bank_user', compareBank, compareBankFunc);
 		})
 	})
 
@@ -286,8 +289,23 @@ function getBancosAdmin(){
 			}else{
 				bancosAdmin = res.filter( b => b.mon_banco == 0 );
 			}
-
-			getBankAdmin(bancosAdmin, 'bank_admin');
-
+			//Agregamos el valor del banco al array de bancos para comparar
+			compareBank[0] = bancosAdmin[0].nom_banco;
+			getBankAdmin(bancosAdmin, 'bank_admin', compareBank, compareBankFunc);
 		})
+}
+
+function compareBankFunc(compareBank){
+	if(typeof compareBank[0] !== 'undefined' && typeof compareBank[1] !== 'undefined'){
+		let alert = document.getElementById('alert-bank')
+		if(compareBank[0] !== compareBank[1]){
+			alert.textContent = "*Recuerde! las transferencia interbancarias pueden demorar 24 horas";
+			alert.classList.add('p-alert');
+			alert.style.textAlign = 'center';
+		}else{
+			alert.classList.remove('p-alert');
+			alert.textContent = '';
+		}
+
+	}
 }

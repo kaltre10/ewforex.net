@@ -52,10 +52,11 @@
 					<label for="bank_admin">Cuenta de banco a donde nos tranfieres:</label>
 					<div id="bank_admin"><div style="padding: 4px 0px;"> - Seleccione - </div></div>
 				</div>
+				<div id="alert-bank"></div>
 				<div class="input mb-3">
 					<label for="n_operacion"><span
 						data-bs-toggle="tooltip" 
-					    title="Agrege el número de la transferencia que realizó a nuestro banco">
+					    title="Transfierá a nuestra cuenta de banco e ingrese el número de operación">
 						<i class="far fa-question-circle"></i> N° Operación</span></label>
 					<input id="n_operacion" type="number" autocomplete="off">
 				</div>

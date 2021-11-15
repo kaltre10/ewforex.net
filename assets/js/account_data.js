@@ -299,7 +299,7 @@ function compareBankFunc(compareBank){
 	if(typeof compareBank[0] !== 'undefined' && typeof compareBank[1] !== 'undefined'){
 		let alert = document.getElementById('alert-bank')
 		if(compareBank[0] !== compareBank[1]){
-			alert.textContent = "*Recuerde! las transferencia interbancarias pueden demorar 24 horas";
+			alert.textContent = "*Recuerda! las transferencias interbancarias pueden demorar 24 horas";
 			alert.classList.add('p-alert');
 			alert.style.textAlign = 'center';
 		}else{

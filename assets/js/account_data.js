@@ -54,6 +54,23 @@ window.addEventListener('load', () => {
 
 	preLoad('container-home');
 
+	let DATA = [];
+	let bancosAdmin = fetch('Bancos/getBancosAdmin')
+							.then(res => res.json())
+							.then(res => console.log(res))
+	
+	console.log(DATA)
+
+	//ajustar estilos al head de precios
+	if(objOperacion.tipo === 'COMPRA'){
+		document.getElementById('compra').parentNode
+			.classList.add("tipo-operacion-active")
+			.style.color = "tomato";
+	}else{
+		document.getElementById('venta').parentNode
+			.classList.add("tipo-operacion-active");
+	}
+
 })
 
 function getBancos(){
@@ -282,7 +299,6 @@ function getBancosAdmin(){
 	fetch('Bancos/getBancosAdmin')
 		.then(res => res.json())
 		.then(res => {
-
 			let bancosAdmin = [];
 			if(objOperacion['tipo'] == 'COMPRA'){
 				bancosAdmin = res.filter( b => b.mon_banco == 1 );
@@ -298,8 +314,9 @@ function getBancosAdmin(){
 function compareBankFunc(compareBank){
 	if(typeof compareBank[0] !== 'undefined' && typeof compareBank[1] !== 'undefined'){
 		let alert = document.getElementById('alert-bank')
-		if(compareBank[0] !== compareBank[1]){
-			alert.textContent = "*Recuerda! las transferencias interbancarias pueden demorar 24 horas";
+		console.log(compareBank[0], compareBank[1])
+		if(compareBank[0].toUpperCase() !== compareBank[1].toUpperCase()){
+			alert.textContent = "*Recuerda: las transferencias interbancarias pueden demorar 24 horas";
 			alert.classList.add('p-alert');
 			alert.style.textAlign = 'center';
 		}else{

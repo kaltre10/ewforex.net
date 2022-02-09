@@ -1,18 +1,16 @@
-'use strict';
+// const $btn = document.getElementById('btn');
+// const nombre = document.getElementById('nombre');
+// const apellido = document.getElementById('apellido');
+// const documento = document.getElementById('documento');
+// const n_documento = document.getElementById('n_documento');
+// const correo = document.getElementById('correo');
+// const tel = document.getElementById('tel');
+// const detalle = document.getElementById('detalle');
 
-const $btn = document.getElementById('btn');
-const nombre = document.getElementById('nombre');
-const apellido = document.getElementById('apellido');
-const documento = document.getElementById('documento');
-const n_documento = document.getElementById('n_documento');
-const correo = document.getElementById('correo');
-const tel = document.getElementById('tel');
-const detalle = document.getElementById('detalle');
-
-$btn.addEventListener('click', sendForm);
+// $btn.addEventListener('click', sendForm);
 
 async function sendForm(){
-	event.preventDefault();
+	e.preventDefault();
 	let data = { nombre, apellido, documento, n_documento, correo, tel, detalle }
 	validateInputEmpty(data);
 	
@@ -34,7 +32,7 @@ async function sendForm(){
 		  showConfirmButton: false,
 		  timer: 3000
 		})
-			// console.log('datos enviados');
+
 	}else{
 		return;
 	}

@@ -80,27 +80,9 @@ body{
 	color: white;
 }
 
-.nav-items{
-	/*display: none !important;*/
-}
 
-.bars i{
-	/*font-size: 25px;
-	color: #120e5a;*/
-}
 
 /*hamburguesa*/
-.hamburguesa a { 
-  /*color: inherit;
-  text-decoration: none;
-  display: block;
-  padding: 10px 20px;
-  border-bottom: 2px solid #456789;
-  max-width: 200px;
-  background: #234567;
-  font-variant: small-caps;
-  text-shadow: 1px 1px black;*/
-}
 
 .hamburguesa input[type="checkbox"], .hamburguesa .fa-bars, .hamburguesa .fa-times {
   position: fixed;  
@@ -146,12 +128,6 @@ body{
 	height: 100vh;
 }
 
-.hamburguesa .nav a:hover{
-	/*position: absolute;*/
-	/*font-size: 25px;*/
-	
-}
-
 .hamburguesa input:checked ~ .nav li {
   display: block;
   transition: all 0.3s ease;
@@ -180,6 +156,29 @@ body{
 .btn-login:hover a{
 	color: #f4f7ff;
 }
+
+.tipo-operacion{
+	padding: 5px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.tipo-operacion:hover{
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.tipo-operacion-active{
+	background-color: #02a12b;
+	padding: 5px;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.tipo-operacion-active:hover{
+	background-color: #09b736;
+}
+
+
 
 /*formulario login*/
 .form{
@@ -234,7 +233,7 @@ body{
 	border-radius: 5px 5px 0 0;
 	border-bottom: 8px solid rgba(18, 14, 90, 0.86);
 }
-}
+
 
 .form-title h2{
 	font-size: 0.8rem !important;
@@ -532,14 +531,17 @@ select{
 }
 
 .divModal{
-	position: fixed;
+	position: absolute;
 	display: flex;
 	width: 100%;
-	height: 100vh;
 	background: rgba(0,0,0,.4);
 	top: 0px;
 	transition: background-color .1s;
 	justify-content: center;
+	padding-top: 10px;
+	padding-bottom: 160px;
+	min-height: 100vh;
+	box-sizing: content-box;
 }
 
 .popup {

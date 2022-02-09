@@ -21,22 +21,18 @@ class Libro extends CI_Controller {
 			"tel" => $data[24],
 			"detalle" => $data[28],
 		);
-		$this->sendEmail($datos);
+		// $this->sendEmail($datos);
+		echo json_encode($datos);
 	}
 
 	public function sendEmail($datos)
 	{
 
-		// $detalle = "nombre: " . $nombre[nombre] . " " . $datos[apellido] . "\n
-		// 			Documento: " . " " . $datos[documento] . " " . $datos[n_documento] . "\n
-		// 			Telefono: " . $datos[tel] . "\n\n" .
-		// 			$datos[detalle];
-
 		$detalle = "Nombre: $datos[nombre] $datos[apellido] \nDocumento: $datos[documento] $datos[n_documento]\nTelefono: $datos[tel]\n\n$datos[detalle]";
 
 		$this->load->library('email');
 
-		$this->email->from($datos['correo'], "$data[4] " + "$data[8]");
+		$this->email->from($datos['correo'], "$datos[nombre] $datos[apellido]");
 		$this->email->to('bitmarketperu@gmail.com');
 		$this->email->cc('bitmarketperu@gmail.com');
 		$this->email->bcc('bitmarketperu@gmail.com');

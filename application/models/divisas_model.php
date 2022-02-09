@@ -10,9 +10,9 @@ class Divisas_model extends CI_Model {
 
 	public function setDivisas($divisas)
 	{
-		$this->db->set('com_divisa', $divisas['com_divisa']);
-		$this->db->set('ven_divisa', $divisas['ven_divisa']);
-		$this->db->update('divisas', $divisas);
+		// $this->db->set('com_divisa', $divisas['com_divisa']);
+		// $this->db->set('ven_divisa', $divisas['ven_divisa']);
+		// $this->db->update('divisas', $divisas);
 	}
 
 }

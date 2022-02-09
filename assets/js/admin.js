@@ -1,4 +1,3 @@
-'use strict'
 
 import { 
 	closeSession, 
@@ -25,6 +24,9 @@ let precio;
 let numCodigo = 'No aplica';
 let datosPersonales = [];
 
+let $compra = document.getElementById('compra').parentNode;
+let $venta = document.getElementById('venta').parentNode;
+
 window.addEventListener('load', async () => {
 
 	//preload para el precio
@@ -40,7 +42,14 @@ window.addEventListener('load', async () => {
 
 	cupon.addEventListener('click', addCodigo);
 	close.addEventListener('click', closeSession);
-	exchange.addEventListener('click', exchangeButton);
+	exchange.addEventListener('click', () => {
+		exchangeButton(operacion)
+	});
+
+	//si da click a compra o venta arriba del formulario
+	$compra.addEventListener('click', e => exchangeButton('venta'));
+	$venta.addEventListener('click', e => exchangeButton('compra'));
+
 	$envias.addEventListener('input', calcularCompra);
 	$recibes.addEventListener('input', calcularVenta);
 	$btn.addEventListener('click', enviando);
@@ -49,7 +58,7 @@ window.addEventListener('load', async () => {
 		closeWindow(e);	
 	});
 
-	exchangeButton();
+	exchangeButton('venta');
 
 	//verificar si hay datos personales completos
 	consultarDatos()
@@ -91,15 +100,20 @@ function addCodigo(e){
 	});
 }
 
-function exchangeButton(){
-
-	if(operacion == 'compra'){
+/*la varible "operacion" de la funcion se coloca con "$" -> "$operacion"
+para no afectar la varibale operacion global */
+function exchangeButton($operacion){ 
+	if($operacion == 'compra'){
 		exchange.style.transform = 'rotate(170deg)';
 		$enviasText.textContent = 'Soles';
 		$recibesText.textContent = 'Dólares';
 		$recibes.value = (parseFloat(Number($envias.value)) / venta.innerText).toFixed(2);
 		operacion = 'venta';
 		objOperacion.tipo = "VENTA";
+
+		//ajustar estilos al head de precios
+		$venta.classList.add("tipo-operacion-active");
+		$compra.classList.remove("tipo-operacion-active");
 	}else{
 		exchange.style.transform = 'rotate(-120deg)';
 		$enviasText.textContent = 'Dólares';
@@ -107,6 +121,10 @@ function exchangeButton(){
 		$recibes.value = (parseFloat(Number($envias.value)) * Number(compra.innerText)).toFixed(2);
 		operacion = 'compra';
 		objOperacion.tipo = "COMPRA";
+
+		//ajustar estilos al head de precios
+		$venta.classList.remove("tipo-operacion-active");
+		$compra.classList.add("tipo-operacion-active");
 	}
 
 }
@@ -180,7 +198,7 @@ function consultarCodigo(inputCodigo){
 				numCodigo = inputCodigo;
 
 				//Realizamos calculo
-				exchangeButton();
+				exchangeButton(operacion);
 
 				//modificamos el texto con el codigo agregado
 				document.getElementById('codigo').textContent = ": " + inputCodigo;
@@ -197,9 +215,6 @@ function consultarCodigo(inputCodigo){
 			 		icon: "error"
 			 	})
 			}
-
-			
-
 		})
 }
 

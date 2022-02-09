@@ -52,6 +52,16 @@ window.addEventListener('load', () =>{
 		location.href = 'Admin';
 	}
 
+	//ajustar estilos al head de precios
+	if(storage.tipo === 'COMPRA'){
+		document.getElementById('compra').parentNode
+			.classList.add("tipo-operacion-active")
+			.style.color = "tomato";
+	}else{
+		document.getElementById('venta').parentNode
+			.classList.add("tipo-operacion-active");
+	}
+
 })
 
 async function showData(){

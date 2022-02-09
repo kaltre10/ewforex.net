@@ -32,8 +32,8 @@
 				<div class="form-title">
 					<div class="form-detail">
 						<h6>Registre su operacion: </h6>
-						<span>Compra: <strong id="compra"></strong></span>
-						<span>Venta: <strong id="venta"></strong></span>
+						<span class=" tipo-operacion tipo-operacion-active">Compra: <strong id="compra"></strong></span>
+						<span class="tipo-operacion">Venta: <strong id="venta"></strong></span>
 					</div>	
 				</div>
 				<div class="input">

@@ -1,0 +1,85 @@
+.container-codigos{
+	width: 100%;
+	display: none;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 100px auto auto auto;
+	grid-template-areas: "nav nav"
+						"header header"
+						"fecha-row fecha-row"
+						 "codigo codigo";
+}
+
+.codigos{
+	grid-area: codigo;
+	margin-top: 20px;
+}
+
+
+.fecha-row{
+	display: grid;
+	place-items: center;
+	grid-area: fecha-row;
+}
+
+.fecha-row input{
+	outline: none;
+	border: none;
+	padding: .5rem;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+}
+
+.fecha-row .btn {
+	font-weight: 500;
+	color: #fff;
+	background-color: rgba(18, 14, 90, 0.85);
+	padding: .5rem;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+}
+
+.cod-col{
+	padding: 10px;
+	width: 100%;
+}
+
+.acc a{
+	color: tomato;
+	font-size: 24px;
+}
+
+.codigo{
+	display: grid;
+	grid-template-areas: "tipo columna cotizacion accion"
+						 "tip cod cot acc";
+	margin: 0 auto;
+	width: 90%;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+	margin-bottom: 10px;
+}
+
+.tipo{grid-area: tipo}
+.columna{grid-area: columna}
+.cotizacion{grid-area: cotizacion}
+.accion{grid-area: accion}
+
+.tip{grid-area: tip}
+.cod{grid-area: cod}
+.cot{grid-area: cot}
+.acc{grid-area: acc}
+
+@media (max-width: 828px) {
+
+	.codigo{
+		grid-template-columns: 1fr 1fr;
+		margin-bottom: 10px;
+		grid-template-areas: 
+							 "tipo tip"
+							 "columna cod"
+							 "cotizacion cot"
+							 "accion acc";
+	}
+
+}

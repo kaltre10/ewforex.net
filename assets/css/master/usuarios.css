@@ -1,0 +1,59 @@
+.container-usuarios{
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 100px auto auto auto;
+	grid-template-areas: "nav nav"
+						"header header"
+						 "usuarios usuarios";
+}
+
+.usuarios{
+	grid-area: usuarios;
+	margin-top: 20px;
+}
+
+.usuario{
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(2, auto);
+	margin: 0 auto;
+	width: 90%;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+	margin-bottom: 10px;
+}
+
+.usuario-col{
+	padding: 10px;
+	width: 100%;
+}
+
+@media (max-width: 828px) {
+
+	.usuario{
+		grid-template-columns: repeat(2, 1fr);
+		margin-bottom: 10px;
+		grid-template-areas: "id id_user"
+							 "correo cor"
+							 "nombre nom_user"
+							 "documento doc_user"
+							 "numero num_user"
+							 "telefono tel_user";
+	}
+	
+	.id{grid-area: id}
+	.correo{grid-area: correo}
+	.nombre{grid-area: nombre}
+	.documento{grid-area: documento}
+	.numero{grid-area: numero}
+	.telefono{grid-area: telefono}
+
+	.id_user{grid-area: id_user}
+	.cor{grid-area: cor}
+	.nom_user{grid-area: nom_user}
+	.doc_user{grid-area: doc_user}
+	.tel_user{grid-area: tel_user}
+
+}

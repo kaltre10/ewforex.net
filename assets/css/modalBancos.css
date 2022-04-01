@@ -1,0 +1,25 @@
+.modal-banco{
+	font-size: 16px;
+}
+
+label{
+	height: 20px;
+}
+
+.form-group{
+	display: flex;
+	gap: 5px;
+}
+
+.swal2-input {
+    height: 2em;
+    padding: 5px .75em;
+    margin: 5px;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 576px) {
+	.form-group{
+		display: inline;
+	}
+}

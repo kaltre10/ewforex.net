@@ -1,0 +1,118 @@
+.container-bancos{
+	width: 100%;
+	display: none;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 100px auto auto auto;
+	grid-template-areas: "nav nav"
+						 "header header"
+						 "banco-row banco-row"
+						 "banco banco";
+}
+
+.bancos{
+	grid-area: banco;
+	margin-top: 20px;
+}
+
+.banco{
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-template-rows: repeat(2, auto);
+	margin: 0 auto;
+	width: 90%;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+	margin-bottom: 10px;
+}
+
+.banco-row{
+	display: grid;
+	grid-area: banco-row;
+	background-color: white;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+	justify-content: center;
+}
+
+.banco-row form{
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: 2fr;
+	justify-content: space-between;
+}
+
+.col-auto{
+	text-align: center;
+}
+
+.swal2-input{
+	max-width: 200px;
+	display: flex;
+}
+
+.banco-row input{
+	outline: none;
+	border: none;
+	/*padding: .5rem;*/
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+}
+
+.banco-row .btn {
+	font-weight: 500;
+	color: #fff;
+	background-color: rgba(18, 14, 90, 0.85);
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+}
+
+.cod-col{
+	padding: 10px;
+	width: 100%;
+}
+
+.acc a{
+	color: tomato;
+	font-size: 24px;
+}
+
+@media (max-width: 828px) {
+
+	.banco-row form{
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 2fr;
+	}
+
+	.banco{
+		grid-template-columns: 1fr 1fr;
+		margin-bottom: 10px;
+		grid-template-areas: "nombre_banco nom_banco"
+							 "numero n_banco"
+							 "tipo tip_banco"
+							 "moneda mon_banco"
+							 "titular tit_banco"
+							 "accion acc";
+	}
+	
+	.nombre_banco{grid-area: nombre_banco}
+	.numero{grid-area: numero}
+	.tipo{grid-area: tipo}
+	.moneda{grid-area: moneda}
+	.titular{grid-area: titular}
+	.accion{grid-area: accion}
+
+	.nom_banco{grid-area: nom_banco}
+	.n_banco{grid-area: n_banco}
+	.tip_banco{grid-area: tip_banco}
+	.tit_banco{grid-area: tit_banco}
+	.mon_banco{grid-area: mon_banco}
+
+}
+
+@media (max-width: 575.98px) {
+	.banco-row form{
+		display: flex;
+		flex-direction: column;
+	}
+}

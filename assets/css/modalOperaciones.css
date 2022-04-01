@@ -1,0 +1,51 @@
+.ticket{
+	display: grid;
+	grid-template-areas: "head head"
+						 "body body";
+	box-shadow: 0 0 6px 1px rgb(145 150 163 / 50%);
+	border-radius: 10px;
+}
+
+.ticket_head{
+	grid-area: head;
+	border-radius: 0;
+	display: flex;
+	justify-content: space-around;
+	padding: 15px;
+	background-color: rgba(18, 14, 90, 0.85);
+	color: white;
+	padding: 20px 20px 10px;
+	font-size: 30px;
+}
+
+.ticket_body{
+	grid-area: body;
+	display: grid;
+	grid-template-columns: 60% 40%;
+	padding: 20px;
+	text-align: start;
+}
+
+.ticket_rigth{
+	background-color: rgba(18, 14, 90, 0.85);
+	padding: 5px;
+	color: white;
+}
+
+.ticket_amount{
+	font-size: 26px;
+	text-align: center;
+	color: white;
+	font-weight: 900;
+}
+
+.border{
+	border: 4px dashed #fff !important;
+	padding: 5px;
+}
+
+.swal-content{
+	padding: 0;
+    margin-top: 0;
+    border-radius: 
+}

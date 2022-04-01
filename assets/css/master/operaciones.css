@@ -1,0 +1,172 @@
+@import url('../modalOperaciones.css');
+
+.container-operaciones{
+	width: 100%;
+	display: none;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 100px auto auto auto;
+	grid-template-areas: "nav nav"
+						"header header"
+						"fecha-row fecha-row"
+						 "operaciones operaciones";
+}
+
+.operaciones{
+	grid-area: operaciones;
+	margin-top: 20px;
+}
+
+.operacion{
+	display: grid;
+	margin: 0 auto;
+	width: 90%;
+	background-color: white;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+	margin-bottom: 10px;
+	grid-template-areas: "n_operacion cantidad cotizacion recibe check user estado"
+						  "ope can cot rec che us est";
+}
+
+.operacion-header{
+	/*font-weight: 400;*/
+}
+
+.fecha-row{
+	display: grid;
+	place-items: center;
+	grid-area: fecha-row;
+}
+
+.fecha-row input[type=date]{
+	outline: none;
+	border: none;
+	padding: .5rem;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+}
+
+.fecha-row .btn {
+	font-weight: 500;
+	color: #fff;
+	background-color: rgba(18, 14, 90, 0.85);
+	padding: .5rem;
+	border-radius: 5px;
+	box-shadow: 4px 4px 1px rgba(0, 0, 0, .1);
+}
+
+.operacion-col{
+	padding: 10px;
+	width: 100%;
+}
+
+.che{
+	font-size: 24px;
+}
+
+.che i{
+	cursor: pointer;
+}
+
+.btn-disable{
+	color: white !important;
+	background-color: #ccc;
+	border: none;
+}
+.btn-disable:hover{
+	background-color: #ccc;
+	border: none;
+}
+
+n_operacion{grid-area: n_operacion}
+	.cantidad{grid-area: cantidad}
+	.cotizacion{grid-area: cotizacion}
+	.recibe{grid-area: recibe}
+	.check{grid-area: check}
+	.user{grid-area: user}
+	.estado{grid-area: estado}
+
+	.ope{grid-area: ope}
+	.can{grid-area: can}
+	.cot{grid-area: cot}
+	.rec{grid-area: rec}
+	.che{grid-area: che}
+	.us{grid-area: us}
+	.est{grid-area: est}
+
+@media (max-width: 828px) {
+
+	.operacion{
+		grid-template-columns: repeat(2, 1fr);
+		margin-bottom: 10px;
+		grid-template-areas: "n_operacion ope"
+							 "cantidad can"
+							 "cotizacion cot"
+							 "recibe rec"
+							 "check che"
+							 "user us"
+							 "estado est";
+	}
+
+}
+
+.swal-button--cancel, .swal-button--cancel:hover{
+	background-color: #e64942 !important; 
+	color: white;
+}
+
+.overlay {
+	position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0;
+    overflow-y: auto;
+    background-color: rgba(0,0,0,.4);
+    z-index: 1000;
+    pointer-events: auto;
+    opacity: 1;
+    transition: opacity .3s;
+    display: grid;
+    place-items: center;
+}
+
+
+/*preloader modal*/
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

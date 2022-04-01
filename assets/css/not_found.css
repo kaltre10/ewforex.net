@@ -1,0 +1,65 @@
+.nav{
+	padding: 25px;
+}
+
+.found_container{
+	width: 100%;
+	
+}
+
+.not_found{
+	display: grid;
+	place-items: center;
+	grid-template-areas: "titulo"
+						 "img"
+						 "btn";
+	justify-items: center;
+}
+
+.titulo{
+	areas: titulo;
+	padding: 25px;
+}
+
+
+img{
+	areas: img;
+	max-width: 450px;
+	width: 100%;
+	pointer-events: none;
+}
+
+.btn{
+	areas: btn;
+	padding: 20px;
+}
+
+.text{
+	font-size: 25px
+}
+
+.error{
+	width: 40px;
+	font-size: 30px;
+	font-weight: 900;
+}
+
+.btn-login{
+	border: 2px solid #120e5a;
+	border-radius: 30px;
+	transition: 0.2s ease;
+	cursor: pointer;
+	padding: 10px;
+	text-decoration: none;
+	font-weight: 800;
+	color: #120e5a;
+}
+
+.btn-login:hover{
+	background-color: #120e5a;
+	color: white;
+}
+
+.btn-login:hover a{
+	color: #f4f7ff;
+}
